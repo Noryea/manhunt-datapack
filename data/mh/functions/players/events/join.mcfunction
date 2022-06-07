@@ -1,0 +1,3 @@
+tellraw @s ["选择队伍：",{"text":"[猎人]","color":"red","clickEvent":{"action":"run_command","value":"/trigger mh.join.hunters"},"hoverEvent":{"action":"show_text","value":{"text":"跟随指南针杀死逃者"}}},"\u00a7r, ",{"text":"[逃者]","color":"green","clickEvent":{"action":"run_command","value":"/trigger mh.join.runners"},"hoverEvent":{"action":"show_text","value":{"text":"Oh, ____~"}}}]
+
+scoreboard players set @s mh.join 0

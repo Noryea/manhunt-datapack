@@ -1,0 +1,28 @@
+{
+  "parent": "mh:gui/bilibili",
+  "display": {
+    "icon": {
+      "item": "minecraft:command_block"
+    },
+    "title": {
+      "text": "管理命令"
+    },
+    "description": {
+      "text": "\u00a7f\u00a7n打开设置界面:\n\u00a7e/function #mh:menu\n\u00a7f\u00a7n冻结猎人:\n\u00a7e/scoreboard players set @s mh.setting.frz <秒>\n\u00a7f\u00a7n重置玩家状态:\n\u00a7e/function #mh:recover_all"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "join": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "join"
+    ]
+  ]
+}

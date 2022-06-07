@@ -1,0 +1,12 @@
+{ 
+  "criteria": {
+    "parent": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "parent"
+    ]
+  ]
+}

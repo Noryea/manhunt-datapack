@@ -1,0 +1,29 @@
+{
+  "parent": "mh:gui/game",
+  "display": {
+    "icon": {
+      "item": "minecraft:shield",
+      "nbt": "{BlockEntityTag:{Base:3,Patterns:[{Pattern:\"sku\",color:0},{Pattern:\"tts\",color:0},{Pattern:\"bs\",color:0}]}}"
+    },
+    "title": {
+      "text": "哔哩哔哩搜索Noryea"
+    },
+    "description": {
+      "text": ""
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "noryea": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "noryea"
+    ]
+  ]
+}

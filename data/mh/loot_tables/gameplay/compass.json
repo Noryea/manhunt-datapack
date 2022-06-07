@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:compass",
+          "functions": [
+            {
+              "function": "set_name",
+              "name": {"text": "追踪器","italic": false,"color":"white"}
+            },
+            {
+              "function": "set_lore",
+              "lore": [
+                {"text": "手持更新,丢弃选择目标","color": "gray","italic": false}
+              ]
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0,Tags:[\"tracker\"],Enchantments:[{lvl:1s,id:\"minecraft:vanishing_curse\"}],HideFlags:1}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
