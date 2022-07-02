@@ -14,3 +14,4 @@ scoreboard players operation vec_z mh.temp -= self_z mh.temp
 
 summon area_effect_cloud ~ ~ ~ {Radius:0f,UUID:[I;0,0,0,12873326]}
 execute as 0-0-0-0-0c46e6e at @s run function mh:compass/distance_math/marker
+kill 0-0-0-0-0c46e6e
