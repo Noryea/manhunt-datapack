@@ -2,7 +2,6 @@ execute unless score @s mh.uid matches 1.. run tag @s remove has.uid
 
 tag @s add self
 ##事件
-execute if score @s mh.drop.compass matches 1.. run function mh:players/events/drop_compass
 execute if score @s mh.died matches 1.. run function mh:players/events/die
 execute if score @s mh.join matches 1.. run function mh:players/events/join
 execute if score @s mh.join.hunters matches 1.. run function mh:players/events/join_hunters
