@@ -34,7 +34,6 @@ scoreboard objectives add mh.temp dummy
 scoreboard objectives add mh.uid dummy
 scoreboard objectives add mh.health health {"text":"❤","color":"red"}
 scoreboard objectives add mh.died minecraft.custom:deaths
-scoreboard objectives add mh.drop.compass minecraft.dropped:minecraft.compass
 scoreboard objectives add mh.tracking.old dummy
 
 execute unless score 已应用默认设置 mh.settings matches 1 run function mh:settings/default
