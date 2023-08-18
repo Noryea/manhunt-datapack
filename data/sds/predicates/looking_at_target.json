@@ -1,0 +1,17 @@
+{
+  "condition": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "type_specific": {
+      "type": "player",
+      "looking_at": {
+        "type_specific": {
+          "type": "player",
+          "advancements": {
+            "sds:detect/using_shield": true
+          }
+        }
+      }
+    }
+  }
+}

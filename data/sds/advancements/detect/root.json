@@ -1,0 +1,15 @@
+{ 
+  "criteria": {
+    "parent": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "requirements": [
+    [
+      "parent"
+    ]
+  ],
+  "rewards": {
+    "function": "sds:every_tick"
+  }
+}

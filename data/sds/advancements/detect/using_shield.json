@@ -1,0 +1,21 @@
+{
+    "parent": "sds:detect/root",
+    "criteria": {
+      "using": {
+        "trigger": "minecraft:using_item",
+        "conditions": {
+          "item": {
+            "items": [
+              "minecraft:shield"
+            ]
+          }
+        }
+      }
+    },
+    "requirements": [
+      [
+        "using"
+      ]
+    ]
+  }
+  

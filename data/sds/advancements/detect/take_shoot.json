@@ -1,0 +1,30 @@
+{
+    "parent": "sds:detect/root",
+    "criteria": {
+    "block_projectile": {
+        "trigger": "minecraft:entity_hurt_player",
+        "conditions": {
+          "damage": {
+            "blocked": true,
+            "type": {
+                "tags": [
+                  {
+                    "id": "minecraft:is_projectile",
+                    "expected": true
+                  }
+                ]
+              }
+          }
+        }
+      }
+    },
+    "requirements": [
+      [
+        "block_projectile"
+      ]
+    ],
+    "rewards": {
+      "function": "sds:play_sound_shoot"
+    }
+  }
+  
