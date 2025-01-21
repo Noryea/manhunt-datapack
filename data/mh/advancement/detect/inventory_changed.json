@@ -10,17 +10,26 @@
             "periodic_tick": 4
           }
         }
+      },
+      "pt20": {
+        "trigger": "minecraft:tick",
+        "conditions": {
+          "player": {
+            "periodic_tick": 20
+          }
+        }
       }
     },
     "requirements": [
       [
-        "inventory"
+        "inventory",
+        "pt20"
       ],
       [
         "pt4"
       ]
     ],
     "rewards": {
-      "function": "mh:player/event/inventory_event"
+      "function": "mh:player/event/inventory_changed"
     }
   }

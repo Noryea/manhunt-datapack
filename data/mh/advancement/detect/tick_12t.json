@@ -1,5 +1,4 @@
 {
-  "parent": "mh:detect/root",
   "criteria": {
     "pt4": {
       "trigger": "minecraft:tick",

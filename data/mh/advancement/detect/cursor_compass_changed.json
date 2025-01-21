@@ -1,0 +1,56 @@
+{
+  "criteria": {
+    "cursor_true": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": {
+          "slots": {
+            "player.cursor": {
+              "predicates": {
+                "minecraft:custom_data": {
+                  "mh:tracker": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "cursor_false": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": [
+          {
+            "condition": "inverted",
+            "term": {
+              "condition": "entity_properties",
+              "entity": "this",
+              "predicate": {
+                "slots": {
+                  "player.cursor": {
+                    "predicates": {
+                      "minecraft:custom_data": {
+                        "mh:tracker": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "cursor_true"
+    ],
+    [
+      "cursor_false"
+    ]
+  ],
+  "rewards": {
+    "function": "mh:player/event/cursor_compass_toggle"
+  }
+}
