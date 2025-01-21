@@ -1,0 +1,30 @@
+{
+  "parent": "mh:detect/root",
+  "criteria": {
+    "changed_dimension": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:inverted",
+            "term": {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "nbt": "{Health:0.0f}"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "changed_dimension"
+    ]
+  ],
+  "rewards": {
+    "function": "mh:player/event/changed_dimension"
+  }
+}

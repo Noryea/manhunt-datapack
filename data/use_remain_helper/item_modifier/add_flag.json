@@ -1,0 +1,9 @@
+{
+    "function": "set_components",
+    "components": {
+        "minecraft:custom_data": {
+            "ur:remaining_flag": true,
+            "ur:offhand_marker": false
+        }
+    }
+}

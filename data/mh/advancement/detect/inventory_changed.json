@@ -1,0 +1,26 @@
+{
+    "criteria": {
+      "inventory": {
+        "trigger": "minecraft:inventory_changed"
+      },
+      "pt4": {
+        "trigger": "minecraft:tick",
+        "conditions": {
+          "player": {
+            "periodic_tick": 4
+          }
+        }
+      }
+    },
+    "requirements": [
+      [
+        "inventory"
+      ],
+      [
+        "pt4"
+      ]
+    ],
+    "rewards": {
+      "function": "mh:player/event/inventory_event"
+    }
+  }

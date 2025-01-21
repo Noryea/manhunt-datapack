@@ -1,0 +1,26 @@
+{
+    "criteria": {
+        "parent": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "predicates": {
+                            "minecraft:custom_data": {
+                                "ur:remaining_flag": true
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        [
+            "parent"
+        ]
+    ],
+    "rewards": {
+        "function": "use_remain_helper:inventory_event"
+    }
+}

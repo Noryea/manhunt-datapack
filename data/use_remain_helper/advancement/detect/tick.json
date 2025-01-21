@@ -1,0 +1,29 @@
+{
+    "parent": "use_remain_helper:detect/inventory_changed",
+    "criteria": {
+        "tick": {
+            "trigger": "minecraft:tick",
+            "conditions": {
+                "player": {
+                    "slots": {
+                        "container.*": {
+                            "predicates": {
+                                "minecraft:custom_data": {
+                                    "ur:remaining_flag": true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "requirements": [
+        [
+            "tick"
+        ]
+    ],
+    "rewards": {
+        "function": "use_remain_helper:tick"
+    }
+}

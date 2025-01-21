@@ -1,0 +1,1 @@
+scoreboard objectives add ur.hotbar.slot dummy

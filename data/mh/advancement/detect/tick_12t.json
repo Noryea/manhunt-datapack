@@ -1,0 +1,21 @@
+{
+  "parent": "mh:detect/root",
+  "criteria": {
+    "pt4": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": {
+          "periodic_tick": 12
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "pt4"
+    ]
+  ],
+  "rewards": {
+    "function": "mh:player/every_12t"
+  }
+}
