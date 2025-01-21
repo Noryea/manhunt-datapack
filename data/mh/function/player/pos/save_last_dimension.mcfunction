@@ -1,7 +1,8 @@
 # @input {UUID}
 # @output 在mh:pdb的"UUID".[]中储存玩家在上一个维度的pos和dimension
 
-$tellraw @a {"nbt":"LastPos.\"$(UUID)\"","storage": "mh:temp"}
+# Debug Info
+#$tellraw @a {"nbt":"LastPos.\"$(UUID)\"","storage": "mh:temp"}
 
 # 先删除上一个维度的标签
 data remove storage mh:temp CommandMacro

@@ -22,8 +22,8 @@
     },
     "requirements": [
       [
-        "inventory",
-        "pt20"
+        "pt20",
+        "inventory"
       ],
       [
         "pt4"
