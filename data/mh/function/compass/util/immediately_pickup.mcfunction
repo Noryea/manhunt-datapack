@@ -2,7 +2,7 @@
 # @作用: 阻止物品丢弃
 
 # 生成GUUID
-function mh:gu/convert with entity @s
+function mh:gu/generate
 
 # 如果玩家有mh.cursor.compass标签，尝试从掉落物的contents槽复制到玩家指针
 # 若尝试成功，直接移除标签并Return
@@ -19,5 +19,3 @@ execute on origin run \
     function mh:compass/util/pickup_stuff with storage gu:main
 
 return 1
-
-

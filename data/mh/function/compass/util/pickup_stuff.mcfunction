@@ -1,4 +1,4 @@
-# @input: {out: the GUUID of item entity}
+# @args: {out: the GUUID of item entity}
 
 # early return
 $execute as $(out) unless entity @s[type=item] run return fail
@@ -13,5 +13,3 @@ $teleport $(out) @s
 $data modify entity $(out) Age set value 5998s
 # 标记标签, 表示这是玩家要捡起的物品
 $tag $(out) add mh.item.pick
-
-return 1

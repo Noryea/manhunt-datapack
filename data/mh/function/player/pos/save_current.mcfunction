@@ -1,4 +1,4 @@
-# @input {UUID}
+# @args {UUID}
 # @output {LastPos:{"UUID":{Pos:[x,x,x], Dimension:"xxx"}}}
 
 # pos不存在时,构造pos数组

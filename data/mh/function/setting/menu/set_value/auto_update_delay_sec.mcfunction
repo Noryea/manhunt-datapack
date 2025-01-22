@@ -1,4 +1,4 @@
-## @input {Value: int}
+## @args {Value: int}
 
 # 储存旧值
 scoreboard players operation #old_value mh.temp = 追踪器:定期更新周期秒数 mh.settings

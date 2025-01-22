@@ -1,4 +1,4 @@
-# @input {dimension: 调用者的维度, UUID: 玩家UUID}
+# @args {dimension: 调用者的维度, UUID: 玩家UUID}
 # @output {LocationCompound: {pos: [I;x,y,z], dimension: string}} 在mh:temp
 #    若没有找到，则为{LocationCompound: {}}
 

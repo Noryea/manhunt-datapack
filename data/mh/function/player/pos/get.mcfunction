@@ -1,4 +1,4 @@
-# @input {Dimension: 调用者的维度}
+# @args {Dimension: 调用者的维度}
 # @output {LocationCompound: {pos: [I;x,y,z], dimension: string}} 在mh:temp
 
 # 如果当前玩家的维度是$(dimension)，返回当前的坐标

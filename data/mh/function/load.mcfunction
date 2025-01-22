@@ -3,7 +3,7 @@ team add runners "逃者"
 
 # settings
 scoreboard objectives add mh.settings dummy
-execute unless score 已应用默认设置 mh.settings matches 1 run function mh:setting/default
+execute unless score 已应用默认设置 mh.settings matches 1 run function mh:setting/default_setting
 
 
 # triggers
@@ -13,7 +13,6 @@ scoreboard objectives add mh.join.runners trigger {"text":"加入逃者","color"
 
 # 其他
 scoreboard objectives add mh.temp dummy
-scoreboard objectives add mh.uid dummy
 scoreboard objectives add mh.died.listener minecraft.custom:deaths
 bossbar add mh:compass_timer ""
 bossbar add mh:freeze ""

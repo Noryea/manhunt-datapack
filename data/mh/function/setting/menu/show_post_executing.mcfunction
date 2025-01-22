@@ -1,4 +1,4 @@
-## @input {Command: 要执行的命令}
+## @args {Command: 要执行的命令}
 
 # run cmd
 $$(Command)

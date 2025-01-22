@@ -1,4 +1,4 @@
-# @input {UUID}
+# @args {UUID}
 # @output 在mh:pdb的"UUID".[]中储存玩家在上一个维度的pos和dimension
 
 # Debug Info
