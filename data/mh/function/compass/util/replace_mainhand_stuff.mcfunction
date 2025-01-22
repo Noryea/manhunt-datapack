@@ -9,5 +9,4 @@ $item replace entity @s weapon.mainhand from entity $(out) contents
 # 杀死实体
 $kill $(out)
 
-
 return 1
