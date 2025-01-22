@@ -1,5 +1,5 @@
-# @执行者: 指南针掉落物
-# @作用: 阻止物品丢弃
+# @executor: 指南针掉落物
+# > 阻止物品丢弃
 
 # 生成GUUID
 function mh:gu/generate

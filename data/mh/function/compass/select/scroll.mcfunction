@@ -1,0 +1,29 @@
+# @executor 玩家
+# @args {selector: 旧目标的选择器}
+# >根据selector对应的玩家获取下一个追踪对象,执行gu的generate函数
+
+# 如果旧目标不在服务器内，则重置选择
+$execute unless entity $(selector) run \
+    return run function function mh:compass/select/reset
+
+# 给可追踪目标加上mh.trackable标签
+function mh:player/filter_trackable
+
+# remove "out" nbt
+data remove storage gu:main out
+
+# 缓存旧目标的UUID
+$data modify storage mh:temp oldUUID set from entity $(selector) UUID
+
+# 初始化记分板变量
+scoreboard players set #iter mh.temp 0
+scoreboard players set #old_ptr mh.temp -1
+execute store result score #len mh.temp if entity @a[tag=mh.trackable]
+execute if score #len mh.temp matches 0 run \
+    return fail
+
+# 遍历
+execute as @a[sort=arbitrary,tag=mh.trackable] run function mh:compass/select/scroll_foreach
+
+# 移除所有玩家的标签
+tag @a remove mh.trackable

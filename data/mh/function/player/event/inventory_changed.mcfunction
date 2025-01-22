@@ -1,5 +1,10 @@
 execute if data entity @s {Health:0.0f} run return run advancement revoke @s only mh:detect/inventory_changed
 
+#
+# 信息类: lore组件 实际维度exactDimension、
+# 变量类: selected
+#
+#
 ## 给予指南针
 # 如果玩家应该拥有指南针,先执行防止丢弃的函数(包括丢弃事件)
 # 只有在没有触发丢弃事件时,才判断是否应该补充指南针

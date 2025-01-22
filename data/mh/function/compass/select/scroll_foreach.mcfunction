@@ -1,4 +1,4 @@
-# >用于遍历trackable玩家
+# > 用于遍历trackable玩家
 
 # 如果上一个遍历的玩家是旧目标，则当前遍历的是新目标
 execute if score #iter mh.temp = #old_ptr mh.temp run \
@@ -9,7 +9,7 @@ scoreboard players add #iter mh.temp 1
 
 # 如果已经遍历到最后，则第一个人是新目标
 execute if score #old_ptr mh.temp matches -1 \
-    if score #iter mh.temp = #trackable_count mh.temp \
+    if score #iter mh.temp = #len mh.temp \
         as @a[sort=arbitrary,tag=mh.trackable,limit=1] at @s run return run function mh:gu/generate
 
 # 如果已经找到旧目标的指针位置,则不往下运行

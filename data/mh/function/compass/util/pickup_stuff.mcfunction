@@ -1,4 +1,4 @@
-# @args: {out: the GUUID of item entity}
+# @args: {out: the selector of item entity}
 
 # early return
 $execute as $(out) unless entity @s[type=item] run return fail
