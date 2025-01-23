@@ -7,11 +7,11 @@ $data modify storage mh:temp in.dimension set value "$(dimension)"
 data modify storage mh:temp in.UUID set from entity @s UUID
 
 # 如果当前玩家的维度是$(dimension)，返回当前的坐标
-$execute if data entity @s {Dimension:"$(dimension)"} run \
+$execute if dimension $(dimension) run \
     function mh:player/pos/get_current
 
 # 否则读取数据库
-$execute unless data entity @s {Dimension:"$(dimension)"} run \
+$execute unless dimension $(dimension) run \
     function mh:player/pos/get_saved with storage mh:temp in
 
 # 如果更新模式是定期更新, 则保存成lastOutPut

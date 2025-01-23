@@ -5,7 +5,7 @@
 data remove storage mh:temp out
 
 # 获取目标坐标
-$execute as $(selector) run function mh:player/pos/get {dimension: "$(dimension)"}
+$execute at @s as $(selector) run function mh:player/pos/get {dimension: "$(dimension)"}
 
 # 
 $data modify storage mh:temp in.slot set value "$(slot)"
