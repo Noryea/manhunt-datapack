@@ -1,3 +1,4 @@
+# 确保每秒执行且只执行一次
 schedule function mh:keep_every_sec 1s replace
 
 # BOSSBAR同步
