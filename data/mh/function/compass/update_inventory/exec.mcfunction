@@ -1,1 +1,0 @@
-item replace entity @s weapon.mainhand with diamond

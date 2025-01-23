@@ -1,0 +1,39 @@
+{
+    "criteria": {
+      "inventory": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "player": {
+            "slots": {
+              "weapon.mainhand": {
+                "items": "writable_book",
+                "predicates": {
+                  "minecraft:custom_data": {
+                    "mh:tracker": {}
+                  }
+                }
+              }
+            }
+          },
+          "items": [
+            {
+              "items": "writable_book",
+              "predicates": {
+                  "minecraft:custom_data": {
+                    "mh:tracker": {}
+                  }
+                }
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "inventory"
+      ]
+    ],
+    "rewards": {
+      "function": "mh:player/event/edit_book_mainhand"
+    }
+  }

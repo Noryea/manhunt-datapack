@@ -15,7 +15,7 @@
         "trigger": "minecraft:tick",
         "conditions": {
           "player": {
-            "periodic_tick": 20
+            "periodic_tick": 12
           }
         }
       }

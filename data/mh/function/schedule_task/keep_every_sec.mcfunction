@@ -1,5 +1,5 @@
 # 确保每秒执行且只执行一次
-schedule function mh:keep_every_sec 1s replace
+schedule function mh:schedule_task/keep_every_sec 1s replace
 
 # BOSSBAR同步
 execute unless score hunters.freeze mh.temp matches 0.. run bossbar set mh:freeze visible false
