@@ -1,4 +1,4 @@
-# @args {UUID}
+# @args: {UUID}
 # @output 在 mh:temp 写入 LastPos:{"UUID":{pos:[I;x,y,z], dimension:"xxx"}}
 
 # pos不存在时,构造pos数组
