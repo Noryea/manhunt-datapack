@@ -6,4 +6,4 @@ execute unless entity @s[type=item_display] run \
 $data modify entity @s transformation set value [$(x)f,0f,0f,0f,$(y)f,0f,0f,0f,$(z)f,0f,0f,0f,0f,0f,0f,1f]
 data modify storage mh:temp out set from entity @s transformation.scale[0]
 tellraw @a {"nbt":"transformation.scale[0]","entity": "@s"}
-return run kill @s
+kill @s

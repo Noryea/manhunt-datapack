@@ -45,12 +45,12 @@ scoreboard players set 队友追踪器:显示Y坐标 mh.settings 0
 scoreboard players set 队友追踪器:显示维度 mh.settings 1
 
 
-##  0:右键更新 1:自动更新 2:手持更新 3:定期更新
+##  0:右键更新 1:快捷栏更新 2:手持更新 3:定期更新
 scoreboard players set 追踪器:更新模式 mh.settings 0
 ##
 scoreboard players set 追踪器:右键更新周期游戏刻 mh.settings 12
 ##
-scoreboard players set 追踪器:自动更新周期游戏刻 mh.settings 12
+scoreboard players set 追踪器:快捷栏更新周期游戏刻 mh.settings 12
 ##
 scoreboard players set 追踪器:手持更新周期游戏刻 mh.settings 12
 ##

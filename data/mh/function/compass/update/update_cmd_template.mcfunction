@@ -1,16 +1,16 @@
 # @executor: 指南针持有者
-# @args: {slot:槽位, selector:目标选择器}
+# @args: {slot:槽位, guuid:目标的GUUID, dimension: 调用者维度}
 
 # early return
-execute unless items entity @s weapon compass[minecraft:custom_data~{"mh:tracker":{}}] run \
+$execute unless items entity @s $(slot) compass[minecraft:custom_data~{"mh:tracker":{}}] run \
     return fail
 
 # remove "out" nbt
 data remove storage mh:temp out
 
-# 获取持有者的维度作为传递参数
-data modify storage mh:temp in.dimension set from entity @s Dimension
-$execute as $(selector) at @s run function mh:player/pos/get with storage mh:temp in
+# 获取坐标
+$data modify storage mh:temp in.guuid set value $(guuid)
+$function mh:player/pos/get {guuid: $(guuid), dimension: "$(dimension)"}
 
 # 
 $data modify storage mh:temp in.slot set value "$(slot)"

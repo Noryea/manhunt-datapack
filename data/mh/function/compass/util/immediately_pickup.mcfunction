@@ -6,7 +6,7 @@
 execute if score 追踪器:丢弃时触发 mh.settings matches 1 run \
     function mh:compass/switch_target
 execute if score 追踪器:丢弃时触发 mh.settings matches 2 if items entity @s contents compass run \
-    function mh:compass/convert_to_edit {slot: "contents"}
+    item modify entity @s contents {function:"set_item", item:"writable_book"}
 
 # 玩家可以通过丢弃退出编辑模式
 execute if items entity @s contents writable_book run \

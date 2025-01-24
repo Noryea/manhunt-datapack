@@ -6,6 +6,7 @@
 # 指南针显示敌人信息：[距离][XZ][Y][维度]
 # 指南针显示队友信息：[距离][XZ][Y][维度]
 # 指南针更新模式：[定期更新] 更新周期=1秒
+# 
 # 指南针丢弃事件：[切换目标]
 #
 
@@ -127,12 +128,13 @@ tellraw @s [ "指南针显示队友信息: ", \
     {"nbt":"TextList[3]","storage":"mh:temp","interpret":true,"hoverEvent":{"action":"show_text","value":"点击切换"}}\ 
 ]
 
+
 execute unless score 追踪器:更新模式 mh.settings matches 1..3 run \
     tellraw @s ["指南针更新模式: ",{"text":"[右键更新(*需1.21.2+)]","color":"yellow","hoverEvent":{"action": "show_text","value":"让指南针变成可使用物品，需要玩家手动更新"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 追踪器:更新模式 mh.settings 1\"}"}}, \
   "  使用冷却=", {"score": { "objective": "mh.settings", "name": "追踪器:右键更新周期游戏刻" }, "color": "green", "underlined": true, "hoverEvent":{"action": "show_text","value":"(可修改成任意整数,0表示无冷却)"},"clickEvent":{"action":"suggest_command","value":"/function mh:setting/menu/set_value/use_delay {Value: \"请输入\"}"}},{"text": "ticks", "color": "green"}]
 execute if score 追踪器:更新模式 mh.settings matches 1 run \
-    tellraw @s ["指南针更新模式: ",{"text":"[自动更新]","color":"green","hoverEvent":{"action": "show_text","value":"自动更新玩家快捷栏中所有指南针"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 追踪器:更新模式 mh.settings 2\"}"}}, \
-  "  更新周期=", {"score": { "objective": "mh.settings", "name": "追踪器:自动更新周期游戏刻" }, "color": "green", "underlined": true, "hoverEvent":{"action": "show_text","value":"(可修改成2~40)"},"clickEvent":{"action":"suggest_command","value":"/function mh:setting/menu/set_value/auto_update_delay {Value: \"请输入\"}"}},{"text": "ticks", "color": "green"}]
+    tellraw @s ["指南针更新模式: ",{"text":"[快捷栏更新]","color":"green","hoverEvent":{"action": "show_text","value":"快捷栏更新玩家快捷栏中所有指南针"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 追踪器:更新模式 mh.settings 2\"}"}}, \
+  "  更新周期=", {"score": { "objective": "mh.settings", "name": "追踪器:快捷栏更新周期游戏刻" }, "color": "green", "underlined": true, "hoverEvent":{"action": "show_text","value":"(可修改成2~40)"},"clickEvent":{"action":"suggest_command","value":"/function mh:setting/menu/set_value/auto_update_delay {Value: \"请输入\"}"}},{"text": "ticks", "color": "green"}]
 execute if score 追踪器:更新模式 mh.settings matches 2 run \
     tellraw @s ["指南针更新模式: ",{"text":"[手持更新]","color":"green","hoverEvent":{"action": "show_text","value":"只有玩家手持指南针时才更新"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 追踪器:更新模式 mh.settings 3\"}"}}, \
   "  更新周期=", {"score": { "objective": "mh.settings", "name": "追踪器:手持更新周期游戏刻" }, "color": "green", "underlined": true, "hoverEvent":{"action": "show_text","value":"(可修改成2~40)"},"clickEvent":{"action":"suggest_command","value":"/function mh:setting/menu/set_value/hand_update_delay {Value: \"请输入\"}"}},{"text": "ticks", "color": "green"}]
@@ -141,14 +143,14 @@ execute if score 追踪器:更新模式 mh.settings matches 3 run \
   "  更新周期=", {"score": { "objective": "mh.settings", "name": "追踪器:定期更新周期秒数" }, "color": "green", "underlined": true, "hoverEvent":{"action": "show_text","value":"(最少1)"},"clickEvent":{"action":"suggest_command","value":"/function mh:setting/menu/set_value/timely_update_sec {Value: \"请输入\"}"}},{"text": "秒", "color": "green"}]
 
 
-execute unless score 追踪器:更新模式 mh.settings matches 1..2 \
+execute if score 追踪器:更新模式 mh.settings matches 3 \
     unless score 追踪器:定期更新计时器bossBar mh.settings matches 1 run \
     tellraw @s ["显示定期更新倒计时BOSS条: ",{"text":"[关闭]","color":"red","hoverEvent":{"action": "show_text","value":"点击切换"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 追踪器:定期更新计时器bossBar mh.settings 1\"}"}}]
-execute unless score 追踪器:更新模式 mh.settings matches 1..2 \
+execute if score 追踪器:更新模式 mh.settings matches 3 \
     if score 追踪器:定期更新计时器bossBar mh.settings matches 1 run \
     tellraw @s ["显示定期更新倒计时BOSS条: ",{"text":"[开启]","color":"green","hoverEvent":{"action": "show_text","value":"点击切换"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 追踪器:定期更新计时器bossBar mh.settings 0\"}"}}]
 #渲染删除线
-execute if score 追踪器:更新模式 mh.settings matches 1..2 run \
+execute unless score 追踪器:更新模式 mh.settings matches 3 run \
     tellraw @s {"text":"显示定期更新倒计时BOSS条: []","color": "gray","strikethrough": true}
 
 execute unless score 追踪器:丢弃时触发 mh.settings matches 1..3 run \
