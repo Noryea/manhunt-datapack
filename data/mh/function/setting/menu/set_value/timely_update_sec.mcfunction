@@ -15,5 +15,7 @@ execute unless score 追踪器:定期更新周期秒数 mh.settings matches 1.. 
 execute unless score 追踪器:定期更新周期秒数 mh.settings matches 1.. run \
     scoreboard players operation 追踪器:定期更新周期秒数 mh.settings = #old_value mh.temp
 
-
+# 马上重新运行
+execute if score 追踪器:定期更新周期秒数 mh.settings matches 1.. run \
+    schedule function mh:schedule_task/keep_update 1t replace
 
