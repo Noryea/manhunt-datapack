@@ -4,7 +4,7 @@
 
 # 如果旧目标不在服务器内，则重置选择
 $execute unless entity $(guuid) run \
-    return run function mh:compass/select/reset
+    return run function mh:compass/select/initial
 
 # 给可追踪目标加上mh.trackable标签
 function mh:player/filter_trackable

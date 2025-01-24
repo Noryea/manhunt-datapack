@@ -1,6 +1,6 @@
 {
   "criteria": {
-    "pt4": {
+    "pt12": {
       "trigger": "minecraft:tick",
       "conditions": {
         "player": {
@@ -11,7 +11,7 @@
   },
   "requirements": [
     [
-      "pt4"
+      "pt12"
     ]
   ],
   "rewards": {

@@ -1,35 +1,35 @@
 {
-    "criteria": {
-      "inventory": {
-        "trigger": "minecraft:inventory_changed"
-      },
-      "pt4": {
-        "trigger": "minecraft:tick",
-        "conditions": {
-          "player": {
-            "periodic_tick": 4
-          }
-        }
-      },
-      "pt20": {
-        "trigger": "minecraft:tick",
-        "conditions": {
-          "player": {
-            "periodic_tick": 12
-          }
+  "criteria": {
+    "inventory": {
+      "trigger": "minecraft:inventory_changed"
+    },
+    "pt3": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": {
+          "periodic_tick": 3
         }
       }
     },
-    "requirements": [
-      [
-        "pt20",
-        "inventory"
-      ],
-      [
-        "pt4"
-      ]
-    ],
-    "rewards": {
-      "function": "mh:player/event/inventory_changed"
+    "pt12": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": {
+          "periodic_tick": 12
+        }
+      }
     }
+  },
+  "requirements": [
+    [
+      "pt3"
+    ],
+    [
+      "pt12",
+      "inventory"
+    ]
+  ],
+  "rewards": {
+    "function": "mh:player/event/inventory_changed"
   }
+}

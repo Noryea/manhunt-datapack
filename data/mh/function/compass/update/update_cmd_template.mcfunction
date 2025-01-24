@@ -10,8 +10,7 @@ data remove storage mh:temp out
 
 # 获取坐标
 $data modify storage mh:temp in.guuid set value $(guuid)
-$function mh:player/pos/get {guuid: $(guuid), dimension: "$(dimension)"}
-
+$function mh:player/safely_get_pos {guuid: $(guuid), dimension: "$(dimension)"}
 # 
 $data modify storage mh:temp in.slot set value "$(slot)"
 data modify storage mh:temp in.target set from storage mh:temp out

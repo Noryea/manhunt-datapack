@@ -1,5 +1,5 @@
 # @args: {guuid, dimension}
-# @output {out: {pos: [I;x,y,z], dimension: string}} 在mh:temp
+# @output {out: {pos: [x,y,z], dimension: string}} 在mh:temp
 # > 判断执行维度是不是dimension, 是则获取当前坐标，不是则获取存储坐标
 
 # 生成GUUID
@@ -13,7 +13,3 @@ $data modify storage mh:temp out.dimension set value "$(dimension)"
 # 否则读取数据库
 $execute at $(guuid) unless dimension $(dimension) run \
     function mh:player/pos/get_saved {guuid: $(guuid), dimension: "$(dimension)"}
-
-# 如果更新模式是定期更新, 则保存成lastOutPut
-$execute if score 追踪器:更新模式 mh.settings matches 3 run \
-    function mh:player/pos/save_last_output {guuid: $(guuid)}

@@ -35,5 +35,5 @@ execute if entity @s[team=runners] if function mh:player/runners_can_have_compas
             ]
     
 # 杀掉指南针实体
-execute as @e[type=item,distance=0..5,tag=!mh.item.pick] if items entity @s contents *[minecraft:custom_data~{"mh:tracker":{}}] run \
+execute as @e[type=item,distance=..6,tag=!mh.item.pick] if items entity @s contents *[minecraft:custom_data~{"mh:tracker":{}}] run \
     kill @s

@@ -6,7 +6,7 @@ data remove storage gu:main out
 
 # 以丢弃者为执行者执行函数
 execute unless data entity @s Item.components."minecraft:custom_data"."mh:tracker".selector \
-    on origin run function mh:compass/select/reset
+    on origin run function mh:compass/select/initial
 
 data remove storage mh:temp in.guuid
 data modify storage mh:temp in.guuid set from entity @s Item.components."minecraft:custom_data"."mh:tracker".selector
