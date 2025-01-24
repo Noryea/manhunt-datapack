@@ -16,11 +16,10 @@ execute if data storage mh:temp in.guuid \
 
 # 找到新目标，更改selector标签
 data modify entity @s Item.components."minecraft:custom_data"."mh:tracker".selector set from storage gu:main out
-data modify storage mh:temp in.guuid set from storage gu:main out
 
 # 调用更新函数
+data modify storage mh:temp in.guuid set from storage gu:main out
 data modify storage mh:temp in.slot set value "contents"
-data remove storage mh:temp in.dimension
-execute on origin run data modify storage mh:temp in.dimension set from entity @s Dimension
+data modify storage mh:temp in.dimension set from entity @s Dimension
 
 function mh:compass/update/update_cmd_template with storage mh:temp in

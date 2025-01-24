@@ -6,7 +6,7 @@ execute if score 追踪器:更新模式 mh.settings matches 0 run \
     return run schedule function mh:schedule_task/keep_update 1s replace
 # 更新模式为定期更新：1秒后运行
 execute if score 追踪器:更新模式 mh.settings matches 3 run \
-    return run schedule function mh:schedule_task/keep_update 1s replace
+    schedule function mh:schedule_task/keep_update 1s replace
 
 # 更新模式为快捷栏更新↓
 execute if score 追踪器:更新模式 mh.settings matches 1 store result storage mh:temp schedule.ticks int 1 \
@@ -20,5 +20,6 @@ execute unless score 追踪器:更新模式 mh.settings matches 0 unless score �
 execute unless score 追踪器:更新模式 mh.settings matches 0 unless score 追踪器:更新模式 mh.settings matches 3 run \
     function mh:schedule_task/schedule_for with storage mh:temp schedule
 
-## 快捷栏
-
+## 定期更新（即全背包更新）
+execute if score 追踪器:更新模式 mh.settings matches 3 \
+    as @a[gamemode=!spectator] at @s run function mh:compass/update/inventory

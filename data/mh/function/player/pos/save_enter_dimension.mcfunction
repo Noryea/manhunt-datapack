@@ -2,7 +2,7 @@
 # @output: 在mh:pdb的"out".[]中储存玩家在上一个维度的pos和dimension
 
 # Debug Info
-$tellraw @a {"nbt":"LastPos.\"$(out)\"","storage": "mh:temp"}
+#$tellraw @a {"nbt":"LastPos.\"$(out)\"","storage": "mh:temp"}
 
 # 先删除上一个维度的标签
 data remove storage mh:temp in

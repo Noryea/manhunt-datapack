@@ -1,7 +1,7 @@
 # @executor 玩家
 # @args {guuid: 旧目标的选择器}
 # >根据guuid对应的玩家获取下一个追踪对象,执行gu的generate函数
-say hi
+
 # 如果旧目标不在服务器内，则重置选择
 $execute unless entity $(guuid) run \
     return run function mh:compass/select/reset
