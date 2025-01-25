@@ -1,3 +1,11 @@
+# copy
+data modify storage mh:temp Items append from entity @s SelectedItem
+data modify storage mh:temp Items append from entity @s Inventory[{Slot:-106b}]
+data modify storage mh:temp Items[{Slot:-106b}].Slot set value 1b
+execute in minecraft:overworld run data modify block 29999985 254 29999984 Items set from storage mh:temp Items
+data remove storage mh:temp Items
+
+
 data merge storage mh:temp {Pos:{X:0,Y:0,Z:0}}
 execute as @p[tag=tracking,distance=0..] store result storage mh:temp Pos.X int 1 run data get entity @s Pos[0]
 execute as @p[tag=tracking,distance=0..] store result storage mh:temp Pos.Y int 1 run data get entity @s Pos[1]
