@@ -25,6 +25,6 @@
     ]
   ],
   "rewards": {
-    "function": "use_remain_helper:inventory_event"
+    "function": "use_remain_helper:fix_offhand_marker"
   }
 }
