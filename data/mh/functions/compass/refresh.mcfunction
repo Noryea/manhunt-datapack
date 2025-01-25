@@ -1,9 +1,5 @@
-# copy
-data modify storage mh:temp Items append from entity @s SelectedItem
-data modify storage mh:temp Items append from entity @s Inventory[{Slot:-106b}]
-data modify storage mh:temp Items[{Slot:-106b}].Slot set value 1b
-execute in minecraft:overworld run data modify block 29999985 254 29999984 Items set from storage mh:temp Items
-data remove storage mh:temp Items
+# set compass
+execute in minecraft:overworld run loot replace block 29999985 254 29999984 container.0 loot mh:gameplay/compass
 
 
 data merge storage mh:temp {Pos:{X:0,Y:0,Z:0}}
