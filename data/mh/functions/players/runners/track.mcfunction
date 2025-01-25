@@ -28,7 +28,8 @@ execute if score 队友:显示距离 mh.settings matches 1 if entity @p[tag=trac
 execute if entity @p[tag=tracking] run title @s actionbar [{"text":" 目标: ","color":"gray"},{"selector":"@p[tag=tracking]"},"  ",{"nbt":"ActionBar[0]","storage":"mh:temp","interpret":true},{"nbt":"ActionBar[1]","storage":"mh:temp","interpret":true},{"nbt":"ActionBar[2]","storage":"mh:temp","interpret":true}]
 
 # replace
-execute in minecraft:overworld run loot replace entity @s weapon.mainhand 2 mine 29999985 254 29999984 minecraft:air{isShulkerMarker:1b}
+execute if data entity @s {SelectedItem:{tag:{Tags:["tracker"]}}} in minecraft:overworld run loot replace entity @s weapon.mainhand 1 mine 29999985 254 29999984 minecraft:air{isShulkerMarker:1b}
+execute if data entity @s {Inventory:[{tag:{Tags:["tracker"]},Slot:-106b}]} in minecraft:overworld run loot replace entity @s weapon.offhand 1 mine 29999985 254 29999984 minecraft:air{isShulkerMarker:1b}
 
 # reset
 #execute in minecraft:overworld run data remove block 29999985 254 29999984 Items
