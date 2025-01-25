@@ -15,4 +15,3 @@ scoreboard players operation value mh.temp += unit_z mh.temp
 
 execute store result storage mh:temp Distance int 0.000001 run scoreboard players get value mh.temp
 kill 0-0-0-0-0ea
-scoreboard players reset * mh.temp
