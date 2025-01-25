@@ -24,10 +24,6 @@ execute store result score @s mh.pos.z run data get entity @s Pos[2] 1
 ##触发器
 scoreboard players enable @s mh.tracking
 
-scoreboard players reset @s mh.join
-scoreboard players reset @s mh.join.hunters
-scoreboard players reset @s mh.join.runners
-
-execute if score 允许自由选队 mh.settings matches 1 run scoreboard players enable @s mh.join
-execute if score 允许自由选队 mh.settings matches 1 run scoreboard players enable @s mh.join.hunters
-execute if score 允许自由选队 mh.settings matches 1 run scoreboard players enable @s mh.join.runners
+scoreboard players enable @s mh.join
+scoreboard players enable @s mh.join.hunters
+scoreboard players enable @s mh.join.runners
