@@ -12,6 +12,5 @@ scoreboard players operation vec_x mh.temp -= self_x mh.temp
 scoreboard players operation vec_y mh.temp -= self_y mh.temp
 scoreboard players operation vec_z mh.temp -= self_z mh.temp
 
-summon area_effect_cloud ~ ~ ~ {Radius:0f,UUID:[I;0,0,0,12873326]}
+summon armor_stand ~ ~ ~ {Marker:1b,UUID:[I;0,0,0,12873326]}
 execute as 0-0-0-0-0c46e6e at @s run function mh:compass/distance_math/marker
-kill 0-0-0-0-0c46e6e
