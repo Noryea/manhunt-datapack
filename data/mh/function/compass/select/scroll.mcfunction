@@ -7,7 +7,7 @@ $execute unless entity $(guuid) run \
     return run function mh:compass/select/initial
 
 # 给可追踪目标加上mh.trackable标签
-function mh:player/filter_trackable
+function mh:compass/util/filter_my_trackable
 
 # 缓存旧目标的UUID
 $data modify storage mh:temp oldUUID set from entity $(guuid) UUID

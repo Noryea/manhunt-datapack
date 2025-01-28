@@ -1,5 +1,4 @@
 # >筛选出可追踪的玩家，附上mh.trackable标签
-
 tag @s add this
 
 execute if entity @s[team=hunters] if score 猎人可追踪:队友 mh.settings matches 1 run \

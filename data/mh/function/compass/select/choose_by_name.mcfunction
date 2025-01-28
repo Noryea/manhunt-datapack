@@ -13,7 +13,7 @@ execute if score #flag mh.temp matches 0 run \
     return fail
     
 # 给可追踪目标加上mh.trackable标签
-function mh:player/filter_trackable
+function mh:compass/util/filter_my_trackable
 
 # 直接以新目标执行gu
 $execute as @a[limit=1,tag=mh.trackable,name=$(raw)] run function mh:gu/generate

@@ -1,5 +1,5 @@
 # 给可追踪目标加上mh.trackable标签
-function mh:player/filter_trackable
+function mh:compass/util/filter_my_trackable
 
 # remove "out" nbt
 data remove storage gu:main out

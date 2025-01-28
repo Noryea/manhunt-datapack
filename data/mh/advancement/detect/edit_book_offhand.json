@@ -34,6 +34,6 @@
     ]
   ],
   "rewards": {
-    "function": "mh:player/event/edit_book_offhand"
+    "function": "mh:player/edit_book_offhand"
   }
 }

@@ -1,5 +1,4 @@
 {
-  "parent": "use_remain_helper:detect/inventory_changed",
   "criteria": {
     "tick_mainhand": {
       "trigger": "minecraft:tick",

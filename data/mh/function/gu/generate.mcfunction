@@ -35,5 +35,3 @@ execute store result storage gu:temp f int 1 run scoreboard players operation 3=
 
 function mh:gu/zzz/get_hexes with storage gu:temp
 function mh:gu/zzz/concat_uuid with storage gu:temp
-
-return 1

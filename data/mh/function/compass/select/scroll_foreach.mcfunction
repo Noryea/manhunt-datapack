@@ -20,4 +20,3 @@ data modify storage mh:temp oldUUIDCopy set from storage mh:temp oldUUID
 execute store success score #result mh.temp run data modify storage mh:temp oldUUIDCopy set from entity @s UUID
 # 等于旧目标，则记下此时iter的值
 execute if score #result mh.temp matches 0 run scoreboard players operation #old_ptr mh.temp = #iter mh.temp
-

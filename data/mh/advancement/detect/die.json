@@ -1,0 +1,28 @@
+{
+    "criteria": {
+      "die": {
+        "trigger": "minecraft:tick",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_scores",
+              "entity": "this",
+              "scores": {
+                "mh.died.listener": {
+                  "min": 1
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "die"
+      ]
+    ],
+    "rewards": {
+      "function": "mh:player/die"
+    }
+  }

@@ -30,6 +30,6 @@
     ]
   ],
   "rewards": {
-    "function": "mh:player/event/inventory_changed"
+    "function": "mh:player/inventory_changed"
   }
 }

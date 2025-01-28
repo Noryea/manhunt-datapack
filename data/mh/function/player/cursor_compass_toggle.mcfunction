@@ -1,6 +1,6 @@
 # 当玩家指针放下物品时也触发一次背包事件
 # 比如当玩家把物品放到合成格/从容器ui旁边左键丢弃
-execute unless items entity @s player.cursor * run function mh:player/event/inventory_changed
+execute unless items entity @s player.cursor * run function mh:player/inventory_changed
 
 # 标记玩家指针指南针标签
 # (优先度应低于背包事件,否则无效)

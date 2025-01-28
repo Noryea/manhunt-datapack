@@ -51,6 +51,6 @@
     ]
   ],
   "rewards": {
-    "function": "mh:player/event/cursor_compass_toggle"
+    "function": "mh:player/cursor_compass_toggle"
   }
 }

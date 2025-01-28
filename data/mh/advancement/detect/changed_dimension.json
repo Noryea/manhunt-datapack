@@ -24,6 +24,6 @@
     ]
   ],
   "rewards": {
-    "function": "mh:player/event/changed_dimension"
+    "function": "mh:player/changed_dimension"
   }
 }
