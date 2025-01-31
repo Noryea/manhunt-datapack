@@ -32,9 +32,15 @@ execute if score 追踪器:更新模式 mh.settings matches 2 \
 # 
 scoreboard players remove 定期更新倒计时 mh.temp 1
 execute unless score 定期更新倒计时 mh.temp matches 1.. run scoreboard players operation 定期更新倒计时 mh.temp = 追踪器:定期更新周期秒数 mh.settings
+execute if score 定期更新倒计时 mh.temp > 追踪器:定期更新周期秒数 mh.settings run scoreboard players operation 定期更新倒计时 mh.temp = 追踪器:定期更新周期秒数 mh.settings
+# 倒计时完了，获取最新坐标
 execute if score 定期更新倒计时 mh.temp = 追踪器:定期更新周期秒数 mh.settings \
-    as @a run function mh:player/pos/save_enter_dimension
+    as @a[gamemode=!spectator] run function mh:player/pos/get_all_output
 # boss条同步
+bossbar set mh:compass_timer players @a
+execute if score 追踪器:定期更新计时器bossBar mh.settings matches 1 run bossbar set mh:compass_timer visible true
+execute unless score 追踪器:定期更新计时器bossBar mh.settings matches 1 run bossbar set mh:compass_timer visible false
+bossbar set mh:compass_timer name [{"text":"距离指南针更新还有: ","color":"white"},{"score":{"name": "定期更新倒计时","objective": "mh.temp"},"color":"yellow"},{"text":"s","color":"white"}]
 execute store result bossbar mh:compass_timer max run scoreboard players get 追踪器:定期更新周期秒数 mh.settings
 execute store result bossbar mh:compass_timer value run scoreboard players get 定期更新倒计时 mh.temp
 # 更新追踪者的指南针
