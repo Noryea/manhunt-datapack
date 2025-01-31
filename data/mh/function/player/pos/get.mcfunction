@@ -7,15 +7,18 @@ execute store result score 当前gametime mh.pdb.querytime run time query gameti
 $execute if score @s mh.pdb.querytime = 当前gametime mh.pdb.querytime run \
     return run data modify storage mh:temp out set from storage mh:temp lastOutPut."$(guuid)"
 
-# 如果当前玩家的维度是$(dimension)，返回当前的坐标
+# 先设置输出成空标签
+data modify storage mh:temp out set value {}
+
+# 如果当前玩家的维度不是(dimension)，读取数据库
+$execute at $(guuid) unless dimension $(dimension) run \
+    data modify storage mh:temp out set from storage mh:pdb "$(guuid)"[{dimension:"$(dimension)"}]
+
+# 否则返回当前的坐标
 $execute at $(guuid) if dimension $(dimension) run \
-    function mh:player/pos/get_current {guuid: $(guuid)}
+    data modify storage mh:temp out.pos set from entity $(guuid) Pos
 $data modify storage mh:temp out.dimension set value "$(dimension)"
 
-# 否则读取数据库
-$execute at $(guuid) unless dimension $(dimension) run \
-    function mh:player/pos/get_saved {guuid: $(guuid), dimension: "$(dimension)"}
-
-# 保存到lastOutPut
+# 保存输出到lastOutPut
 $data modify storage mh:pdb lastOutPut."$(guuid)" set from storage mh:temp out
 $scoreboard players operation $(guuid) mh.pdb.querytime = 当前gametime mh.pdb.querytime
