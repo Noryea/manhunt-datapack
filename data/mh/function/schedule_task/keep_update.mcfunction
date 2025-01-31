@@ -29,6 +29,15 @@ execute if score 追踪器:更新模式 mh.settings matches 2 \
 execute if score 追踪器:更新模式 mh.settings matches 2 \
     as @a[gamemode=!spectator] at @s run function mh:compass/update/weapon_offhand
 ## 定期更新（即全背包更新）
+# 
+scoreboard players remove 定期更新倒计时 mh.temp 1
+execute unless score 定期更新倒计时 mh.temp matches 1.. run scoreboard players operation 定期更新倒计时 mh.temp = 追踪器:定期更新周期秒数 mh.settings
+execute if score 定期更新倒计时 mh.temp = 追踪器:定期更新周期秒数 mh.settings \
+    as @a run function mh:player/pos/save_enter_dimension
+# boss条同步
+execute store result bossbar mh:compass_timer max run scoreboard players get 追踪器:定期更新周期秒数 mh.settings
+execute store result bossbar mh:compass_timer value run scoreboard players get 定期更新倒计时 mh.temp
+# 更新追踪者的指南针
 execute if score 追踪器:更新模式 mh.settings matches 3 \
     as @a[gamemode=!spectator] at @s run function mh:compass/update/inventory
 

@@ -12,7 +12,7 @@ $execute if data storage mh:pdb "$(out)" run \
     function mh:player/pos/remove_dimension with storage mh:temp in
 
 # 保存临时nbt到玩家数据库
-$data modify storage mh:pdb "$(out)" prepend from storage mh:temp LastPos."$(out)"
+$data modify storage mh:pdb "$(out)".trail prepend from storage mh:temp LastPos."$(out)"
 
 # 删除临时nbt
 $data remove storage mh:temp LastPos."$(out)"

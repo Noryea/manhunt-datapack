@@ -4,7 +4,6 @@
 # early return
 $execute unless items entity @s $(slot) compass[minecraft:custom_data~{"mh:tracker":{}}] run \
     return fail
-
 # remove "out" nbt
 data remove storage mh:temp out
 
