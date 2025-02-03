@@ -1,6 +1,6 @@
 #args: {target}
 
-loot give @s loot \
+$loot give @s loot \
 { \
   "type": "minecraft:generic", \
   "pools": [ \
@@ -18,6 +18,15 @@ loot give @s loot \
             { \
               "function": "minecraft:reference", \
               "name": "mh:copy_lore_and_data" \
+            }, \
+            { \
+              "function": "minecraft:set_components", \
+              "components": { \
+                "minecraft:lodestone_tracker": { \
+                  "target": $(target), \
+                  "tracked": false \
+                } \
+              } \
             } \
           ] \
         } \

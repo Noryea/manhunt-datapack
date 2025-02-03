@@ -11,6 +11,13 @@
           "nbt": "loreText[0]",
           "type": "nbt",
           "interpret": true
+        },
+        {
+          "italic": false,
+          "storage": "mh:temp",
+          "nbt": "loreText[1]",
+          "type": "nbt",
+          "interpret": true
         }
       ],
       "mode": "replace_all"
@@ -20,13 +27,6 @@
       "entity": "this",
       "lore": [
         "",
-        {
-          "italic": false,
-          "storage": "mh:temp",
-          "nbt": "loreText[1]",
-          "type": "nbt",
-          "interpret": true
-        },
         {
           "italic": false,
           "storage": "mh:temp",
@@ -40,6 +40,13 @@
           "nbt": "loreText[3]",
           "type": "nbt",
           "interpret": true
+        },
+        {
+          "italic": false,
+          "storage": "mh:temp",
+          "nbt": "loreText[4]",
+          "type": "nbt",
+          "interpret": true
         }
       ],
       "mode": "append",
@@ -47,12 +54,12 @@
         {
           "condition": "minecraft:value_check",
           "value": {
-            "type": "minecraft:score",
-            "score": "mh.lore.expand",
-            "target": "this"
+            "type": "minecraft:storage",
+            "storage": "mh:temp",
+            "path": "trackableCount"
           },
           "range": {
-            "min": 1
+            "min": 2
           }
         }
       ]

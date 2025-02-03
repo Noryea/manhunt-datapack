@@ -21,6 +21,7 @@ data modify storage mh:temp in.guuid set from storage mh:temp invItem.components
 
 # 执行更新
 function mh:compass/update/private/update_cmd_template with storage mh:temp in
+# tellraw @a {"nbt": "in", "storage": "mh:temp"}
 
 # 递归调用
 data remove storage mh:temp invItem

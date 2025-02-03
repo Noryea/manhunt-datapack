@@ -15,7 +15,6 @@ scoreboard objectives add mh.join.runners trigger {"text":"加入逃者","color"
 scoreboard objectives add mh.temp dummy
 scoreboard objectives add mh.died.listener minecraft.custom:deaths
 scoreboard objectives add mh.pdb.querytime dummy
-scoreboard objectives add mh.lore.expand dummy
 bossbar add mh:compass_timer ""
 bossbar set mh:compass_timer color yellow
 bossbar add mh:freeze ""

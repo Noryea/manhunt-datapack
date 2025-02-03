@@ -5,15 +5,15 @@
 # 优化：如果在同一tick内重复读取，直接返回lastOutPut
 execute store result score 当前gametime mh.pdb.querytime run time query gametime
 $execute if score $(guuid) mh.pdb.querytime = 当前gametime mh.pdb.querytime if data storage mh:pdb {"$(guuid)":{lastQueryDimension:"$(dimension)"}} run \
-    return run data modify storage mh:temp out set from storage mh:pdb "$(guuid)".lastOutPut."$(dimension)"
+    return run data modify storage mh:temp in.target set from storage mh:pdb "$(guuid)".lastOutPut."$(dimension)"
 
 # 先设置输出成空标签
-data modify storage mh:temp out set value {}
+data modify storage mh:temp in.target set value {}
 
 # 如果当前玩家的维度不是(dimension)，读取数据库，exactDimension=目标维度
 $execute at $(guuid) unless dimension $(dimension) run \
-    data modify storage mh:temp out set from storage mh:pdb "$(guuid)".trail[{dimension:"$(dimension)"}]
-$execute at $(guuid) unless dimension $(dimension) run \
+    data modify storage mh:temp in.target set from storage mh:pdb "$(guuid)".trail[{dimension:"$(dimension)"}]
+$execute at $(guuid) unless dimension $(dimension) unless data storage mh:temp in.exactDimension run \
     data modify storage mh:temp in.exactDimension set from entity $(guuid) Dimension
 
 # 否则返回当前的坐标，直接设置exactDimension=参数dimension
