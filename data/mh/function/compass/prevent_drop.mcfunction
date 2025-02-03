@@ -3,7 +3,7 @@
 
 ## 触发丢弃事件
 # 0:无动作 1:切换目标 2:转换为编辑模式
-execute if score 追踪器:丢弃时触发 mh.settings matches 1 if items entity @s contents compass run \
+execute if score 追踪器:丢弃时触发 mh.settings matches 1 run \
     function mh:compass/switch_target
 execute if score 追踪器:丢弃时触发 mh.settings matches 2 if items entity @s contents compass run \
     item modify entity @s contents [ \

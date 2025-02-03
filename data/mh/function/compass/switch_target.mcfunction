@@ -6,14 +6,15 @@ execute unless data entity @s Item.components."minecraft:custom_data"."mh:tracke
     on origin run function mh:compass/select/initial
 data remove storage mh:temp in.guuid
 data modify storage mh:temp in.guuid set from entity @s Item.components."minecraft:custom_data"."mh:tracker".selector
-execute if data storage mh:temp in.guuid \
+execute if items entity @s contents compass \
     on origin run function mh:compass/select/scroll with storage mh:temp in
 
 # 找到新目标，更改selector标签
-data modify entity @s Item.components."minecraft:custom_data"."mh:tracker".selector set from storage gu:main out
+execute if items entity @s contents compass run \
+    data modify entity @s Item.components."minecraft:custom_data"."mh:tracker".selector set from storage gu:main out
 
 # 调用更新函数
-data modify storage mh:temp in.guuid set from storage gu:main out
+data modify storage mh:temp in.guuid set from entity @s Item.components."minecraft:custom_data"."mh:tracker".selector
 data modify storage mh:temp in.slot set value "contents"
 data modify storage mh:temp in.dimension set from entity @s Dimension
 # 设置mh:temp的trackableCount，若可为2以上则物品修饰器copy_data_and_lore会显示额外信息
