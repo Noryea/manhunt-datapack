@@ -1,6 +1,11 @@
 execute unless entity @s[team=hunters] unless entity @s[team=runners] run \
     return fail
 
+# 设置mh:temp的trackableCount，若可为2以上则物品修饰器copy_data_and_lore会显示额外信息
+function mh:compass/util/filter_my_trackable
+execute store result storage mh:temp trackableCount int 1 if entity @a[tag=mh.trackable]
+tag @a remove mh.trackable
+
 # 设置slot参数和guuid参数
 data modify storage mh:temp in.slot set value "weapon.offhand"
 data remove storage mh:temp in.guuid

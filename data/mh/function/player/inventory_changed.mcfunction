@@ -17,12 +17,11 @@ execute if entity @s[team=runners] if score 逃者可追踪:敌人 mh.temp match
     scoreboard players set #can_have_compass mh.temp 0
 
 # 检测指南针丢弃
-execute if score #can_have_compass mh.temp matches 1 run scoreboard players set #compass_dropped mh.temp 0
-execute if score #can_have_compass mh.temp matches 1 anchored eyes positioned ^ ^ ^ as @n[type=item,distance=..6] if items entity @s contents *[minecraft:custom_data~{"mh:tracker":{}}] \
-    store result score #compass_dropped mh.temp run function mh:compass/prevent_drop
+execute if score #can_have_compass mh.temp matches 1 anchored eyes positioned ^ ^ ^ as @n[type=item,distance=..6,tag=!mh.item.pick] if items entity @s contents *[minecraft:custom_data~{"mh:tracker":{}}] run \
+    function mh:compass/prevent_drop
 
 # 判断玩家没有丢指南针，防止重复给予
-execute if entity @s[gamemode=!spectator] if score #can_have_compass mh.temp matches 1 if score #compass_dropped mh.temp matches 0 unless function mh:compass/util/if_have_item run \
+execute if entity @s[gamemode=!spectator] if score #can_have_compass mh.temp matches 1 unless entity @e[type=item,distance=..6,tag=mh.item.pick] unless function mh:compass/util/if_have_item run \
     function mh:compass/give
 
    

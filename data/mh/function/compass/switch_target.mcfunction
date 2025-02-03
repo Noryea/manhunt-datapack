@@ -16,4 +16,8 @@ data modify entity @s Item.components."minecraft:custom_data"."mh:tracker".selec
 data modify storage mh:temp in.guuid set from storage gu:main out
 data modify storage mh:temp in.slot set value "contents"
 data modify storage mh:temp in.dimension set from entity @s Dimension
+# 设置mh:temp的trackableCount，若可为2以上则物品修饰器copy_data_and_lore会显示额外信息
+execute on origin run function mh:compass/util/filter_my_trackable
+execute store result storage mh:temp trackableCount int 1 if entity @a[tag=mh.trackable]
+tag @a remove mh.trackable
 function mh:compass/update/private/update_cmd_template with storage mh:temp in

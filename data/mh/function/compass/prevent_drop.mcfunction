@@ -10,7 +10,7 @@ execute if score 追踪器:丢弃时触发 mh.settings matches 2 if items entity
 
 # 玩家可以通过丢弃退出编辑模式
 execute if items entity @s contents writable_book run \
-    item modify entity @s contents {function: "set_item", item: "compass"}
+    item modify entity @s contents [{function:"set_name",name:{"text":"追踪器","color":"white","italic": false}},{function: "set_item", item: "compass"},{function: "set_components", components: {"!minecraft:enchantment_glint_override":{}}}]
 
 ##阻止物品丢弃
 # 标记标签, 表示这是玩家要捡起的物品

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:compass"
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_name": "{\"text\":\"点击切换至编辑模式\",\"color\":\"white\",\"italic\":false}",
+      "minecraft:lodestone_tracker": {},
+      "minecraft:custom_data": {
+        "mhUI": true
+      }
+    },
+    "count": 1,
+    "id": "minecraft:compass"
+  }
+}
