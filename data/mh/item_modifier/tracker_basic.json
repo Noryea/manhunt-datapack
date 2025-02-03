@@ -1,0 +1,25 @@
+[
+  {
+    "function": "set_name",
+    "name": {
+      "text": "追踪器",
+      "color": "white",
+      "italic": false
+    }
+  },
+  {
+    "function": "set_components",
+    "components": {
+      "minecraft:max_stack_size": 1,
+
+      "minecraft:enchantments": {
+        "levels": {
+          "minecraft:vanishing_curse": 1
+        },
+        "show_in_tooltip": false
+      },
+
+      "minecraft:enchantment_glint_override": true
+    }
+  }
+]

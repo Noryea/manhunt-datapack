@@ -18,8 +18,10 @@ function mh:compass/update/private/num_to_slot with storage mh:temp in
 data remove storage mh:temp in.guuid
 data modify storage mh:temp in.guuid set from storage mh:temp invItem.components."minecraft:custom_data"."mh:tracker".selector
 
+
 # 执行更新
 function mh:compass/update/private/update_cmd_template with storage mh:temp in
 
 # 递归调用
+data remove storage mh:temp invItem
 function mh:compass/update/private/inv_foreach_hotbar

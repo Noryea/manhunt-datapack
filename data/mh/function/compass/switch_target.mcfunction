@@ -4,10 +4,8 @@
 # 以丢弃者为执行者执行函数
 execute unless data entity @s Item.components."minecraft:custom_data"."mh:tracker".selector \
     on origin run function mh:compass/select/initial
-
 data remove storage mh:temp in.guuid
 data modify storage mh:temp in.guuid set from entity @s Item.components."minecraft:custom_data"."mh:tracker".selector
-
 execute if data storage mh:temp in.guuid \
     on origin run function mh:compass/select/scroll with storage mh:temp in
 
@@ -18,5 +16,4 @@ data modify entity @s Item.components."minecraft:custom_data"."mh:tracker".selec
 data modify storage mh:temp in.guuid set from storage gu:main out
 data modify storage mh:temp in.slot set value "contents"
 data modify storage mh:temp in.dimension set from entity @s Dimension
-
 function mh:compass/update/private/update_cmd_template with storage mh:temp in

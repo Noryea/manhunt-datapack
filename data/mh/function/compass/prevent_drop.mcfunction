@@ -27,6 +27,7 @@ execute on origin unless entity @s[tag=mh.cursor.compass] unless items entity @s
     store success score #result mh.temp run \
         item replace entity @s weapon.mainhand from entity @n[type=item,distance=..7,tag=mh.item.pick] contents
 
+# 上面的操作执行成功，则杀死掉落物
 execute if score #result mh.temp matches 1.. run \
     return run kill @s
 

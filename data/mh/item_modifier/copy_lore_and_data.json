@@ -1,0 +1,75 @@
+{
+  "function": "sequence",
+  "functions": [
+    {
+      "function": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "italic": false,
+          "storage": "mh:temp",
+          "nbt": "loreText[0]",
+          "type": "nbt",
+          "interpret": true
+        }
+      ],
+      "mode": "replace_all"
+    },
+    {
+      "function": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        "",
+        {
+          "italic": false,
+          "storage": "mh:temp",
+          "nbt": "loreText[1]",
+          "type": "nbt",
+          "interpret": true
+        },
+        {
+          "italic": false,
+          "storage": "mh:temp",
+          "nbt": "loreText[2]",
+          "type": "nbt",
+          "interpret": true
+        },
+        {
+          "italic": false,
+          "storage": "mh:temp",
+          "nbt": "loreText[3]",
+          "type": "nbt",
+          "interpret": true
+        }
+      ],
+      "mode": "append",
+      "conditions": [
+        {
+          "condition": "minecraft:value_check",
+          "value": {
+            "type": "minecraft:score",
+            "score": "mh.lore.expand",
+            "target": "this"
+          },
+          "range": {
+            "min": 1
+          }
+        }
+      ]
+    },
+    {
+      "function": "minecraft:copy_custom_data",
+      "source": {
+        "type": "minecraft:storage",
+        "source": "mh:temp"
+      },
+      "ops": [
+        {
+          "source": "trackerData",
+          "target": "mh:tracker",
+          "op": "merge"
+        }
+      ]
+    }
+  ]
+}

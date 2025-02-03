@@ -25,69 +25,69 @@ execute if score 逃者死亡后 mh.settings matches 2 run \
     tellraw @s ["逃者死亡后: ",{"text":"[旁观]","color":"white","hoverEvent":{"action": "show_text","value":"逃者死亡时变成旁观者"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 逃者死亡后 mh.settings 0\"}"}}]
 
 
-data modify storage mh:temp TextList set value ['','']
+data modify storage mh:temp TextList set value [{},{}]
 execute unless score 猎人可追踪:敌人 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[0] set value '{"text":"[逃者]", "color":"gray", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 猎人可追踪:敌人 mh.settings 1\\"}" }}'
+    data modify storage mh:temp TextList[0] set value {"text":"[逃者]", "color":"gray", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 猎人可追踪:敌人 mh.settings 1\"}" }}
 execute if score 猎人可追踪:敌人 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[0] set value '{"text":"[逃者]", "color":"green", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 猎人可追踪:敌人 mh.settings 0\\"}" }}'
+    data modify storage mh:temp TextList[0] set value {"text":"[逃者]", "color":"green", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 猎人可追踪:敌人 mh.settings 0\"}" }}
 execute unless score 猎人可追踪:队友 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[1] set value '{"text":"[队友]", "color":"gray", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 猎人可追踪:队友 mh.settings 1\\"}" }}'
+    data modify storage mh:temp TextList[1] set value {"text":"[队友]", "color":"gray", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 猎人可追踪:队友 mh.settings 1\"}" }}
 execute if score 猎人可追踪:队友 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[1] set value '{"text":"[队友]", "color":"green", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 猎人可追踪:队友 mh.settings 0\\"}" }}'
+    data modify storage mh:temp TextList[1] set value {"text":"[队友]", "color":"green", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 猎人可追踪:队友 mh.settings 0\"}" }}
 tellraw @s [ "\u00a7c猎人\u00a7r可追踪: ", \
     {"nbt":"TextList[0]","storage":"mh:temp","interpret":true,"hoverEvent":{"action":"show_text","value":"点击切换"}}, \
     {"nbt":"TextList[1]","storage":"mh:temp","interpret":true,"hoverEvent":{"action":"show_text","value":"点击切换"}}\ 
 ]
 
 
-data modify storage mh:temp TextList set value ['','']
+data modify storage mh:temp TextList set value [{},{}]
 execute unless score 逃者可追踪:敌人 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[0] set value '{"text":"[猎人]", "color":"gray", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 逃者可追踪:敌人 mh.settings 1\\"}" }}'
+    data modify storage mh:temp TextList[0] set value {"text":"[猎人]", "color":"gray", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 逃者可追踪:敌人 mh.settings 1\"}" }}
 execute if score 逃者可追踪:敌人 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[0] set value '{"text":"[猎人]", "color":"green", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 逃者可追踪:敌人 mh.settings 0\\"}" }}'
+    data modify storage mh:temp TextList[0] set value {"text":"[猎人]", "color":"green", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 逃者可追踪:敌人 mh.settings 0\"}" }}
 execute unless score 逃者可追踪:队友 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[1] set value '{"text":"[队友]", "color":"gray", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 逃者可追踪:队友 mh.settings 1\\"}" }}'
+    data modify storage mh:temp TextList[1] set value {"text":"[队友]", "color":"gray", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 逃者可追踪:队友 mh.settings 1\"}" }}
 execute if score 逃者可追踪:队友 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[1] set value '{"text":"[队友]", "color":"green", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 逃者可追踪:队友 mh.settings 0\\"}" }}'
+    data modify storage mh:temp TextList[1] set value {"text":"[队友]", "color":"green", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 逃者可追踪:队友 mh.settings 0\"}" }}
 tellraw @s [ "\u00a7a逃者\u00a7r可追踪: ", \
     {"nbt":"TextList[0]","storage":"mh:temp","interpret":true,"hoverEvent":{"action":"show_text","value":"点击切换"}}, \
     {"nbt":"TextList[1]","storage":"mh:temp","interpret":true,"hoverEvent":{"action":"show_text","value":"点击切换"}}\ 
 ]
 
 
-data modify storage mh:temp TextList set value ['','','','']
+data modify storage mh:temp TextList set value [{},{},{},{}]
 execute unless score 敌人追踪器:显示距离 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[0] set value '{"text":"[距离]", "color":"gray", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 敌人追踪器:显示距离 mh.settings 1\\"}" }}'
+    data modify storage mh:temp TextList[0] set value {"text":"[距离]", "color":"gray", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 敌人追踪器:显示距离 mh.settings 1\"}" }}
 execute if score 敌人追踪器:显示距离 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[0] set value '{"text":"[距离]", "color":"green", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 敌人追踪器:显示距离 mh.settings 0\\"}" }}'
+    data modify storage mh:temp TextList[0] set value {"text":"[距离]", "color":"green", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 敌人追踪器:显示距离 mh.settings 0\"}" }}
 execute unless score 敌人追踪器:显示XZ坐标 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[1] set value '{"text":"[XZ]", "color":"gray", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 敌人追踪器:显示XZ坐标 mh.settings 1\\"}" }}'
+    data modify storage mh:temp TextList[1] set value {"text":"[XZ]", "color":"gray", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 敌人追踪器:显示XZ坐标 mh.settings 1\"}" }}
 execute if score 敌人追踪器:显示XZ坐标 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[1] set value '{"text":"[XZ]", "color":"green", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 敌人追踪器:显示XZ坐标 mh.settings 0\\"}" }}'
+    data modify storage mh:temp TextList[1] set value {"text":"[XZ]", "color":"green", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 敌人追踪器:显示XZ坐标 mh.settings 0\"}" }}
 execute unless score 敌人追踪器:显示Y坐标 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[2] set value '{"text":"[Y]", "color":"gray", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 敌人追踪器:显示Y坐标 mh.settings 1\\"}" }}'
+    data modify storage mh:temp TextList[2] set value {"text":"[Y]", "color":"gray", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 敌人追踪器:显示Y坐标 mh.settings 1\"}" }}
 execute if score 敌人追踪器:显示Y坐标 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[2] set value '{"text":"[Y]", "color":"green", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 敌人追踪器:显示Y坐标 mh.settings 0\\"}" }}'
+    data modify storage mh:temp TextList[2] set value {"text":"[Y]", "color":"green", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 敌人追踪器:显示Y坐标 mh.settings 0\"}" }}
 execute unless score 敌人追踪器:显示维度 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[3] set value '{"text":"[维度]", "color":"gray", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 敌人追踪器:显示维度 mh.settings 1\\"}" }}'
+    data modify storage mh:temp TextList[3] set value {"text":"[维度]", "color":"gray", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 敌人追踪器:显示维度 mh.settings 1\"}" }}
 execute if score 敌人追踪器:显示维度 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[3] set value '{"text":"[维度]", "color":"green", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 敌人追踪器:显示维度 mh.settings 0\\"}" }}'
+    data modify storage mh:temp TextList[3] set value {"text":"[维度]", "color":"green", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 敌人追踪器:显示维度 mh.settings 0\"}" }}
 tellraw @s [ "指南针显示敌人信息: ", \
     {"nbt":"TextList[0]","storage":"mh:temp","interpret":true,"hoverEvent":{"action":"show_text","value":"点击切换"}}, \
     {"nbt":"TextList[1]","storage":"mh:temp","interpret":true,"hoverEvent":{"action":"show_text","value":"点击切换"}}, \
@@ -96,31 +96,31 @@ tellraw @s [ "指南针显示敌人信息: ", \
 ]
 
 
-data modify storage mh:temp TextList set value ['','','','']
+data modify storage mh:temp TextList set value [{},{},{},{}]
 execute unless score 队友追踪器:显示距离 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[0] set value '{"text":"[距离]", "color":"gray", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 队友追踪器:显示距离 mh.settings 1\\"}" }}'
+    data modify storage mh:temp TextList[0] set value {"text":"[距离]", "color":"gray", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 队友追踪器:显示距离 mh.settings 1\"}" }}
 execute if score 队友追踪器:显示距离 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[0] set value '{"text":"[距离]", "color":"green", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 队友追踪器:显示距离 mh.settings 0\\"}" }}'
+    data modify storage mh:temp TextList[0] set value {"text":"[距离]", "color":"green", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 队友追踪器:显示距离 mh.settings 0\"}" }}
 execute unless score 队友追踪器:显示XZ坐标 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[1] set value '{"text":"[XZ]", "color":"gray", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 队友追踪器:显示XZ坐标 mh.settings 1\\"}" }}'
+    data modify storage mh:temp TextList[1] set value {"text":"[XZ]", "color":"gray", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 队友追踪器:显示XZ坐标 mh.settings 1\"}" }}
 execute if score 队友追踪器:显示XZ坐标 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[1] set value '{"text":"[XZ]", "color":"green", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 队友追踪器:显示XZ坐标 mh.settings 0\\"}" }}'
+    data modify storage mh:temp TextList[1] set value {"text":"[XZ]", "color":"green", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 队友追踪器:显示XZ坐标 mh.settings 0\"}" }}
 execute unless score 队友追踪器:显示Y坐标 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[2] set value '{"text":"[Y]", "color":"gray", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 队友追踪器:显示Y坐标 mh.settings 1\\"}" }}'
+    data modify storage mh:temp TextList[2] set value {"text":"[Y]", "color":"gray", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 队友追踪器:显示Y坐标 mh.settings 1\"}" }}
 execute if score 队友追踪器:显示Y坐标 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[2] set value '{"text":"[Y]", "color":"green", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 队友追踪器:显示Y坐标 mh.settings 0\\"}" }}'
+    data modify storage mh:temp TextList[2] set value {"text":"[Y]", "color":"green", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 队友追踪器:显示Y坐标 mh.settings 0\"}" }}
 execute unless score 队友追踪器:显示维度 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[3] set value '{"text":"[维度]", "color":"gray", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 队友追踪器:显示维度 mh.settings 1\\"}" }}'
+    data modify storage mh:temp TextList[3] set value {"text":"[维度]", "color":"gray", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 队友追踪器:显示维度 mh.settings 1\"}" }}
 execute if score 队友追踪器:显示维度 mh.settings matches 1 run \ 
-    data modify storage mh:temp TextList[3] set value '{"text":"[维度]", "color":"green", "clickEvent":{"action":"run_command", \ 
-    "value": "/function mh:setting/menu/show_post_executing {Command:\\"scoreboard players set 队友追踪器:显示维度 mh.settings 0\\"}" }}'
+    data modify storage mh:temp TextList[3] set value {"text":"[维度]", "color":"green", "clickEvent":{"action":"run_command", \ 
+    "value": "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 队友追踪器:显示维度 mh.settings 0\"}" }}
 tellraw @s [ "指南针显示队友信息: ", \
     {"nbt":"TextList[0]","storage":"mh:temp","interpret":true,"hoverEvent":{"action":"show_text","value":"点击切换"}}, \
     {"nbt":"TextList[1]","storage":"mh:temp","interpret":true,"hoverEvent":{"action":"show_text","value":"点击切换"}}, \
@@ -166,3 +166,4 @@ execute if score 追踪器:丢弃时触发 mh.settings matches 3 run \
 tellraw @s {"text":"[清空玩家状态]","color":"yellow","hoverEvent": {"action": "show_text","value":"重置所有玩家的血量、背包、重生点、进度和配方"},"clickEvent": {"action": "suggest_command","value": ""}}
 
 tellraw @s ""
+data remove storage mh:temp TextList

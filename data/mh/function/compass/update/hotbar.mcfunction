@@ -11,5 +11,8 @@ data modify storage mh:temp in.dimension set from entity @s Dimension
 # foreach_hotbar
 function mh:compass/update/private/inv_foreach_hotbar
 
+# 删除inv的剩余元素
+data remove storage mh:temp inv
+
 # 同时更新副手
 function mh:compass/update/weapon_offhand

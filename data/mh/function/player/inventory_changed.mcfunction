@@ -22,8 +22,8 @@ execute if score #can_have_compass mh.temp matches 1 anchored eyes positioned ^ 
     store result score #compass_dropped mh.temp run function mh:compass/prevent_drop
 
 # 判断玩家没有丢指南针，防止重复给予
-execute if score #can_have_compass mh.temp matches 1 if score #compass_dropped mh.temp matches 0 unless function mh:compass/util/if_have_compass run \
-    give @s[gamemode=!spectator] compass[minecraft:max_stack_size=1, minecraft:item_name='{"text":"追踪器","color":"white"}', minecraft:rarity="common",minecraft:enchantments={levels:{"minecraft:vanishing_curse":1},show_in_tooltip:false}, minecraft:enchantment_glint_override=true, minecraft:custom_data={"mh:tracker":{}},minecraft:lodestone_tracker={}]
+execute if entity @s[gamemode=!spectator] if score #can_have_compass mh.temp matches 1 if score #compass_dropped mh.temp matches 0 unless function mh:compass/util/if_have_item run \
+    function mh:compass/give
 
    
 ## 杀掉未捡起的指南针实体
