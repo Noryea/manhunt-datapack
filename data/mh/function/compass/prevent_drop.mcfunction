@@ -3,10 +3,14 @@
 
 ## 触发丢弃事件
 # 0:无动作 1:切换目标 2:转换为编辑模式
-execute if score 追踪器:丢弃时触发 mh.settings matches 1 run \
+execute if score 追踪器:丢弃时触发 mh.settings matches 1 if items entity @s contents compass run \
     function mh:compass/switch_target
 execute if score 追踪器:丢弃时触发 mh.settings matches 2 if items entity @s contents compass run \
-    item modify entity @s contents {function:"set_item", item:"writable_book"}
+    item modify entity @s contents [ \
+        {function:"set_name", name: {"text":"请输入追踪目标名称","color":"white","italic": true}}, \
+        {function:"set_lore", lore: [{text:"丢弃可退出编辑模式",color:"gray",italic:false}], mode: "replace_all"}, \
+        {function:"set_item", item: "writable_book"} \
+    ]
 
 # 玩家可以通过丢弃退出编辑模式
 execute if items entity @s contents writable_book run \
