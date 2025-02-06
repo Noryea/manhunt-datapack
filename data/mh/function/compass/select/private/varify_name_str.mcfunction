@@ -2,7 +2,7 @@
 # > 如果含非法字符，返回fail
 
 # 复制字符串
-$data modify storage mh:temp TextBuffer set value "$(raw)"
+$data modify storage mh:temp TextBuffer set value '$(raw)'
 
 # 初始化记分板变量
 execute store result score #len mh.temp run data get storage mh:temp TextBuffer

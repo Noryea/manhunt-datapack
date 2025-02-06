@@ -15,7 +15,7 @@ tag @a remove mh.trackable
 execute if items entity @s contents *[minecraft:custom_data~{"mh:tracker":{}}] if score #result mh.temp matches 2.. run \
     item modify entity @s contents [ \
         {function:"set_name", name: [{"text":"追踪器","color":"white","italic": false},{"text":" (编辑模式)","color":"gray","italic": false}]}, \
-        {function:"set_lore", lore: [{text:"丢弃变回指南针",color:"gray",italic:false}], mode: "replace_all"}, \
+        {function:"set_lore", lore: [{text:" 丢弃变回指南针",color:"gray",italic:false}], mode: "replace_all"}, \
         {function:"set_item", item: "writable_book"} \
     ] 
 
