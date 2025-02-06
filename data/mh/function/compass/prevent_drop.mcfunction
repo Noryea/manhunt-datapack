@@ -18,7 +18,7 @@ execute if score #result mh.temp matches 0 if items entity @s contents writable_
     item modify entity @s contents [{function:"set_components",components:{"!minecraft:writable_book_content":{}}},\
     {function: "set_name",name:{"text":"追踪器","color":"white","italic": false}},\
     {function: "set_item", item: "compass"},\
-    {function: "set_components", components: {"!minecraft:enchantment_glint_override":{}}}]
+    {function: "set_components", components: {"!minecraft:enchantment_glint_override":{},"!minecraft:lore":{}}}]
 
 ## 如果丢弃事件和目标选择有关，调用更新函数
 execute if score 追踪器:丢弃时触发 mh.settings matches 1..2 run data modify storage mh:temp in.guuid set from entity @s Item.components."minecraft:custom_data"."mh:tracker".selector
