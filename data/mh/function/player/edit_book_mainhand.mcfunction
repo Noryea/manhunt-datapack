@@ -10,7 +10,7 @@ execute store result score #flag mh.temp run \
     function mh:compass/select/private/varify_name_str with entity @s SelectedItem.components."minecraft:writable_book_content".pages[0]
 execute if score #flag mh.temp matches 0 run \
     tellraw @s "\u00a7c名称含有非法字符"
-    
+
 # 
 execute unless score #flag mh.temp matches 0 run \
     function mh:compass/select/writedown with entity @s SelectedItem.components."minecraft:writable_book_content".pages[0]

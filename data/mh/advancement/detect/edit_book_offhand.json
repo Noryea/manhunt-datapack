@@ -14,17 +14,7 @@
               }
             }
           }
-        },
-        "items": [
-          {
-            "items": "writable_book",
-            "predicates": {
-              "minecraft:custom_data": {
-                "mh:tracker": {}
-              }
-            }
-          }
-        ]
+        }
       }
     }
   },
