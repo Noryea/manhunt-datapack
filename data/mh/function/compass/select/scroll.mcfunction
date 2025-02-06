@@ -20,7 +20,7 @@ execute if score #len mh.temp matches 0 run \
     return fail
 
 # 遍历
-execute as @a[sort=arbitrary,tag=mh.trackable] run function mh:compass/select/scroll_foreach
+execute as @a[sort=arbitrary,tag=mh.trackable] run function mh:compass/select/private/scroll_trackable_foreach
 
 # 移除所有玩家的标签
 tag @a remove mh.trackable

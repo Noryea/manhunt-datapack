@@ -1,4 +1,4 @@
-# 如果玩家维度改变，记录在mh:temp的lastPos复合标签缓存的坐标到数据库
+# 如果玩家维度改变，记录在mh:temp的latestPos复合标签缓存的坐标到数据库
 function mh:gu/generate
 function mh:player/pos/save_enter_dimension with storage gu:main
 

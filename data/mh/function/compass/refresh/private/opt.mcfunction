@@ -10,9 +10,10 @@ $execute unless entity $(guuid) run \
     data modify storage mh:temp loreText[0] set value {text:"正在追踪：未知",color:"gray"}
 data remove storage mh:temp trackerData
 $data modify storage mh:temp trackerData.info.exactDimension set from entity $(guuid) Dimension
+# 物品修饰器
 $item modify entity @s $(slot) mh:copy_lore_and_data
 
-## 更新lodeStone_tracker
+## 更新lodestone_tracker
 # early return
 $execute unless entity $(guuid) run \
     return fail
@@ -22,5 +23,5 @@ $execute if score 追踪器:更新模式 mh.settings matches 3 run \
 # 不是定期更新，那么调用pos/get函数
 $execute unless score 追踪器:更新模式 mh.settings matches 3 run \
     function mh:player/pos/get {guuid: $(guuid), dimension: "$(dimension)"}
-# execute unless score 追踪器:更新模式 mh.settings matches 3 run data modify storage mh:temp in.target set from storage mh:temp out
+# 带参的物品修饰器
 function mh:compass/util/itemmodify_coord with storage mh:temp in

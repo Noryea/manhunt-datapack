@@ -13,9 +13,9 @@ data remove storage mh:temp inv[0]
 
 # 执行更新
 execute if data storage mh:temp {in:{num:-106b}} run \
-    return run function mh:compass/update/private/inv_foreach
-function mh:compass/update/private/num_to_slot with storage mh:temp in
-function mh:compass/update/private/update_cmd_template with storage mh:temp in
+    return run function mh:compass/refresh/private/inv_foreach
+function mh:compass/refresh/private/num_to_slot with storage mh:temp in
+function mh:compass/refresh/private/opt with storage mh:temp in
 
 # 递归调用
-function mh:compass/update/private/inv_foreach
+function mh:compass/refresh/private/inv_foreach

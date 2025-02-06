@@ -10,9 +10,9 @@ execute if entity @s[team=!hunters,team=!runners] run \
 scoreboard players set #can_have_compass mh.temp 1
 execute if entity @s[team=hunters] unless score 猎人可追踪:敌人 mh.settings matches 1 unless score 猎人可追踪:队友 mh.settings matches 1 run \
     scoreboard players set #can_have_compass mh.temp 0
+execute if entity @s[team=runners] store result score #runners_count mh.temp if entity @a[team=runners,gamemode=!spectator]
 execute if entity @s[team=runners] unless score 逃者可追踪:敌人 mh.settings matches 1 unless score 逃者可追踪:队友 mh.settings matches 1 run \
     scoreboard players set #can_have_compass mh.temp 0
-execute if entity @s[team=runners] store result score #runners_count mh.temp if entity @a[team=runners,gamemode=!spectator]
 execute if entity @s[team=runners] if score 逃者可追踪:敌人 mh.temp matches 1 unless score #runners_count mh.temp matches 2.. run \
     scoreboard players set #can_have_compass mh.temp 0
 
@@ -28,6 +28,17 @@ execute if entity @s[gamemode=!spectator] if score #can_have_compass mh.temp mat
 ## 杀掉未捡起的指南针实体
 execute as @e[type=item,distance=..6,tag=!mh.item.pick] if items entity @s contents *[minecraft:custom_data~{"mh:tracker":{}}] run \
     kill @s
+
+# 标记玩家指针和副手槽位指南针标签
+# (优先度应低于背包事件,否则无效)
+execute if items entity @s weapon.offhand *[minecraft:custom_data~{"mh:tracker":{}}] \
+    run tag @s add mh.offhand.compass
+execute unless items entity @s weapon.offhand *[minecraft:custom_data~{"mh:tracker":{}}] \
+    run tag @s remove mh.offhand.compass
+execute if items entity @s player.cursor *[minecraft:custom_data~{"mh:tracker":{}}] \
+    run tag @s add mh.cursor.compass
+execute unless items entity @s player.cursor *[minecraft:custom_data~{"mh:tracker":{}}] \
+    run tag @s remove mh.cursor.compass
 
 
 ## 让进度可以重新触发

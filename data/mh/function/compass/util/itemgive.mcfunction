@@ -1,5 +1,5 @@
-#args: {target}
-
+#args: {guuid, target}
+$data modify storage mh:temp trackerData.info.exactDimension set from entity $(guuid) Dimension
 $loot give @s loot \
 { \
   "type": "minecraft:generic", \

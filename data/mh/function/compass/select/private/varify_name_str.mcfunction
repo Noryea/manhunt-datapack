@@ -14,7 +14,7 @@ execute if score #len mh.temp matches 0 run \
     return 1
 
 # 遍历
-function mh:compass/select/varify_char_foreach
+function mh:compass/select/private/varify_char_foreach
 
 # 返回result的值
 return run scoreboard players get #result mh.temp

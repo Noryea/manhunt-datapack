@@ -19,4 +19,4 @@ execute if data storage mh:temp {char:"@"} run return run scoreboard players set
 execute if data storage mh:temp {char:"]"} run return run scoreboard players set #result mh.temp 0
 
 # 递归调用
-function mh:compass/select/varify_char_foreach
+function mh:compass/select/private/varify_char_foreach

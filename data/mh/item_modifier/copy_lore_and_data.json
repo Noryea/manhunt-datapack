@@ -18,14 +18,7 @@
           "nbt": "loreText[1]",
           "type": "nbt",
           "interpret": true
-        }
-      ],
-      "mode": "replace_all"
-    },
-    {
-      "function": "minecraft:set_lore",
-      "entity": "this",
-      "lore": [
+        },
         "",
         {
           "italic": false,
@@ -40,29 +33,9 @@
           "nbt": "loreText[3]",
           "type": "nbt",
           "interpret": true
-        },
-        {
-          "italic": false,
-          "storage": "mh:temp",
-          "nbt": "loreText[4]",
-          "type": "nbt",
-          "interpret": true
         }
       ],
-      "mode": "append",
-      "conditions": [
-        {
-          "condition": "minecraft:value_check",
-          "value": {
-            "type": "minecraft:storage",
-            "storage": "mh:temp",
-            "path": "trackableCount"
-          },
-          "range": {
-            "min": 2
-          }
-        }
-      ]
+      "mode": "replace_all"
     },
     {
       "function": "minecraft:copy_custom_data",

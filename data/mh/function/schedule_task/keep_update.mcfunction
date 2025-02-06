@@ -25,12 +25,12 @@ execute unless score 追踪器:更新模式 mh.settings matches 0 unless score �
 
 ## 快捷栏更新
 execute if score 追踪器:更新模式 mh.settings matches 1 \
-    as @a[gamemode=!spectator] at @s run function mh:compass/update/hotbar
+    as @a[gamemode=!spectator] at @s run function mh:compass/refresh/hotbar
 ## 手持更新
 execute if score 追踪器:更新模式 mh.settings matches 2 \
-    as @a[gamemode=!spectator] at @s run function mh:compass/update/weapon_mainhand
+    as @a[gamemode=!spectator] at @s run function mh:compass/refresh/weapon_mainhand
 execute if score 追踪器:更新模式 mh.settings matches 2 \
-    as @a[gamemode=!spectator] at @s run function mh:compass/update/weapon_offhand
+    as @a[gamemode=!spectator] at @s run function mh:compass/refresh/weapon_offhand
 
 ## 定期更新（即全背包更新）
 # early return
@@ -50,5 +50,5 @@ bossbar set mh:compass_timer name [{"text":"距离指南针更新还有: ","colo
 execute store result bossbar mh:compass_timer max run scoreboard players get 追踪器:定期更新周期秒数 mh.settings
 execute store result bossbar mh:compass_timer value run scoreboard players get 定期更新倒计时 mh.temp
 # 更新追踪者的指南针
-execute as @a[gamemode=!spectator] at @s run function mh:compass/update/inventory
+execute as @a[gamemode=!spectator] at @s run function mh:compass/refresh/inventory
 

@@ -5,7 +5,7 @@
       "conditions": {
         "player": {
           "slots": {
-            "weapon.mainhand": {
+            "weapon.offhand": {
               "items": "writable_book",
               "predicates": {
                 "minecraft:custom_data": {
