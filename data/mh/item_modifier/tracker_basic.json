@@ -19,5 +19,9 @@
 
       "minecraft:enchantment_glint_override": true
     }
+  },
+  {
+    "function": "reference",
+    "name": "use_remain_helper:add_flag"
   }
 ]

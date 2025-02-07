@@ -1,0 +1,2 @@
+function #use_remain_helper:rightclicked_offhand
+advancement revoke @s only use_remain_helper:detect/use_offhand

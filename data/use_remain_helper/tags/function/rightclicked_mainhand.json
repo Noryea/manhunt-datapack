@@ -1,6 +1,6 @@
 {
     "values": [
-        "mh:compass/adapter_use_remain_helper/manage_consume_mainhand",
+        "mh:compass/adapter_use_remain_helper/use_compass_mainhand",
         "use_remain_helper:add_remainder_mainhand"
     ]
 }

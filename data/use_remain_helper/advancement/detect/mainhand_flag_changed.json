@@ -1,0 +1,56 @@
+{
+  "criteria": {
+    "true": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": {
+          "slots": {
+            "weapon.mainhand": {
+              "predicates": {
+                "minecraft:custom_data": {
+                  "ur:remaining_flag": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "false": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": [
+          {
+            "condition": "inverted",
+            "term": {
+              "condition": "entity_properties",
+              "entity": "this",
+              "predicate": {
+                "slots": {
+                  "weapon.mainhand": {
+                    "predicates": {
+                      "minecraft:custom_data": {
+                        "ur:remaining_flag": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "true"
+    ],
+    [
+      "false"
+    ]
+  ],
+  "rewards": {
+    "function": "use_remain_helper:player/mainhand_toggle"
+  }
+}

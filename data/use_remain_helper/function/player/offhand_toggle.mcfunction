@@ -1,0 +1,2 @@
+function #use_remain_helper:set_offhand
+advancement revoke @s only use_remain_helper:detect/offhand_flag_changed

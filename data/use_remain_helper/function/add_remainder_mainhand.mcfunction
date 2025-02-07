@@ -1,4 +1,6 @@
 # early return
+execute unless items entity @s weapon.mainhand *[minecraft:consumable] \
+    run return fail
 execute unless items entity @s weapon.mainhand *[minecraft:custom_data~{"ur:remaining_flag":true}] \
     run return fail
 

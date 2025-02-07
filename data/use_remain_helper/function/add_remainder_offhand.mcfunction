@@ -1,7 +1,8 @@
 # early return
+execute unless items entity @s weapon.offhand *[minecraft:consumable] \
+    run return fail
 execute unless items entity @s weapon.offhand *[minecraft:custom_data~{"ur:remaining_flag":true}] \
     run return fail
-
 
 ## Set "ur:offhand_marker" tag to distinct mainhand and offhand, since minecraft don't provide item slot source directly.
 item modify entity @s weapon.offhand {"function":"minecraft:set_custom_data","tag":{"ur:offhand_marker":true}}

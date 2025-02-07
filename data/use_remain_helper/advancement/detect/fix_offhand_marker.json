@@ -24,6 +24,6 @@
     ]
   ],
   "rewards": {
-    "function": "use_remain_helper:fix_offhand_marker"
+    "function": "use_remain_helper:player/fix_offhand_marker"
   }
 }

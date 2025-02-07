@@ -130,16 +130,16 @@ tellraw @s [ "指南针显示队友信息: ", \
 
 
 execute unless score 追踪器:更新模式 mh.settings matches 1..3 run \
-    tellraw @s ["指南针更新模式: ",{"text":"[右键更新(*需1.21.2+)]","color":"yellow","hoverEvent":{"action": "show_text","value":"让指南针变成可使用物品，需要玩家手动更新"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 追踪器:更新模式 mh.settings 1\"}"}}, \
+    tellraw @s ["指南针更新模式: ",{"text":"[右键更新(*需1.21.2+)]","color":"yellow","hoverEvent":{"action": "show_text","value":"让指南针变成可使用物品，需要玩家手动更新"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/set_value/switch_refresh_mode"}}, \
   "  使用冷却=", {"score": { "objective": "mh.settings", "name": "追踪器:右键更新周期游戏刻" }, "color": "green", "underlined": true, "hoverEvent":{"action": "show_text","value":"(可修改成任意整数,0表示无冷却)"},"clickEvent":{"action":"suggest_command","value":"/function mh:setting/menu/set_value/use_delay {Value: \"请输入\"}"}},{"text": "ticks", "color": "green"}]
 execute if score 追踪器:更新模式 mh.settings matches 1 run \
-    tellraw @s ["指南针更新模式: ",{"text":"[快捷栏更新]","color":"green","hoverEvent":{"action": "show_text","value":"自动更新玩家快捷栏中所有指南针"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 追踪器:更新模式 mh.settings 2\"}"}}, \
+    tellraw @s ["指南针更新模式: ",{"text":"[快捷栏更新]","color":"green","hoverEvent":{"action": "show_text","value":"自动更新玩家快捷栏中所有指南针"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/set_value/switch_refresh_mode"}}, \
   "  更新周期=", {"score": { "objective": "mh.settings", "name": "追踪器:快捷栏更新周期游戏刻" }, "color": "green", "underlined": true, "hoverEvent":{"action": "show_text","value":"(可修改成1~40)"},"clickEvent":{"action":"suggest_command","value":"/function mh:setting/menu/set_value/hotbar_update_delay {Value: \"请输入\"}"}},{"text": "ticks", "color": "green"}]
 execute if score 追踪器:更新模式 mh.settings matches 2 run \
-    tellraw @s ["指南针更新模式: ",{"text":"[手持更新]","color":"green","hoverEvent":{"action": "show_text","value":"只有玩家手持指南针时才更新"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 追踪器:更新模式 mh.settings 3\"}"}}, \
+    tellraw @s ["指南针更新模式: ",{"text":"[手持更新]","color":"green","hoverEvent":{"action": "show_text","value":"只有玩家手持指南针时才更新"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/set_value/switch_refresh_mode"}}, \
   "  更新周期=", {"score": { "objective": "mh.settings", "name": "追踪器:手持更新周期游戏刻" }, "color": "green", "underlined": true, "hoverEvent":{"action": "show_text","value":"(可修改成1~40)"},"clickEvent":{"action":"suggest_command","value":"/function mh:setting/menu/set_value/hand_update_delay {Value: \"请输入\"}"}},{"text": "ticks", "color": "green"}]
 execute if score 追踪器:更新模式 mh.settings matches 3 run \
-    tellraw @s ["指南针更新模式: ",{"text":"[定期更新]","color":"green","hoverEvent":{"action": "show_text","value":"定期更新玩家背包中所有指南针"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 追踪器:更新模式 mh.settings 0\"}"}}, \
+    tellraw @s ["指南针更新模式: ",{"text":"[定期更新]","color":"green","hoverEvent":{"action": "show_text","value":"定期更新玩家背包中所有指南针"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/set_value/switch_refresh_mode"}}, \
   "  更新周期=", {"score": { "objective": "mh.settings", "name": "追踪器:定期更新周期秒数" }, "color": "green", "underlined": true, "hoverEvent":{"action": "show_text","value":"(最少1)"},"clickEvent":{"action":"suggest_command","value":"/function mh:setting/menu/set_value/timely_update_sec {Value: \"请输入\"}"}},{"text": "秒", "color": "green"}]
 
 

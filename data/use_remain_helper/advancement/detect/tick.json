@@ -10,6 +10,6 @@
     ]
   ],
   "rewards": {
-    "function": "use_remain_helper:tick"
+    "function": "use_remain_helper:player/tick"
   }
 }
