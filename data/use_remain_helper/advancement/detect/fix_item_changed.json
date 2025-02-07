@@ -1,0 +1,26 @@
+{
+  "criteria": {
+    "inv_changed": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "minecraft:custom_data": {
+                "ur:remaining_flag": true
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "inv_changed"
+    ]
+  ],
+  "rewards": {
+    "function": "use_remain_helper:player/fix_item_changed"
+  }
+}

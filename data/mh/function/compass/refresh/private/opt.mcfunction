@@ -16,9 +16,9 @@ $execute unless entity $(guuid) run \
 data remove storage mh:temp trackerData
 # 实际维度
 $data modify storage mh:temp trackerData.info.exactDimension set from entity $(guuid) Dimension
-# 如果是1秒定期更新，则往指南针写入游戏时间，使物品总是动一下
-execute if score 追踪器:更新模式 mh.settings matches 3 if score 追踪器:定期更新周期秒数 mh.settings matches 1 \
-    store result storage mh:temp trackerData.info.gameTime long 1 run time query gametime
+# 如果是定期更新，则往指南针写入游戏时间，确保物品总是动一下
+execute if score 追踪器:更新模式 mh.settings matches 3 store result storage mh:temp trackerData.info.gameTime long 1 run time query gametime
+execute unless score 追踪器:更新模式 mh.settings matches 3 run data remove storage mh:temp trackerData.info.gameTime
 # 物品修饰器
 $item modify entity @s $(slot) mh:copy_lore_and_data
 
