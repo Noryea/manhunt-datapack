@@ -61,7 +61,6 @@ execute unless score 追踪器:更新模式 mh.settings matches 3 run function m
 function mh:compass/util/construct_lore
 
 # trackerData
-data modify storage mh:temp trackerData set value {}
 data modify storage mh:temp trackerData.selector set from storage mh:temp in.guuid
 
 # 带参的物品修饰器
