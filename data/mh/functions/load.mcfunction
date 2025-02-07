@@ -46,4 +46,4 @@ execute in minecraft:overworld run setblock 29999985 254 29999984 shulker_box
 bossbar add mh:freeze ""
 
 function mh:keep_every_sec
-function mh:keep_every_10t
+function mh:keep_every_12t
