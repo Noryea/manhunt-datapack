@@ -1,3 +1,15 @@
+##记录坐标
+execute as @a store result score @s mh.pos.x run data get entity @s Pos[0] 1
+execute as @a store result score @s mh.pos.y run data get entity @s Pos[1] 1
+execute as @a store result score @s mh.pos.z run data get entity @s Pos[2] 1
+
+##触发器
+scoreboard players enable @a mh.tracking
+
+scoreboard players enable @a mh.join
+scoreboard players enable @a mh.join.hunters
+scoreboard players enable @a mh.join.runners
+
 # 猎人函数
 execute as @a[team=hunters] at @s run function mh:players/hunters/main
 

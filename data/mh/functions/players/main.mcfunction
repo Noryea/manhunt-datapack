@@ -16,14 +16,3 @@ execute if entity @s[team=hunters] run advancement grant @s only mh:gui/hunter
 execute unless entity @s[team=runners] run advancement revoke @s only mh:gui/runner
 execute if entity @s[team=runners] run advancement grant @s only mh:gui/runner
 
-##获取坐标
-execute store result score @s mh.pos.x run data get entity @s Pos[0] 1
-execute store result score @s mh.pos.y run data get entity @s Pos[1] 1
-execute store result score @s mh.pos.z run data get entity @s Pos[2] 1
-
-##触发器
-scoreboard players enable @s mh.tracking
-
-scoreboard players enable @s mh.join
-scoreboard players enable @s mh.join.hunters
-scoreboard players enable @s mh.join.runners

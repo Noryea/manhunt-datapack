@@ -68,5 +68,5 @@ kill 0-0-0-0-0ea
 scoreboard players set #10 mh.temp 10
 scoreboard players operation distance_小数点前 mh.temp = distance mh.temp
 scoreboard players operation distance_小数点前 mh.temp /= #10 mh.temp
-scoreboard players operation distance_小数点后一位 mh.temp = distance mh.temp
-scoreboard players operation distance_小数点后一位 mh.temp %= #10 mh.temp
+# scoreboard players operation distance_小数点后一位 mh.temp = distance mh.temp
+# scoreboard players operation distance_小数点后一位 mh.temp %= #10 mh.temp
