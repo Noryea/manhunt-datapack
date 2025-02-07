@@ -13,8 +13,14 @@ execute if score @s mh.join.runners matches 1.. if score 允许自由选队 mh.s
 execute if score @s[team=!runners] mh.join.runners matches 1.. unless score 允许自由选队 mh.settings matches 0 run team join runners
 scoreboard players set @s mh.join.runners 0
 
+# 进度界面区分队伍
+execute if entity @s[team=hunters] run advancement grant @s only mh:gui/hunter
+execute if entity @s[team=hunters] run advancement revoke @s only mh:gui/runner
+execute if entity @s[team=runners] run advancement grant @s only mh:gui/runner
+execute if entity @s[team=runners] run advancement revoke @s only mh:gui/hunter
+
 # 死亡记分项重置
 execute if score @s[nbt=!{Health:0.0f}] mh.died.listener matches 1.. run scoreboard players set @s mh.died.listener 0
 
-# 让tick_12t进度可以重新触发
+# 让进度可以重新触发
 advancement revoke @s only mh:detect/tick_12t

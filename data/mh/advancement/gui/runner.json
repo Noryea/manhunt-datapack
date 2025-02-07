@@ -1,0 +1,28 @@
+{
+  "parent": "mh:gui/join",
+  "display": {
+    "icon": {
+      "id": "minecraft:golden_boots"
+    },
+    "title": {
+      "text": "\u00a7a你是逃者!"
+    },
+    "description": {
+      "text": ""
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "runner": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "runner"
+    ]
+  ]
+}

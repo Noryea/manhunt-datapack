@@ -50,7 +50,7 @@ execute unless data storage gu:main out run \
               "function": "minecraft:set_components", \
               "components": { \
                 "minecraft:lodestone_tracker": { \
-                  "target": {pos:[I;0,0,0],dimension:"mh:impossible"}, \
+                  "target": {pos:[I;0,-64,0],dimension:"minecraft:overworld"}, \
                   "tracked": true \
                 } \
               } \

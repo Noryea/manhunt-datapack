@@ -18,3 +18,6 @@ execute unless score 追踪器:右键更新周期游戏刻 mh.settings matches 0
 # 马上重新运行
 execute if score 追踪器:右键更新周期游戏刻 mh.settings matches 0.. run \
     schedule function mh:schedule_task/keep_update 1t replace
+
+# update inventory
+execute as @a at @s run function mh:compass/refresh/inventory

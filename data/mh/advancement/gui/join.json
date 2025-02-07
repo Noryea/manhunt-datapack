@@ -1,0 +1,28 @@
+{
+  "parent": "mh:gui/menu",
+  "display": {
+    "icon": {
+      "id": "minecraft:note_block"
+    },
+    "title": {
+      "text": "选择队伍(猎人/逃者)"
+    },
+    "description": {
+      "text": "\u00a7e/trigger mh.join.hunters或runners"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "join": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "requirements": [
+    [
+      "join"
+    ]
+  ]
+}
