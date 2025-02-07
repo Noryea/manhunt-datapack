@@ -21,7 +21,7 @@ execute unless data storage gu:main out run \
 execute unless data storage gu:main out run \
     return run advancement revoke @s only mh:detect/edit_book
 
-# loreText
+# itemInfoText
 function mh:compass/util/construct_lore
 # trackerData
 data modify storage mh:temp trackerData set value {}

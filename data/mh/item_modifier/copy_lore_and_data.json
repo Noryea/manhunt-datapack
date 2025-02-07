@@ -2,20 +2,24 @@
   "function": "sequence",
   "functions": [
     {
+      "function": "minecraft:set_name",
+      "name": {
+        "italic": false,
+        "storage": "mh:temp",
+        "nbt": "itemInfoText[0]",
+        "type": "nbt",
+        "interpret": true
+      },
+      "entity": "this"
+    },
+    {
       "function": "minecraft:set_lore",
       "entity": "this",
       "lore": [
         {
           "italic": false,
           "storage": "mh:temp",
-          "nbt": "loreText[0]",
-          "type": "nbt",
-          "interpret": true
-        },
-        {
-          "italic": false,
-          "storage": "mh:temp",
-          "nbt": "loreText[1]",
+          "nbt": "itemInfoText[1]",
           "type": "nbt",
           "interpret": true
         },
@@ -23,14 +27,14 @@
         {
           "italic": false,
           "storage": "mh:temp",
-          "nbt": "loreText[2]",
+          "nbt": "itemInfoText[2]",
           "type": "nbt",
           "interpret": true
         },
         {
           "italic": false,
           "storage": "mh:temp",
-          "nbt": "loreText[3]",
+          "nbt": "itemInfoText[3]",
           "type": "nbt",
           "interpret": true
         }
