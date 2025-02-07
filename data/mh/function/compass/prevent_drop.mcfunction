@@ -1,6 +1,9 @@
 # @executor: 指南针掉落物
 # > 阻止物品丢弃
 
+# 记录旧的guuid
+data remove storage mh:temp in.guuid
+execute if score 追踪器:丢弃时触发 mh.settings matches 1..2 run data modify storage mh:temp in.guuid set from entity @s Item.components."minecraft:custom_data"."mh:tracker".selector
 ## 触发丢弃事件
 # 0:无动作 1:切换目标 2:转换为编辑模式
 execute if score 追踪器:丢弃时触发 mh.settings matches 1 run \
@@ -14,6 +17,14 @@ execute if score 追踪器:丢弃时触发 mh.settings matches 2 if items entity
         {function:"set_components", components: {"!consumable":{}}} \
     ]
 
+## 如果丢弃事件和目标选择有关，*且目标改变*，调用更新函数
+scoreboard players set #result mh.temp 0
+execute if score 追踪器:丢弃时触发 mh.settings matches 1..2 store result score #result mh.temp run data modify storage mh:temp in.guuid set from entity @s Item.components."minecraft:custom_data"."mh:tracker".selector
+execute if score #result mh.temp matches 1 run data modify storage mh:temp in.slot set value "contents"
+execute if score #result mh.temp matches 1 on origin run data modify storage mh:temp in.dimension set from entity @s Dimension
+execute if score #result mh.temp matches 1 if score 追踪器:丢弃时触发 mh.settings matches 1 run function mh:compass/refresh/private/opt with storage mh:temp in
+execute if score #result mh.temp matches 1 if score 追踪器:丢弃时触发 mh.settings matches 2 if items entity @s contents compass run function mh:compass/refresh/private/opt with storage mh:temp in
+
 ## 玩家可以通过丢弃退出编辑模式
 execute if score #result mh.temp matches 0 if items entity @s contents writable_book run \
     item modify entity @s contents [{function:"set_components",components:{"!minecraft:writable_book_content":{}}},\
@@ -21,14 +32,7 @@ execute if score #result mh.temp matches 0 if items entity @s contents writable_
     {function: "set_item", item: "compass"},\
     {function: "set_components", components: {"!minecraft:enchantment_glint_override":{},"!minecraft:lore":{}}}]
 
-## 如果丢弃事件和目标选择有关，调用更新函数
-execute if score 追踪器:丢弃时触发 mh.settings matches 1..2 run data modify storage mh:temp in.guuid set from entity @s Item.components."minecraft:custom_data"."mh:tracker".selector
-execute if score 追踪器:丢弃时触发 mh.settings matches 1..2 run data modify storage mh:temp in.slot set value "contents"
-execute if score 追踪器:丢弃时触发 mh.settings matches 1..2 on origin run data modify storage mh:temp in.dimension set from entity @s Dimension
-execute if score 追踪器:丢弃时触发 mh.settings matches 1 run function mh:compass/refresh/private/opt with storage mh:temp in
-execute if score 追踪器:丢弃时触发 mh.settings matches 2 if items entity @s contents compass run function mh:compass/refresh/private/opt with storage mh:temp in
-
-##阻止物品丢弃
+## 阻止物品丢弃
 # 标记标签, 表示这是玩家要捡起的物品
 tag @s add mh.item.pick
 scoreboard players set #result mh.temp 0
