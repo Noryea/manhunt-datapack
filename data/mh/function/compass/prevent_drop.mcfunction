@@ -24,7 +24,7 @@ execute if score #result mh.temp matches 0 if items entity @s contents writable_
 ## 如果丢弃事件和目标选择有关，调用更新函数
 execute if score 追踪器:丢弃时触发 mh.settings matches 1..2 run data modify storage mh:temp in.guuid set from entity @s Item.components."minecraft:custom_data"."mh:tracker".selector
 execute if score 追踪器:丢弃时触发 mh.settings matches 1..2 run data modify storage mh:temp in.slot set value "contents"
-execute if score 追踪器:丢弃时触发 mh.settings matches 1..2 run data modify storage mh:temp in.dimension set from entity @s Dimension
+execute if score 追踪器:丢弃时触发 mh.settings matches 1..2 on origin run data modify storage mh:temp in.dimension set from entity @s Dimension
 execute if score 追踪器:丢弃时触发 mh.settings matches 1 run function mh:compass/refresh/private/opt with storage mh:temp in
 execute if score 追踪器:丢弃时触发 mh.settings matches 2 if items entity @s contents compass run function mh:compass/refresh/private/opt with storage mh:temp in
 
