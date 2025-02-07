@@ -7,6 +7,7 @@
 execute unless data storage mh:temp itemInfoText run \
     data modify storage mh:temp itemInfoText set value [{text:"正在追踪: ",color:"white", extra:[{selector:""}]},{},{text:"丢弃时触发：", color: "gray"},{}]
 # selector直接从in.guuid复制
+data modify storage mh:temp itemInfoText[0] set value {text:"正在追踪: ",color:"white", extra:[{selector:""}]}
 data modify storage mh:temp itemInfoText[0].extra[0].selector set from storage mh:temp in.guuid
 
 # 0:右键更新 1:快捷栏更新 2:手持更新 3:定期更新

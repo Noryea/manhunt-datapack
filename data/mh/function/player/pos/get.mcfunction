@@ -10,17 +10,14 @@ $execute if score $(guuid) mh.pdb.querytime = 当前gametime mh.pdb.querytime if
 # 先设置输出成空标签
 data modify storage mh:temp in.target set value {}
 
-# 如果当前玩家的维度不是(dimension)，读取数据库，exactDimension=目标维度
+# 如果当前玩家的维度不是(dimension)，读取数据库
 $execute at $(guuid) unless dimension $(dimension) run \
     data modify storage mh:temp in.target set from storage mh:pdb "$(guuid)".trail[{dimension:"$(dimension)"}]
-$execute at $(guuid) unless dimension $(dimension) unless data storage mh:temp in.exactDimension run \
-    data modify storage mh:temp in.exactDimension set from entity $(guuid) Dimension
 
-# 否则返回当前的坐标，直接设置exactDimension=参数dimension
-$execute at $(guuid) if dimension $(dimension) run \
+# 否则返回当前的方块坐标
+$execute at $(guuid) if dimension $(dimension) summon marker run function mh:player/pos/__marker_block_pos
+# $execute at $(guuid) if dimension $(dimension) run \
     data modify storage mh:temp in.target.pos set from entity $(guuid) Pos
-$execute at $(guuid) if dimension $(dimension) run \
-    data modify storage mh:temp in.exactDimension set value "$(dimension)"
 $data modify storage mh:temp in.target.dimension set value "$(dimension)"
 
 # 保存输出到lastOutPut
