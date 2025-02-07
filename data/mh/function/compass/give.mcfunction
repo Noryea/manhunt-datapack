@@ -21,18 +21,6 @@ execute unless data storage gu:main out run \
               "name": "mh:tracker_basic" \
             }, \
             { \
-            "function": "minecraft:set_lore", \
-            "entity": "this", \
-            "lore": [ \
-              { \
-                "italic": false, \
-                "color": "gray", \
-                "text": "正在追踪：无" \
-              } \
-            ], \
-            "mode": "replace_all" \
-            }, \
-            { \
               "function": "minecraft:copy_custom_data", \
               "source": { \
                 "type": "minecraft:storage", \
@@ -66,9 +54,10 @@ execute unless data storage gu:main out run \
 # 有可追踪的玩家
 data modify storage mh:temp in.guuid set from storage gu:main out
 data modify storage mh:temp in.dimension set from entity @s Dimension
+data modify storage mh:temp in.target set value {pos:[I;0,-64,0],dimension:"minecraft:overworld"}
 execute unless score 追踪器:更新模式 mh.settings matches 3 run function mh:player/pos/get with storage mh:temp in
 
-# loreText
+# itemInfoText
 function mh:compass/util/construct_lore
 
 # trackerData
