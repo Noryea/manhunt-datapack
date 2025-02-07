@@ -8,6 +8,10 @@ data modify storage mh:temp in.num set from storage mh:temp inv[0].Slot
 data remove storage mh:temp in.guuid
 data modify storage mh:temp in.guuid set from storage mh:temp inv[0].components."minecraft:custom_data"."mh:tracker".selector
 
+# 如果物品没有selector，用初始guuid
+execute unless data storage mh:temp in.guuid \
+    unless function mh:compass/select/initial run data modify storage mh:temp in.guuid set from storage gu:main out
+
 # 用完后弹出inv的第一项
 data remove storage mh:temp inv[0]
 

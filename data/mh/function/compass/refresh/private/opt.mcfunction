@@ -12,7 +12,7 @@ function mh:compass/util/itemmodify_rightclick with storage mh:temp in
 execute if entity @s[type=item] on origin run function mh:compass/util/construct_lore
 execute unless entity @s[type=item] run function mh:compass/util/construct_lore
 $execute unless entity $(guuid) run \
-    data modify storage mh:temp itemInfoText[0] set value {text:"正在追踪：未知",color:"gray"}
+    data modify storage mh:temp itemInfoText[0] set value {text:"正在追踪: ",color:"white",extra: [{text:"未知",color:"gray"}]}
 data remove storage mh:temp trackerData
 # 实际维度
 $data modify storage mh:temp trackerData.info.exactDimension set from entity $(guuid) Dimension
