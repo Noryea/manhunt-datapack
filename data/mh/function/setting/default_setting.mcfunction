@@ -56,6 +56,8 @@ scoreboard players set 追踪器:手持更新周期游戏刻 mh.settings 12
 ##
 scoreboard players set 追踪器:定期更新周期秒数 mh.settings 1
 ##
+scoreboard players set 追踪器:右键更新音效 mh.settings 1
+##
 scoreboard players set 追踪器:定期更新计时器bossBar mh.settings 0
 ##  0:无动作 1:切换目标 2:转换为编辑模式 3:执行命令
 scoreboard players set 追踪器:丢弃时触发 mh.settings 1
