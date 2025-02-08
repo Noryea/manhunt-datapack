@@ -4,8 +4,9 @@
 
 # 优化：如果在同一tick内重复读取，直接返回lastOutPut
 execute store result score 当前gametime mh.pdb.querytime run time query gametime
-$execute if score $(guuid) mh.pdb.querytime = 当前gametime mh.pdb.querytime if data storage mh:pdb {"$(guuid)":{lastQueryDimension:"$(dimension)"}} run \
+$execute if score $(guuid) mh.pdb.querytime = 当前gametime mh.pdb.querytime if data storage mh:pdb "$(guuid)".lastQueryDimension."$(dimension)" run \
     return run data modify storage mh:temp in.target set from storage mh:pdb "$(guuid)".lastOutPut."$(dimension)"
+$execute unless score $(guuid) mh.pdb.querytime = 当前gametime mh.pdb.querytime run data remove storage mh:pdb "$(guuid)".lastQueryDimension
 
 # 先设置输出成空标签
 data modify storage mh:temp in.target set value {}
@@ -21,6 +22,6 @@ $execute at $(guuid) if dimension $(dimension) summon marker run function mh:pla
 $data modify storage mh:temp in.target.dimension set value "$(dimension)"
 
 # 保存输出到lastOutPut
-$data modify storage mh:pdb "$(guuid)".lastQueryDimension set value "$(dimension)"
+$data modify storage mh:pdb "$(guuid)".lastQueryDimension."$(dimension)" set value 1b
 $data modify storage mh:pdb "$(guuid)".lastOutPut."$(dimension)" set from storage mh:temp in.target
 $scoreboard players operation $(guuid) mh.pdb.querytime = 当前gametime mh.pdb.querytime
