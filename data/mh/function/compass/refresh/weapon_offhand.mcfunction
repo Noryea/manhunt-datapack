@@ -1,5 +1,7 @@
 execute unless entity @s[team=hunters] unless entity @s[team=runners] run \
     return fail
+execute unless items entity @s weapon.offhand compass[minecraft:custom_data~{"mh:tracker":{}}] run \
+    return fail
 
 # 设置slot参数和guuid参数
 data modify storage mh:temp in.slot set value "weapon.offhand"

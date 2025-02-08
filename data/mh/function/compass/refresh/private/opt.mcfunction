@@ -5,12 +5,15 @@ $data modify storage mh:temp in.slot set value "$(slot)"
 $data modify storage mh:temp in.guuid set value "$(guuid)"
 # 如果目标不在线 移除in.guuid
 $execute unless entity $(guuid) run data remove storage mh:temp in.guuid
-# 判断目标是否为指南针持有者的可追踪玩家之一 不是则移除in.guuid
+# 判断目标是否为指南针持有者的可追踪玩家之一 不是则设置初始guuid
+scoreboard players set #flag mh.temp 1
 $execute if entity $(guuid) if entity @s[type=item] on origin run function mh:compass/util/filter_my_trackable
 $execute if entity $(guuid) unless entity @s[type=item] run function mh:compass/util/filter_my_trackable
 $execute as $(guuid) store result score #flag mh.temp if entity @s[tag=mh.trackable]
 tag @a remove mh.trackable
-execute if score #flag mh.temp matches 0 run data remove storage mh:temp in.guuid
+execute if score #flag mh.temp matches 0 if entity @s[type=item] on origin run function mh:compass/select/initial
+execute if score #flag mh.temp matches 0 unless entity @s[type=item] run function mh:compass/select/initial
+execute if score #flag mh.temp matches 0 run data modify storage mh:temp in.guuid set from storage gu:main out
 
 ## 更新右键使用组件
 execute store result storage mh:temp in.cooldownSec float 0.05 run scoreboard players get 追踪器:右键更新周期游戏刻 mh.settings
