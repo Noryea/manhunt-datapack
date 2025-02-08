@@ -2,7 +2,7 @@
 # > 让掉落物变成玩家刚合成时消耗的追踪器的复制，并变成书与笔
 # data merge entity @s {Item:{id:"compass", count:1b},Age:4000s,PickupDelay:0,Tags:["mh.item.pick"]}
 data modify entity @s Thrower set from entity @p[tag=this] UUID
-data modify entity @s Owner set from entity @p[tag=this] UUID
+data modify entity @s Owner set from entity @s Thrower
 execute if items entity @p[tag=this] player.crafting.0 compass run item replace entity @s contents from entity @p[tag=this] player.crafting.0
 execute if items entity @p[tag=this] player.crafting.1 compass run item replace entity @s contents from entity @p[tag=this] player.crafting.1
 execute if items entity @p[tag=this] player.crafting.2 compass run item replace entity @s contents from entity @p[tag=this] player.crafting.2

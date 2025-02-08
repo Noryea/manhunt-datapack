@@ -2,9 +2,6 @@
 execute if items entity @s weapon.offhand writable_book[minecraft:writable_book_content={"pages":[]}] run \
     return run advancement revoke @s only mh:detect/edit_book_offhand
 
-# remove "out" nbt
-data remove storage gu:main out
-
 # 验证非法字符
 scoreboard players set #flag mh.temp 1
 data modify storage mh:temp TextBuffer set from entity @s Inventory[{Slot:-106b}].components."minecraft:writable_book_content".pages[0]
@@ -15,6 +12,9 @@ scoreboard players set #result mh.temp 1
 
 function mh:compass/select/private/varify_char_foreach
 execute if score #flag mh.temp matches 0 run tellraw @s "\u00a7c名称含有非法字符"
+
+# remove "out" nbt
+data remove storage gu:main out
 
 ## 调用从书的内容读取id尝试选择的函数
 execute unless score #flag mh.temp matches 0 run \

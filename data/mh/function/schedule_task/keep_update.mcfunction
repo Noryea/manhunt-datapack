@@ -41,7 +41,7 @@ execute unless score 定期更新倒计时 mh.temp matches 1.. run scoreboard pl
 execute if score 定期更新倒计时 mh.temp > 追踪器:定期更新周期秒数 mh.settings run scoreboard players operation 定期更新倒计时 mh.temp = 追踪器:定期更新周期秒数 mh.settings
 # 倒计时完了，获取最新坐标
 execute if score 定期更新倒计时 mh.temp = 追踪器:定期更新周期秒数 mh.settings \
-    as @a[gamemode=!spectator] run function mh:player/pos/get_all_output
+    as @a[gamemode=!spectator] run function mh:player/pos/update_all_pdb with storage gu:main
 # boss条同步
 bossbar set mh:compass_timer players @a
 execute if score 追踪器:定期更新计时器bossBar mh.settings matches 1 run bossbar set mh:compass_timer visible true
