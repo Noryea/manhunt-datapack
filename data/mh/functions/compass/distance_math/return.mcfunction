@@ -17,7 +17,7 @@ scoreboard players set distance mh.temp 0
 attribute @s minecraft:generic.movement_speed base set 0
 data modify storage mh:temp AttributeModifiers set value [{Amount:-1.0d, Operation:1, UUID:[I;0,0,0,0], Name:"unit_multiplier"},{Amount:0.0d, Operation:0, UUID:[I;0,0,65536,0], Name:"minus_axis"}]
 # 缩小100倍，防止触及属性值上限
-attribute @s generic.movement_speed modifier add 0-0-0-1-1 "reducer" -0.999 multiply
+attribute @s generic.movement_speed modifier add 0-0-0-1-1 "reducer" -0.99 multiply
 
 ## x1*x2 = (-self_x + 药水云Pos[0]) * (vec_x - 1 + 1)
 # Attributes[0].Base 等于 -self_x
@@ -30,7 +30,7 @@ execute store result storage mh:temp AttributeModifiers[0].Amount double 1 run s
 # 应用属性修饰器
 data modify entity @s Attributes[0].Modifiers set from storage mh:temp AttributeModifiers
 
-execute store result score adder_x mh.temp run attribute @s minecraft:generic.movement_speed get 10000
+execute store result score adder_x mh.temp run attribute @s minecraft:generic.movement_speed get 1000
 scoreboard players operation distance mh.temp += adder_x mh.temp
 # 清除实体的属性修饰器（否则data modify没效果）
 attribute @s generic.movement_speed modifier remove 0-0-0-1-0
@@ -43,7 +43,7 @@ scoreboard players remove vec_y mh.temp 1
 execute store result storage mh:temp AttributeModifiers[0].Amount double 1 run scoreboard players get vec_y mh.temp
 # 应用属性修饰器
 data modify entity @s Attributes[0].Modifiers set from storage mh:temp AttributeModifiers
-execute store result score adder_y mh.temp run attribute @s minecraft:generic.movement_speed get 10000
+execute store result score adder_y mh.temp run attribute @s minecraft:generic.movement_speed get 1000
 scoreboard players operation distance mh.temp += adder_y mh.temp
 # 清除实体的属性修饰器（否则data modify没效果）
 attribute @s generic.movement_speed modifier remove 0-0-0-1-0
@@ -56,7 +56,7 @@ scoreboard players remove vec_z mh.temp 1
 execute store result storage mh:temp AttributeModifiers[0].Amount double 1 run scoreboard players get vec_z mh.temp
 # 应用属性修饰器
 data modify entity @s Attributes[0].Modifiers set from storage mh:temp AttributeModifiers
-execute store result score adder_z mh.temp run attribute @s minecraft:generic.movement_speed get 10000
+execute store result score adder_z mh.temp run attribute @s minecraft:generic.movement_speed get 1000
 scoreboard players operation distance mh.temp += adder_z mh.temp
 # 清除实体的属性修饰器（否则data modify没效果）
 attribute @s generic.movement_speed modifier remove 0-0-0-1-0
