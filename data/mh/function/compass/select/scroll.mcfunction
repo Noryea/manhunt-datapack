@@ -19,6 +19,9 @@ execute store result score #len mh.temp if entity @a[tag=mh.trackable]
 execute if score #len mh.temp matches 0 run \
     return fail
 
+# remove "out" nbt
+data remove storage gu:main out
+
 # 遍历
 execute as @a[sort=arbitrary,tag=mh.trackable] run function mh:compass/select/private/scroll_trackable_foreach
 

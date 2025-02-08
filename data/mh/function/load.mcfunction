@@ -23,13 +23,3 @@ bossbar add mh:freeze ""
 # 计划任务
 schedule function mh:schedule_task/keep_every_sec 1s replace
 schedule function mh:schedule_task/keep_update 1t replace
-
-
-# 显示选队的文本信息
-execute if score 允许自由选队 mh.settings matches 1 run \
-    tellraw @a[team=!hunters,team=!runners] ["请选择队伍：", \
-    {"text":"猎人","color":"red","underlined":true,"clickEvent":{"action":"suggest_command","value":"/trigger mh.join.hunters"}}, \
-    " ", \
-    {"text":"逃者","color":"green","underlined":true,"clickEvent":{"action":"suggest_command","value":"/trigger mh.join.runners"}}, \
-    "\n" \
-]

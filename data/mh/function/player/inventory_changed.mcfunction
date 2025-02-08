@@ -34,7 +34,8 @@ execute if entity @s[gamemode=!spectator] if score #can_have_compass mh.temp mat
 execute as @e[type=item,distance=..6,tag=!mh.item.pick] if items entity @s contents *[minecraft:custom_data~{"mh:tracker":{}}] run \
     kill @s
 
-# 标记玩家指针和副手槽位指南针标签
+
+## 标记玩家指针槽位指南针和副手槽位指南针标签
 # (优先度应低于背包事件,否则无效)
 execute if items entity @s weapon.offhand *[minecraft:custom_data~{"mh:tracker":{}}] \
     run tag @s add mh.offhand.compass
