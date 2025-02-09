@@ -25,4 +25,4 @@ data modify storage mh:temp in.target.dimension set from storage mh:temp in.dime
 function mh:player/pos/private/save_lastoutput with storage mh:temp in
 scoreboard players operation @s mh.pdb.querytime = 当前gametime mh.pdb.querytime
 scoreboard players operation @s mh.pdb.querydimension = 当前dimension mh.pdb.querydimension
-data remove storage mh:temp TextBuffer
+# data remove storage mh:temp TextBuffer

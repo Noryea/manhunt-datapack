@@ -10,3 +10,4 @@ execute unless score #old_hotbar_slot ur.hotbar.slot = @s ur.hotbar.slot \
 # execute advancement post consume trigger
 execute if entity @s[advancements={use_remain_helper:detect/use_mainhand=true}] run function use_remain_helper:player/use_mainhand
 execute if entity @s[advancements={use_remain_helper:detect/use_offhand=true}] run function use_remain_helper:player/use_offhand
+execute if entity @s[advancements={use_remain_helper:detect/fix_item_changed=true}] run function use_remain_helper:player/fix_item_changed
