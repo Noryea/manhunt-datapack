@@ -1,6 +1,6 @@
-# executor: 指南针持有者
-# args: in.guuid 在 mh:temp
-# output: 在 mh:temp 的 itemInfoText 储存指南针的tooltip文字
+# @executor: 指南针持有者
+# @args: in.guuid 在 mh:temp
+# @output: 在 mh:temp 的 itemInfoText 储存指南针的tooltip文字
 #  [{text:"正在追踪：",color:"gray", extra:[{selector:"61595d08-35f1..."}]},{text:"丢弃时触发："},{text:"  切换到下一个目标"}]
 
 # data remove storage mh:temp itemInfoText

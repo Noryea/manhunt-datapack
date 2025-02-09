@@ -5,7 +5,8 @@ execute unless data storage mh:temp trailDimensions[] run return fail
 
 data modify storage mh:temp in.dimension set from storage mh:temp trailDimensions[0]
 data remove storage mh:temp trailDimensions[0]
-function mh:player/pos/get with storage mh:temp in
+function mh:player/pos/private/get_dimension with storage mh:temp in
+function mh:player/pos/private/save_lastoutput with storage mh:temp in
 
 # 递归调用
-function mh:player/pos/update_pdb_foreach
+function mh:player/pos/private/update_pdb_foreach
