@@ -5,12 +5,12 @@
 
 # 优化：如果在同一tick内重复读取，直接返回lastOutPut
 execute store result score 当前gametime mh.pdb.querytime run time query gametime
+# TODO: 这只是读取维度的字符串长度，对自定义维度的适配性不好
 execute store result score 当前dimension mh.pdb.querydimension run data get storage mh:temp in.dimension
-data modify storage mh:temp TextBuffer set string storage mh:temp in.dimension 0 10
-execute if data storage mh:temp {TextBuffer:"minecraft:"} run scoreboard players add 当前dimension mh.pdb.querydimension 100
+execute unless data storage mh:temp {in:{dimension:"minecraft:overworld"}} unless data storage mh:temp {in:{dimension:"minecraft:the_nether"}} unless data storage mh:temp {in:{dimension:"minecraft:the_end"}} run \
+    scoreboard players reset @s mh.pdb.querydimension
 execute if score @s mh.pdb.querytime = 当前gametime mh.pdb.querytime if score @s mh.pdb.querydimension = 当前dimension mh.pdb.querydimension run \
     return run function mh:player/pos/private/get_lastoutput with storage mh:temp in
-execute unless score @s mh.pdb.querytime = 当前gametime mh.pdb.querytime run scoreboard players reset @s mh.pdb.querydimension
 
 # 先设置输出成空标签
 data modify storage mh:temp in.target set value {}
