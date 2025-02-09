@@ -37,18 +37,21 @@ execute if score #result mh.temp matches 0 if items entity @s contents writable_
 tag @s add mh.item.pick
 scoreboard players set #result mh.temp 0
 
+# 如果玩家主手空, 尝试从掉落物的contents槽复制到玩家主手
+execute on origin unless entity @s[tag=mh.cursor.compass] if entity @s[tag=mh.offhand.compass] if items entity @s weapon.offhand * unless items entity @s weapon.mainhand * \
+    store success score #result mh.temp run \
+        item replace entity @s weapon.mainhand from entity @n[type=item,distance=..7,tag=mh.item.pick] contents
+execute on origin unless entity @s[tag=mh.cursor.compass] unless entity @s[tag=mh.offhand.compass] unless items entity @s weapon.mainhand * \
+    store success score #result mh.temp run \
+        item replace entity @s weapon.mainhand from entity @n[type=item,distance=..7,tag=mh.item.pick] contents
 # 如果玩家有mh.cursor.compass标签, 尝试从掉落物的contents槽复制到玩家指针
 execute on origin if entity @s[tag=mh.cursor.compass] unless items entity @s player.cursor * \
     store success score #result mh.temp run \
         item replace entity @s player.cursor from entity @n[type=item,distance=..7,tag=mh.item.pick] contents
-# 如果玩家有mh.offhand.compass标签, 尝试从掉落物的contents槽复制到玩家指针
+# 如果玩家有mh.offhand.compass标签, 尝试从掉落物的contents槽复制到玩家副手
 execute on origin if entity @s[tag=mh.offhand.compass] unless items entity @s weapon.offhand * \
     store success score #result mh.temp run \
         item replace entity @s weapon.offhand from entity @n[type=item,distance=..7,tag=mh.item.pick] contents
-# 如果玩家主手空, 尝试从掉落物的contents槽复制到玩家指针
-execute on origin unless entity @s[tag=mh.cursor.compass] unless entity @s[tag=mh.offhand.compass] unless items entity @s weapon.mainhand * \
-    store success score #result mh.temp run \
-        item replace entity @s weapon.mainhand from entity @n[type=item,distance=..7,tag=mh.item.pick] contents
 
 # 上面的操作执行成功，则杀死掉落物
 execute if score #result mh.temp matches 1.. run \

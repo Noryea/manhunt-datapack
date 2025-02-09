@@ -10,15 +10,17 @@ data modify storage mh:temp TextBuffer set string storage mh:temp in.dimension 0
 execute if data storage mh:temp {TextBuffer:"minecraft:"} run scoreboard players add 当前dimension mh.pdb.querydimension 100
 execute if score @s mh.pdb.querytime = 当前gametime mh.pdb.querytime if score @s mh.pdb.querydimension = 当前dimension mh.pdb.querydimension run \
     return run function mh:player/pos/private/get_lastoutput with storage mh:temp in
+execute unless score @s mh.pdb.querytime = 当前gametime mh.pdb.querytime run scoreboard players reset @s mh.pdb.querydimension
 
 # 先设置输出成空标签
 data modify storage mh:temp in.target set value {}
 
+# 判断维度
+execute at @s store result score #result mh.temp run function mh:player/pos/private/check_dimension with storage mh:temp in
 # 如果当前玩家的维度不是(dimension)，读取数据库
-execute unless entity @s[distance=0..] run function mh:player/pos/private/get_dimension with storage mh:temp in
-
-# 否则返回当前的方块坐标
-execute if entity @s[distance=0..] at @s summon marker run function mh:player/pos/__marker_block_pos
+execute unless score #result mh.temp matches 1 run function mh:player/pos/private/get_dimension with storage mh:temp in
+# 是(dimension)则返回当前的方块坐标
+execute if score #result mh.temp matches 1 at @s summon marker run function mh:player/pos/__marker_block_pos
 data modify storage mh:temp in.target.dimension set from storage mh:temp in.dimension
 
 # 保存输出到lastOutPut
