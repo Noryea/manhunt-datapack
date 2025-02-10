@@ -29,6 +29,8 @@ scoreboard players set 队友:显示距离 mh.settings 1
 ##
 scoreboard players set 可追踪队友 mh.settings 0
 ##
+scoreboard players set 总是更新指南针 mh.settings 1
+##
 scoreboard players set 冻结猎人:挖掘疲劳 mh.settings 1
 
 scoreboard players set 已应用默认设置 mh.settings 1

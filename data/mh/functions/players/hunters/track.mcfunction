@@ -7,13 +7,13 @@ execute unless entity @p[tag=tracking] if entity @a[tag=trackable,scores={mh.uid
 function mh:compass/refresh
 
 ## 信息显示
-execute if score 逃者:显示Y坐标 mh.settings matches 1 if entity @p[tag=tracking,team=runners] unless entity @a[tag=tracking,distance=0..] run data modify storage mh:temp ActionBar append value '[{"text":" Y坐标:","color":"gray"},{"nbt":"Pos.Y","storage":"mh:temp","color":"green"},"  "]'
+execute if score 逃者:显示Y坐标 mh.settings matches 1 if entity @p[tag=tracking,team=runners] unless entity @a[tag=tracking,distance=0..] run data modify storage mh:temp ActionBar append value '[{"text":" Y坐标: ","color":"gray"},{"nbt":"Pos.Y","storage":"mh:temp","color":"green"},"  "]'
 execute if score 逃者:显示Y坐标 mh.settings matches 2 if entity @p[tag=tracking,team=runners] run data modify storage mh:temp ActionBar append value '[{"text":" Y坐标: ","color":"gray"},{"nbt":"Pos.Y","storage":"mh:temp","color":"green"},"  "]'
 execute if score 逃者:显示维度 mh.settings matches 1 if entity @p[tag=tracking,team=runners] run data modify storage mh:temp ActionBar append value '[{"text":"  维度: ","color":"gray"},{"nbt":"Dimension","storage":"mh:temp","color":"green"},"  "]'
 execute if score 逃者:显示距离 mh.settings matches 1 if entity @p[tag=tracking,team=runners] run function mh:compass/distance_math/do
 execute if score 逃者:显示距离 mh.settings matches 1 if entity @p[tag=tracking,team=runners] run data modify storage mh:temp ActionBar append value '[{"text":"  距离: ","color":"gray"},{"score":{"name":"distance_小数点前","objective":"mh.temp"},"color":"green"},{"text":"m ","color":"green"}]'
 
-execute if score 队友:显示Y坐标 mh.settings matches 1 if entity @p[tag=tracking,team=hunters,tag=!self] unless entity @a[tag=tracking,distance=0..] run data modify storage mh:temp ActionBar append value '[{"text":" Y坐标:","color":"gray"},{"nbt":"Pos.Y","storage":"mh:temp","color":"red"},"  "]'
+execute if score 队友:显示Y坐标 mh.settings matches 1 if entity @p[tag=tracking,team=hunters,tag=!self] unless entity @a[tag=tracking,distance=0..] run data modify storage mh:temp ActionBar append value '[{"text":" Y坐标: ","color":"gray"},{"nbt":"Pos.Y","storage":"mh:temp","color":"red"},"  "]'
 execute if score 队友:显示Y坐标 mh.settings matches 2 if entity @p[tag=tracking,team=hunters,tag=!self] run data modify storage mh:temp ActionBar append value '[{"text":" Y坐标: ","color":"gray"},{"nbt":"Pos.Y","storage":"mh:temp","color":"red"},"  "]'
 execute if score 队友:显示维度 mh.settings matches 1 if entity @p[tag=tracking,team=hunters,tag=!self] run data modify storage mh:temp ActionBar append value '[{"text":"  维度: ","color":"gray"},{"nbt":"Dimension","storage":"mh:temp","color":"red"},"  "]'
 execute if score 队友:显示距离 mh.settings matches 1 if entity @p[tag=tracking,team=hunters,tag=!self] run function mh:compass/distance_math/do

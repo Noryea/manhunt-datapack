@@ -16,3 +16,4 @@ execute if data storage mh:temp {Dimension:"minecraft:the_nether"} run data modi
 
 execute in minecraft:overworld positioned 29999985 254 29999984 run data modify block ~ ~ ~ Items[0].tag.LodestoneDimension set from entity @s Dimension
 execute in minecraft:overworld positioned 29999985 254 29999984 run data modify block ~ ~ ~ Items[0].tag.LodestonePos set from storage mh:temp Pos
+execute if score 总是更新指南针 mh.settings matches 1 in minecraft:overworld store result block 29999985 254 29999984 Items[0].tag.RefreshGametime int 0.1 run time query gametime
