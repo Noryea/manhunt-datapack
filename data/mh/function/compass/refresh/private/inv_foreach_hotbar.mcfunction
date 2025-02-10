@@ -12,8 +12,6 @@ execute if predicate {condition: "value_check", value: {type: "storage", storage
     return fail
 
 # if (该项不是追踪器) continue;
-execute unless data storage mh:temp {invItem:{id: "minecraft:compass"}} run \
-    return run function mh:compass/refresh/private/inv_foreach_hotbar
 execute unless data storage mh:temp invItem.components."minecraft:custom_data"."mh:tracker" run \
     return run function mh:compass/refresh/private/inv_foreach_hotbar
 
@@ -26,10 +24,9 @@ execute unless data storage mh:temp in.guuid \
 
 # 执行更新
 execute if data storage mh:temp {in:{num:-106b}} run \
-    return run function mh:compass/refresh/private/inv_foreach_hotbar
+    return fail
 function mh:compass/refresh/private/num_to_slot with storage mh:temp in
 function mh:compass/refresh/private/opt with storage mh:temp in
 
 # 递归调用
-data remove storage mh:temp invItem
 function mh:compass/refresh/private/inv_foreach_hotbar

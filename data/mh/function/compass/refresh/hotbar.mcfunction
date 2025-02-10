@@ -2,7 +2,8 @@ execute unless entity @s[team=hunters] unless entity @s[team=runners] run \
     return fail
     
 # 设置inv为Inventory的复制
-data modify storage mh:temp inv set from entity @s Inventory
+data remove storage mh:temp inv
+data modify storage mh:temp inv append from entity @s Inventory[{id:"minecraft:compass"}]
 
 # 设置in.dimension参数
 data modify storage mh:temp in.dimension set from entity @s Dimension
