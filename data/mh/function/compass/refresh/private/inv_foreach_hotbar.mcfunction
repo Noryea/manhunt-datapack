@@ -11,10 +11,15 @@ data modify storage mh:temp in.num set from storage mh:temp invItem.Slot
 execute if predicate {condition: "value_check", value: {type: "storage", storage: "mh:temp", path: "in.num"}, range: {min: 9}} run \
     return fail
 
-# 设置slot参数和guuid参数
+# if (该项不是追踪器) continue;
+execute unless data storage mh:temp {invItem:{id: "minecraft:compass"}} run \
+    return run function mh:compass/refresh/private/inv_foreach_hotbar
+execute unless data storage mh:temp invItem.components."minecraft:custom_data"."mh:tracker" run \
+    return run function mh:compass/refresh/private/inv_foreach_hotbar
+
+# 设置guuid参数
 data remove storage mh:temp in.guuid
 data modify storage mh:temp in.guuid set from storage mh:temp invItem.components."minecraft:custom_data"."mh:tracker".selector
-
 # 如果物品没有selector，用初始guuid
 execute unless data storage mh:temp in.guuid \
     unless function mh:compass/select/initial run data modify storage mh:temp in.guuid set from storage gu:main out
