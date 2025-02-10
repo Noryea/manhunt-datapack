@@ -9,6 +9,7 @@ execute unless data storage mh:temp itemInfoText run \
 # selector直接从in.guuid复制
 data modify storage mh:temp itemInfoText[0] set value {text:"正在追踪: ",color:"white", extra:[{selector:""}]}
 data modify storage mh:temp itemInfoText[0].extra[0].selector set from storage mh:temp in.guuid
+execute unless data storage mh:temp in.guuid run data modify storage mh:temp itemInfoText[0].extra set value [{text:"未知",color:"gray"}]
 
 # 0:右键更新 1:快捷栏更新 2:手持更新 3:定期更新
 execute if score 追踪器:更新模式 mh.settings matches 0 run data modify storage mh:temp itemInfoText[1] set value {text: "(右键更新)", color: "gray"}

@@ -20,7 +20,6 @@ function mh:compass/util/itemmodify_rightclick with storage mh:temp in
 ## 更新lore和custom_data
 execute if entity @s[type=item] on origin run function mh:compass/util/construct_lore
 execute unless entity @s[type=item] run function mh:compass/util/construct_lore
-execute unless data storage mh:temp in.guuid run data modify storage mh:temp itemInfoText[0] set value {text:"正在追踪: ",color:"white",extra: [{text:"未知",color:"gray"}]}
 # 如果目标不是可追踪 设置初始guuid
 data modify storage mh:temp trackerData set value {}
 execute if score #result mh.temp matches 0 if entity @s[type=item] on origin run function mh:compass/select/initial
