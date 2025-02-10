@@ -16,7 +16,12 @@ execute if score @s mh.pdb.querytime = 当前gametime mh.pdb.querytime if score 
 data modify storage mh:temp in.target set value {}
 
 # 判断维度
-execute at @s store result score #result mh.temp run function mh:player/pos/private/check_dimension with storage mh:temp in
+scoreboard players set #result mh.temp 0
+execute if data storage mh:temp {in:{dimension:"minecraft:overworld"}} at @s if dimension minecraft:overworld run scoreboard players set #result mh.temp 1
+execute if data storage mh:temp {in:{dimension:"minecraft:the_nether"}} at @s if dimension minecraft:the_nether run scoreboard players set #result mh.temp 1
+execute if data storage mh:temp {in:{dimension:"minecraft:the_end"}} at @s if dimension minecraft:the_end run scoreboard players set #result mh.temp 1
+execute unless data storage mh:temp {in:{dimension:"minecraft:overworld"}} unless data storage mh:temp {in:{dimension:"minecraft:the_nether"}} unless data storage mh:temp {in:{dimension:"minecraft:the_end"}} \
+    at @s store result score #result mh.temp run function mh:player/pos/private/check_dimension with storage mh:temp in
 # 如果当前玩家的维度不是(dimension)，读取数据库
 execute unless score #result mh.temp matches 1 run function mh:player/pos/private/get_dimension with storage mh:temp in
 # 是(dimension)则返回当前的方块坐标
