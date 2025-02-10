@@ -1,27 +1,35 @@
-# @args: {guuid, dimension}
+# @args: in.guuid和in.dimension 在mh.temp
+# @executor: 要读取坐标的玩家，但执行位置是指南针持有者（即不一定维度和玩家相同）
 # @output {in:{target: {pos: [x,y,z], dimension: string}, exactDimension: string } } 在mh:temp
-# > 判断执行维度是不是dimension, 是则获取当前坐标，不是则获取存储坐标
+# > 判断玩家维度是不是dimension, 是则获取当前坐标，不是则获取存储坐标
 
 # 优化：如果在同一tick内重复读取，直接返回lastOutPut
 execute store result score 当前gametime mh.pdb.querytime run time query gametime
-$execute if score $(guuid) mh.pdb.querytime = 当前gametime mh.pdb.querytime if data storage mh:pdb "$(guuid)".lastQueryDimension."$(dimension)" run \
-    return run data modify storage mh:temp in.target set from storage mh:pdb "$(guuid)".lastOutPut."$(dimension)"
-$execute unless score $(guuid) mh.pdb.querytime = 当前gametime mh.pdb.querytime run data remove storage mh:pdb "$(guuid)".lastQueryDimension
+# TODO: 这只是读取维度的字符串长度，对自定义维度的适配性不好
+execute store result score 当前dimension mh.pdb.querydimension run data get storage mh:temp in.dimension
+execute unless data storage mh:temp {in:{dimension:"minecraft:overworld"}} unless data storage mh:temp {in:{dimension:"minecraft:the_nether"}} unless data storage mh:temp {in:{dimension:"minecraft:the_end"}} run \
+    scoreboard players reset @s mh.pdb.querydimension
+execute if score @s mh.pdb.querytime = 当前gametime mh.pdb.querytime if score @s mh.pdb.querydimension = 当前dimension mh.pdb.querydimension run \
+    return run function mh:player/pos/private/get_lastoutput with storage mh:temp in
 
 # 先设置输出成空标签
 data modify storage mh:temp in.target set value {}
 
+# 判断维度
+scoreboard players set #result mh.temp 0
+execute if data storage mh:temp {in:{dimension:"minecraft:overworld"}} at @s if dimension minecraft:overworld run scoreboard players set #result mh.temp 1
+execute if data storage mh:temp {in:{dimension:"minecraft:the_nether"}} at @s if dimension minecraft:the_nether run scoreboard players set #result mh.temp 1
+execute if data storage mh:temp {in:{dimension:"minecraft:the_end"}} at @s if dimension minecraft:the_end run scoreboard players set #result mh.temp 1
+execute unless data storage mh:temp {in:{dimension:"minecraft:overworld"}} unless data storage mh:temp {in:{dimension:"minecraft:the_nether"}} unless data storage mh:temp {in:{dimension:"minecraft:the_end"}} \
+    at @s store result score #result mh.temp run function mh:player/pos/private/check_dimension with storage mh:temp in
 # 如果当前玩家的维度不是(dimension)，读取数据库
-$execute at $(guuid) unless dimension $(dimension) run \
-    data modify storage mh:temp in.target set from storage mh:pdb "$(guuid)".trail[{dimension:"$(dimension)"}]
-
-# 否则返回当前的方块坐标
-$execute at $(guuid) if dimension $(dimension) summon marker run function mh:player/pos/__marker_block_pos
-# $execute at $(guuid) if dimension $(dimension) run \
-    data modify storage mh:temp in.target.pos set from entity $(guuid) Pos
-$data modify storage mh:temp in.target.dimension set value "$(dimension)"
+execute unless score #result mh.temp matches 1 run function mh:player/pos/private/get_dimension with storage mh:temp in
+# 是(dimension)则返回当前的方块坐标
+execute if score #result mh.temp matches 1 at @s summon marker run function mh:player/pos/__marker_block_pos
+data modify storage mh:temp in.target.dimension set from storage mh:temp in.dimension
 
 # 保存输出到lastOutPut
-$data modify storage mh:pdb "$(guuid)".lastQueryDimension."$(dimension)" set value 1b
-$data modify storage mh:pdb "$(guuid)".lastOutPut."$(dimension)" set from storage mh:temp in.target
-$scoreboard players operation $(guuid) mh.pdb.querytime = 当前gametime mh.pdb.querytime
+function mh:player/pos/private/save_lastoutput with storage mh:temp in
+scoreboard players operation @s mh.pdb.querytime = 当前gametime mh.pdb.querytime
+scoreboard players operation @s mh.pdb.querydimension = 当前dimension mh.pdb.querydimension
+# data remove storage mh:temp TextBuffer

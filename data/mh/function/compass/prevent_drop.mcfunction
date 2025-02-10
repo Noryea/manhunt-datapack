@@ -17,38 +17,37 @@ execute if score 追踪器:丢弃时触发 mh.settings matches 2 if items entity
         {function:"set_components", components: {"!consumable":{}}} \
     ]
 
-## 如果丢弃事件和目标选择有关，*且目标改变*，调用更新函数
-scoreboard players set #result mh.temp 0
-execute if score 追踪器:丢弃时触发 mh.settings matches 1..2 store result score #result mh.temp run data modify storage mh:temp in.guuid set from entity @s Item.components."minecraft:custom_data"."mh:tracker".selector
-execute if score #result mh.temp matches 1 run data modify storage mh:temp in.slot set value "contents"
-execute if score #result mh.temp matches 1 on origin run data modify storage mh:temp in.dimension set from entity @s Dimension
-execute if score #result mh.temp matches 1 if score 追踪器:丢弃时触发 mh.settings matches 1 run function mh:compass/refresh/private/opt with storage mh:temp in
-execute if score #result mh.temp matches 1 if score 追踪器:丢弃时触发 mh.settings matches 2 if items entity @s contents compass run function mh:compass/refresh/private/opt with storage mh:temp in
-
 ## 玩家可以通过丢弃退出编辑模式
 execute if score #result mh.temp matches 0 if items entity @s contents writable_book run \
     item modify entity @s contents [{function:"set_components",components:{"!minecraft:writable_book_content":{}}},\
-    {function: "set_name",name:{"text":"追踪器","color":"white","italic": false}},\
     {function: "set_item", item: "compass"},\
     {function: "set_components", components: {"!minecraft:enchantment_glint_override":{},"!minecraft:lore":{}}}]
+
+## 如果丢弃事件和目标选择有关，*且目标改变*，调用更新函数
+execute if score 追踪器:丢弃时触发 mh.settings matches 1..2 run data modify storage mh:temp in.slot set value "contents"
+execute if score 追踪器:丢弃时触发 mh.settings matches 1..2 on origin run data modify storage mh:temp in.dimension set from entity @s Dimension
+execute if score 追踪器:丢弃时触发 mh.settings matches 1..2 if items entity @s contents compass run function mh:compass/refresh/private/opt with storage mh:temp in
 
 ## 阻止物品丢弃
 # 标记标签, 表示这是玩家要捡起的物品
 tag @s add mh.item.pick
 scoreboard players set #result mh.temp 0
 
+# 如果玩家主手空, 尝试从掉落物的contents槽复制到玩家主手
+execute on origin unless entity @s[tag=mh.cursor.compass] if entity @s[tag=mh.offhand.compass] if items entity @s weapon.offhand * unless items entity @s weapon.mainhand * \
+    store success score #result mh.temp run \
+        item replace entity @s weapon.mainhand from entity @n[type=item,distance=..7,tag=mh.item.pick] contents
+execute on origin unless entity @s[tag=mh.cursor.compass] unless entity @s[tag=mh.offhand.compass] unless items entity @s weapon.mainhand * \
+    store success score #result mh.temp run \
+        item replace entity @s weapon.mainhand from entity @n[type=item,distance=..7,tag=mh.item.pick] contents
 # 如果玩家有mh.cursor.compass标签, 尝试从掉落物的contents槽复制到玩家指针
 execute on origin if entity @s[tag=mh.cursor.compass] unless items entity @s player.cursor * \
     store success score #result mh.temp run \
         item replace entity @s player.cursor from entity @n[type=item,distance=..7,tag=mh.item.pick] contents
-# 如果玩家有mh.offhand.compass标签, 尝试从掉落物的contents槽复制到玩家指针
+# 如果玩家有mh.offhand.compass标签, 尝试从掉落物的contents槽复制到玩家副手
 execute on origin if entity @s[tag=mh.offhand.compass] unless items entity @s weapon.offhand * \
     store success score #result mh.temp run \
         item replace entity @s weapon.offhand from entity @n[type=item,distance=..7,tag=mh.item.pick] contents
-# 如果玩家主手空, 尝试从掉落物的contents槽复制到玩家指针
-execute on origin unless entity @s[tag=mh.cursor.compass] unless entity @s[tag=mh.offhand.compass] unless items entity @s weapon.mainhand * \
-    store success score #result mh.temp run \
-        item replace entity @s weapon.mainhand from entity @n[type=item,distance=..7,tag=mh.item.pick] contents
 
 # 上面的操作执行成功，则杀死掉落物
 execute if score #result mh.temp matches 1.. run \

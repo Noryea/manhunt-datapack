@@ -10,6 +10,3 @@ data modify storage mh:temp in.dimension set from entity @s Dimension
 
 # foreach
 function mh:compass/refresh/private/inv_foreach
-
-# 同时更新副手
-function mh:compass/refresh/weapon_offhand

@@ -6,4 +6,3 @@
 execute align xyz run tp @s ~ ~ ~
 data modify storage mh:temp in.target.pos set from entity @s Pos
 kill @s[type=marker]
-

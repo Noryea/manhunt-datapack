@@ -19,8 +19,5 @@
     [
       "inv_changed"
     ]
-  ],
-  "rewards": {
-    "function": "use_remain_helper:player/fix_item_changed"
-  }
+  ]
 }
