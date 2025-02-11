@@ -1,5 +1,5 @@
 # @executor: 指南针掉落物
-# > 阻止物品丢弃
+#> 阻止物品丢弃
 
 ## 如果玩家不是从指针丢出、也不是从手上丢出, 则认为玩家尝试从背包丢掉多余的指南针, 杀死本物品
 scoreboard players set #flag mh.temp 0
@@ -44,9 +44,9 @@ execute if score #result mh.temp matches 0 if items entity @s contents writable_
     {function:"set_item", item: "compass"},\
     {function:"set_components", components: {"!minecraft:lore":{}}}]
 # 更新lore
-execute on origin run function mh:compass/util/construct_lore
-data modify storage mh:temp trackerData set from entity @s Item.components."minecraft:custom_data"."mh:tracker"
-item modify entity @s contents mh:copy_lore_and_data
+execute if score #result mh.temp matches 0 run execute on origin run function mh:compass/util/construct_lore
+execute if score #result mh.temp matches 0 run data modify storage mh:temp trackerData set from entity @s Item.components."minecraft:custom_data"."mh:tracker"
+execute if score #result mh.temp matches 0 run item modify entity @s contents mh:copy_lore_and_data
 
 ## 阻止物品丢弃
 # 标记标签, 表示这是玩家要捡起的物品
