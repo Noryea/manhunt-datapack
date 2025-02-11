@@ -3,4 +3,4 @@
 execute unless items entity @s player.cursor * run function mh:player/inventory_changed
 
 # 让进度可以重新触发
-advancement revoke @s only mh:detect/cursor_compass_changed
+advancement revoke @s only mh:detect/toggled_cursor_tracker

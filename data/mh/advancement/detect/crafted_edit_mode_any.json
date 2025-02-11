@@ -1,0 +1,18 @@
+{
+  "criteria": {
+    "recipe": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "mh:edit_mode"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "recipe"
+    ]
+  ],
+  "rewards": {
+    "function": "mh:player/crafted_edit_mode_any"
+  }
+}
