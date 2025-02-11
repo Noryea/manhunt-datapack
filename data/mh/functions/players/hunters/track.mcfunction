@@ -4,7 +4,7 @@ execute as @a[tag=trackable] if score @s mh.uid = @p[tag=self] mh.tracking run t
 execute unless entity @p[tag=tracking] if entity @a[tag=trackable,scores={mh.uid=1..}] run function mh:compass/select
 
 ## Nbt *跨维度追踪仅支持原版三大维度
-function mh:compass/refresh
+execute if entity @p[tag=tracking] run function mh:compass/refresh
 
 ## 信息显示
 execute if score 逃者:显示Y坐标 mh.settings matches 1 if entity @p[tag=tracking,team=runners] unless entity @a[tag=tracking,distance=0..] run data modify storage mh:temp ActionBar append value '[{"text":" Y坐标: ","color":"gray"},{"nbt":"Pos.Y","storage":"mh:temp","color":"green"},"  "]'
