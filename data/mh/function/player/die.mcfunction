@@ -13,5 +13,9 @@ execute if entity @s[tag=was_runner] if score 逃者死亡后 mh.settings matche
 
 tag @s remove was_runner
 
+# 删除玩家数据库记录的所有维度坐标
+function mh:gu/generate
+function mh:player/pos/remove_all_dimensions with storage gu:main
+
 # 让进度可以重新触发
 advancement revoke @s only mh:detect/die

@@ -1,6 +1,6 @@
 # 如果玩家维度改变，记录缓存在mh:temp的latestPos复合标签的坐标到数据库
 function mh:gu/generate
-execute unless data entity @s {Health:0.0f} run function mh:player/pos/save_enter_dimension with storage gu:main
+function mh:player/pos/save_enter_dimension with storage gu:main
 
 # 同时在数据库删除当前维度
 data modify storage mh:temp in.dimension set from entity @s Dimension
