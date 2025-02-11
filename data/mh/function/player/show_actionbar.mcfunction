@@ -1,6 +1,9 @@
 # 让进度可以再触发
 advancement revoke @s only mh:detect/show_actionbar
 
+# 如果玩家是旁观模式,直接终止
+execute if entity @s[gamemode=spectator] run return fail
+
 # 如果切换后发现玩家手上没有指南针，立即清空动作栏
 execute unless items entity @s weapon.* compass[minecraft:custom_data~{"mh:tracker":{}}] run \
     return run title @s actionbar ""
