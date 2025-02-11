@@ -1,0 +1,67 @@
+{
+  "criteria": {
+    "hand_true": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": {
+          "slots": {
+            "weapon.*": {
+              "items": "minecraft:compass",
+              "predicates": {
+                "minecraft:custom_data": {
+                  "mh:tracker": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "hand_false": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": [
+          {
+            "condition": "inverted",
+            "term": {
+              "condition": "entity_properties",
+              "entity": "this",
+              "predicate": {
+                "slots": {
+                  "weapon.*": {
+                    "items": "minecraft:compass",
+                    "predicates": {
+                      "minecraft:custom_data": {
+                        "mh:tracker": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "pt6": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": {
+          "periodic_tick": 6
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "hand_true"
+    ],
+    [
+      "hand_false",
+      "pt6"
+    ]
+  ],
+  "rewards": {
+    "function": "mh:player/show_actionbar"
+  }
+}
