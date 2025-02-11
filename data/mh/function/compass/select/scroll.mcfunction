@@ -1,6 +1,6 @@
 # @executor 玩家
 # @args {guuid: 旧目标的选择器}
-# >根据guuid对应的玩家获取下一个追踪对象,执行gu的generate函数
+#> 根据guuid对应的玩家获取下一个追踪对象,执行gu的generate函数
 
 # 如果旧目标不在服务器内，则用初始guuid
 $execute unless entity $(guuid) run \

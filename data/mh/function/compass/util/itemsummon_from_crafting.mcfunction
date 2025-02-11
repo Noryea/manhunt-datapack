@@ -1,5 +1,5 @@
 # @executor: 刚召唤的物品掉落物
-# > 让掉落物变成玩家刚合成时消耗的追踪器的复制，并变成书与笔
+#> 让掉落物变成玩家刚合成时消耗的追踪器的复制，并变成书与笔
 # data merge entity @s {Item:{id:"compass", count:1b},Age:4000s,PickupDelay:0,Tags:["mh.item.pick"]}
 data modify entity @s Thrower set from entity @p[tag=this] UUID
 data modify entity @s Owner set from entity @s Thrower
@@ -30,5 +30,5 @@ execute if items entity @s contents *[minecraft:custom_data~{"mh:tracker":{}}] r
         {function:"set_name", name: [{"text":"追踪器","color":"white","italic": false},{"text":" (编辑模式)","color":"gray","italic": false}]}, \
         {function:"set_lore", lore: [{text: "在书中输入你想追踪的玩家id",color:"gray",italic:false},{text:""},{text:"丢弃变回指南针",color:"gray",italic:false}], mode: "replace_all"}, \
         {function:"set_item", item: "writable_book"}, \
-        {function:"set_components", components: {"!consumable":{}}} \
+        {function:"set_components", components: {"!consumable":{},"!use_cooldown":{},}} \
     ]

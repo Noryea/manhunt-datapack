@@ -1,6 +1,6 @@
 # @executor 玩家
 # @args {raw: 页面文本}
-# > 尝试以raw的值为名字选择目标，执行gu（没找到目标则gu:main的out为空)
+#> 尝试以raw的值为名字选择目标，执行gu（没找到目标则gu:main的out为空)
 
 # 如果没有这名玩家, 则直接报错
 $execute unless entity @a[name=$(raw)] run \

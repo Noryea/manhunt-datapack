@@ -24,9 +24,9 @@ $item modify entity @s $(slot) mh:copy_lore_and_data
 # early return
 execute unless data storage mh:temp in.guuid run \
     return fail
-# 如果更新模式是定期更新, 则直接返回lastOutPut
+# 如果更新模式是定期更新, 则直接返回lastOutput
 $execute if score 追踪器:更新模式 mh.settings matches 3 run \
-    data modify storage mh:temp in.target set from storage mh:pdb "$(guuid)".lastOutPut."$(dimension)"
+    data modify storage mh:temp in.target set from storage mh:pdb "$(guuid)".lastOutput."$(dimension)"
 # 不是定期更新，那么调用pos/get函数
 $execute unless score 追踪器:更新模式 mh.settings matches 3 \
     as $(guuid) run function mh:player/pos/get

@@ -1,5 +1,5 @@
 # @executor: 掉落物实体
-# >作用：使物品掉落物实体的selector标签的值变成下一个玩家的GUUID，同时更新指南针
+#> 作用：使物品掉落物实体的selector标签的值变成下一个玩家的GUUID，同时更新指南针
 
 # 以丢弃者为执行者执行函数
 execute unless data entity @s Item.components."minecraft:custom_data"."mh:tracker".selector \

@@ -1,4 +1,4 @@
-# > 用于遍历trackable玩家
+#> 用于遍历trackable玩家
 
 # 如果上一个遍历的玩家是旧目标，则当前遍历的是新目标
 execute if score #iter mh.temp = #old_ptr mh.temp run \

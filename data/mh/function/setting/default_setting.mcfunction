@@ -63,7 +63,4 @@ scoreboard players set 追踪器:定期更新计时器bossBar mh.settings 0
 scoreboard players set 追踪器:丢弃时触发 mh.settings 1
 
 
-
-
-
 scoreboard players set 已应用默认设置 mh.settings 1

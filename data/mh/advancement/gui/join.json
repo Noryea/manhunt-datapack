@@ -8,7 +8,7 @@
       "text": "选择队伍(猎人/逃者)"
     },
     "description": {
-      "text": "\u00a7e/trigger mh.join.hunters或runners"
+      "text": "\u00a7f猎人:\n\u00a7e/trigger mh.join.hunters\n\u00a7f逃者:\n\u00a7e/trigger mh.join.runners"
     },
     "frame": "task",
     "show_toast": false,
