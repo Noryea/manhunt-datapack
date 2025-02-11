@@ -32,7 +32,7 @@ function mh:compass/util/construct_lore
 data modify storage mh:temp trackerData set value {}
 data modify storage mh:temp trackerData.selector set from storage gu:main out
 
-item modify entity @s weapon.offhand [{function:"set_components",components:{"!minecraft:writable_book_content":{}}},{function:"set_name",name:{"text":"追踪器","color":"white","italic": false}},{function: "set_item", item: "compass"},{function: "set_components", components: {"!minecraft:enchantment_glint_override":{}}}]
+item modify entity @s weapon.offhand [{function:"set_components",components:{"!minecraft:writable_book_content":{}}},{function:"set_name",name:{"text":"追踪器","color":"white","italic": false}},{function: "set_item", item: "compass"},{function: "set_components", components: {"!minecraft:lore":{},"minecraft:max_stack_size": 1}}]
 item modify entity @s weapon.offhand mh:copy_lore_and_data
 function mh:compass/refresh/weapon_offhand
 
