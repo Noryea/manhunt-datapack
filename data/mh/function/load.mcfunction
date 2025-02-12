@@ -16,6 +16,8 @@ scoreboard objectives add mh.temp dummy
 scoreboard objectives add mh.died.listener minecraft.custom:deaths
 scoreboard objectives add mh.pdb.querytime dummy
 scoreboard objectives add mh.pdb.querydimension dummy
+execute unless data storage mh:temp itemInfoText run \
+    data modify storage mh:temp itemInfoText set value [{text:"追踪器",color:"white"},{text:"正在追踪: ",color:"white", extra:[{selector:""}]},{text:"丢弃时触发：", color: "gray"},{}]
 bossbar add mh:compass_timer ""
 bossbar set mh:compass_timer color yellow
 bossbar add mh:freeze ""

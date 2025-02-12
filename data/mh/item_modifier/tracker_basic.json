@@ -1,11 +1,14 @@
 [
   {
-    "function": "set_name",
+    "function": "minecraft:set_name",
     "name": {
-      "text": "追踪器",
-      "color": "white",
-      "italic": false
-    }
+      "italic": false,
+      "storage": "mh:temp",
+      "nbt": "itemInfoText[0]",
+      "type": "nbt",
+      "interpret": true
+    },
+    "entity": "this"
   },
   {
     "function": "set_components",
