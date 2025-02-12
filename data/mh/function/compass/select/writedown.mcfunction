@@ -13,9 +13,9 @@ function mh:compass/util/filter_my_trackable
 $execute as @a[limit=1,name=$(raw)] run tag @s add mh.chosen
 execute as @a[limit=1,tag=mh.trackable,tag=mh.chosen] run function mh:gu/generate
 # 聊天栏提示
-execute if data storage gu:main out run tellraw @s [{"text": "已选择追踪目标：","color": "white"},{"selector": "@p[tag=mh.chosen]"}]
+execute if data storage gu:main out run tellraw @s [{"text": "已选择追踪目标：","color": "white"},{"selector": "@a[tag=mh.chosen,limit=1]"}]
 execute unless data storage gu:main out run \
-    return run tellraw @s [{"selector": "@p[tag=mh.chosen]"},{"text":"不是你所在队伍可以追踪的目标","color": "red"}]
+    tellraw @s [{"selector": "@p[tag=mh.chosen]"},{"text":"不是你所在队伍可以追踪的目标","color": "red"}]
 # 移除所有玩家的标签    
 tag @a remove mh.trackable
 tag @a remove mh.chosen

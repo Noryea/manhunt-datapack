@@ -1,0 +1,25 @@
+{
+  "parent": "mh:detect/crafted_edit_mode_old_any",
+  "criteria": {
+    "recipe": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "mh:edit_mode_old",
+        "ingredients": [
+          {
+            "predicates": {
+              "minecraft:custom_data": {
+                "mh:tracker": {}
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "recipe"
+    ]
+  ]
+}

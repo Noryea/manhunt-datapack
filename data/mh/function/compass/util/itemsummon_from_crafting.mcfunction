@@ -11,10 +11,10 @@ execute if score #result mh.temp matches 0 store result score #ui_item_count mh.
 
 # 如果玩家背包合成格没物品,分以下两种情况返回
 #  (合成时用的不是追踪器,则按ui物品的数量退回原版mc指南针)
-execute unless items entity @p[tag=this,advancements={mh:detect/crafted_edit_mode_tracker=false}] player.crafting.* compass run \
+execute unless items entity @p[tag=this,tag=mh.craft.tracker] player.crafting.* compass run \
     return run execute store result entity @s Item.count byte 1 run scoreboard players get #ui_item_count mh.temp
 #  (合成时用的是追踪器,但由于玩家并非在背包合成编辑模式,杀死本掉落物)
-execute unless items entity @p[tag=this,advancements={mh:detect/crafted_edit_mode_tracker=true}] player.crafting.* compass run \
+execute unless items entity @p[tag=this,tag=mh.craft.tracker] player.crafting.* compass run \
     return run kill @s
 
 
@@ -30,5 +30,5 @@ execute if items entity @s contents *[minecraft:custom_data~{"mh:tracker":{}}] r
         {function:"set_name", name: [{"text":"追踪器","color":"white","italic": false},{"text":" (编辑模式)","color":"gray","italic": false}]}, \
         {function:"set_lore", lore: [{text: "在书中输入你想追踪的玩家id",color:"gray",italic:false},{text:""},{text:"丢弃变回指南针",color:"gray",italic:false}], mode: "replace_all"}, \
         {function:"set_item", item: "writable_book"}, \
-        {function:"set_components", components: {"!consumable":{},"!use_cooldown":{},}} \
+        {function:"reference", name: "mh:make_usable"} \
     ]

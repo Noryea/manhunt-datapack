@@ -28,6 +28,9 @@ execute if score 追踪器:丢弃时触发 mh.settings matches 1 store result sc
 execute if score #result mh.temp matches 1 run data modify storage mh:temp in.slot set value "contents"
 execute if score #result mh.temp matches 1 run execute on origin run data modify storage mh:temp in.dimension set from entity @s Dimension
 execute if score #result mh.temp matches 1 run function mh:compass/refresh/private/opt with storage mh:temp in
+# # 显示聊天栏信息
+# execute if score #result mh.temp matches 1 run data modify storage mh:temp in.selectorText.selector set from storage mh:temp in.guuid
+# execute if score #result mh.temp matches 1 on origin run tellraw @s ["切换追踪目标至: ", {"nbt": "in.selectorText", "storage": "mh:temp", "interpret": true}]
 
 scoreboard players set #result mh.temp 0
 execute if score 追踪器:丢弃时触发 mh.settings matches 2 if items entity @s contents compass \
