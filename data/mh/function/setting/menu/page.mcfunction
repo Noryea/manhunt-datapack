@@ -63,13 +63,13 @@ tellraw @s [ "\u00a7a逃者\u00a7r可追踪: ", \
 
 
 execute unless score 追踪器:丢弃时触发 mh.settings matches 1..3 run \
-    tellraw @s ["指南针丢弃事件: ",{"text":"[无动作]","color":"red","hoverEvent":{"action": "show_text","value":"点击切换"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 追踪器:丢弃时触发 mh.settings 1\"}"}}]
+    tellraw @s ["指南针丢弃事件: ",{"text":"[无动作]","color":"red","hoverEvent":{"action": "show_text","value":"点击切换"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"function mh:setting/menu/set_value/switch_drop_event\"}"}}]
 execute if score 追踪器:丢弃时触发 mh.settings matches 1 run \
-    tellraw @s ["指南针丢弃事件: ",{"text":"[切换目标]","color":"green","hoverEvent":{"action": "show_text","value":"点击切换"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 追踪器:丢弃时触发 mh.settings 2\"}"}}]
+    tellraw @s ["指南针丢弃事件: ",{"text":"[切换目标]","color":"green","hoverEvent":{"action": "show_text","value":"点击切换"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"function mh:setting/menu/set_value/switch_drop_event\"}"}}]
 execute if score 追踪器:丢弃时触发 mh.settings matches 2 run \
-    tellraw @s ["指南针丢弃事件: ",{"text":"[手动指定目标]","color":"green","hoverEvent":{"action": "show_text","value":"点击切换"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 追踪器:丢弃时触发 mh.settings 3\"}"}}]
+    tellraw @s ["指南针丢弃事件: ",{"text":"[手动指定目标]","color":"green","hoverEvent":{"action": "show_text","value":"点击切换"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"function mh:setting/menu/set_value/switch_drop_event\"}"}}]
 execute if score 追踪器:丢弃时触发 mh.settings matches 3 run \
-    tellraw @s ["指南针丢弃事件: ",{"text":"[自定义命令]","color":"yellow","hoverEvent":{"action": "show_text","value":"点击切换"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 追踪器:丢弃时触发 mh.settings 0\"}"}}]
+    tellraw @s ["指南针丢弃事件: ",{"text":"[自定义命令]","color":"yellow","hoverEvent":{"action": "show_text","value":"点击切换"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"function mh:setting/menu/set_value/switch_drop_event\"}"}}]
 
 
 data modify storage mh:temp TextList set value [{},{},{},{}]
