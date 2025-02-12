@@ -51,7 +51,7 @@
         {
           "source": "trackerData",
           "target": "mh:tracker",
-          "op": "merge"
+          "op": "replace"
         }
       ]
     }

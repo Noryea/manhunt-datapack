@@ -1,14 +1,17 @@
 # 让进度可以再触发
 advancement revoke @s only mh:detect/show_actionbar
 
-# 如果玩家是旁观模式,直接终止
+# 如果玩家是旁观模式, 直接终止
 execute if entity @s[gamemode=spectator] run return fail
 
-# 如果切换后发现玩家手上没有指南针，立即清空动作栏
+# 如果切换后发现玩家手上没有指南针, 立即清空动作栏并终止
 execute unless items entity @s weapon.* compass[minecraft:custom_data~{"mh:tracker":{}}] run \
     return run title @s actionbar ""
 
+# 读取手上(主手优先于副手)物品的数据
 function mh:player/actionbar/parse_hand_item
+# 没有selector, 直接终止
+execute unless data storage mh:temp trackerData.selector run return fail
 # 复制guuid作为实体选择器文本组件
 data modify storage mh:temp in.selectorText set value {selector:""}
 data modify storage mh:temp in.selectorText.selector set from storage mh:temp trackerData.selector
