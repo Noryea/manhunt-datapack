@@ -1,0 +1,35 @@
+[
+  {
+    "function": "minecraft:set_name",
+    "name": {
+      "italic": false,
+      "storage": "mh:temp",
+      "nbt": "itemInfoText[0]",
+      "type": "nbt",
+      "interpret": true
+    },
+    "entity": "this"
+  },
+  {
+    "function": "minecraft:set_lore",
+    "entity": "this",
+    "lore": [
+      {
+        "italic": false,
+        "storage": "mh:temp",
+        "nbt": "itemInfoText[2]",
+        "type": "nbt",
+        "interpret": true
+      },
+      {
+        "italic": false,
+        "storage": "mh:temp",
+        "nbt": "itemInfoText[3]",
+        "type": "nbt",
+        "interpret": true
+      }
+    ],
+    "mode": "replace_section",
+    "offset": 2
+  }
+]

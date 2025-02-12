@@ -35,7 +35,7 @@ execute if score 追踪器:丢弃时触发 mh.settings matches 2 if items entity
         {function:"set_name", name: [{"text":"追踪器","color":"white","italic": false},{"text":" (编辑模式)","color":"gray","italic": false}]}, \
         {function:"set_lore", lore: [{text: "在书中输入你想追踪的玩家id",color:"gray",italic:false},{text:""},{text:"丢弃变回指南针",color:"gray",italic:false}], mode: "replace_all"}, \
         {function:"set_item", item: "writable_book"}, \
-        {function:"set_components", components: {"!consumable":{},"!use_cooldown":{}}} \
+        {function:"reference", name: "mh:make_unusable"} \
     ]
     
 ## 玩家可以通过丢弃退出编辑模式
