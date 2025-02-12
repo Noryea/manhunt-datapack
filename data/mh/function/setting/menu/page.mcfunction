@@ -167,7 +167,7 @@ execute if score 追踪器:更新模式 mh.settings matches 3 \
 execute unless score 追踪器:更新模式 mh.settings matches 0 unless score 追踪器:更新模式 mh.settings matches 3 run \
     tellraw @s ""
 
-tellraw @s {"text":"[清空玩家状态]","color":"yellow","hoverEvent": {"action": "show_text","value":"重置所有玩家的血量、背包、重生点、进度和配方"},"clickEvent": {"action": "suggest_command","value": ""}}
+tellraw @s {"text":"[清空玩家状态]","color":"yellow","hoverEvent": {"action": "show_text","value":"重置所有玩家的血量、背包、重生点、进度和配方"},"clickEvent": {"action": "suggest_command","value": "/function #mh:recover_all"}}
 
 tellraw @s ""
 data remove storage mh:temp TextList

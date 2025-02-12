@@ -8,7 +8,7 @@
       "text": "管理命令"
     },
     "description": {
-      "text": "\u00a7f\u00a7n打开设置界面:\n\u00a7e/function #mh:menu\n\u00a7f\u00a7n重置玩家状态:\n\u00a7e/function #mh:recover_all"
+      "text": "\u00a7f\u00a7n打开设置界面:\n\u00a7e/function #mh:menu\n\u00a7f\u00a7n重置玩家状态(慎重!):\n\u00a7e/function #mh:recover_all"
     },
     "frame": "task",
     "show_toast": false,
