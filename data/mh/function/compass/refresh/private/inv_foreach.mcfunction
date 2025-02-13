@@ -14,7 +14,7 @@ execute unless data storage mh:temp in.guuid \
 data modify storage mh:temp in.num set from storage mh:temp inv[0].Slot
 execute if data storage mh:temp {in:{num:-106b}} run data modify storage mh:temp in.slot set value "weapon.offhand"
 execute unless data storage mh:temp {in:{num:-106b}} run function mh:compass/refresh/private/num_to_slot with storage mh:temp in
-function mh:compass/refresh/private/opt with storage mh:temp in
+function mh:compass/refresh/private/__opt with storage mh:temp in
 
 # 弹出inv的第一项
 data remove storage mh:temp inv[0]

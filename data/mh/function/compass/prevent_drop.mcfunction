@@ -27,7 +27,7 @@ execute if score 追踪器:丢弃时触发 mh.settings matches 1 run \
 execute if score 追踪器:丢弃时触发 mh.settings matches 1 store result score #result mh.temp run data modify storage mh:temp in.guuid set from entity @s Item.components."minecraft:custom_data"."mh:tracker".selector
 execute if score #result mh.temp matches 1 run data modify storage mh:temp in.slot set value "contents"
 execute if score #result mh.temp matches 1 run execute on origin run data modify storage mh:temp in.dimension set from entity @s Dimension
-execute if score #result mh.temp matches 1 run function mh:compass/refresh/private/opt with storage mh:temp in
+execute if score #result mh.temp matches 1 run function mh:compass/refresh/private/__opt with storage mh:temp in
 # # 显示聊天栏信息
 # execute if score #result mh.temp matches 1 run data modify storage mh:temp in.selectorText.selector set from storage mh:temp in.guuid
 # execute if score #result mh.temp matches 1 on origin run tellraw @s ["切换追踪目标至: ", {"nbt": "in.selectorText", "storage": "mh:temp", "interpret": true}]

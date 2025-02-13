@@ -16,4 +16,4 @@ execute unless data storage mh:temp in.guuid \
 data modify storage mh:temp in.dimension set from entity @s Dimension
 
 # 执行更新
-function mh:compass/refresh/private/opt with storage mh:temp in
+function mh:compass/refresh/private/__opt with storage mh:temp in

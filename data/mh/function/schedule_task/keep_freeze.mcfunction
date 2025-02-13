@@ -3,12 +3,12 @@ schedule function mh:schedule_task/keep_freeze 1s replace
 
 ## 效果
 # 1.21(.1)
-execute if score 猎人冻结倒计时 mh.temp matches 1.. as @a[team=hunters,gamemode=!spectator] run function mh:player/__freeze_me_1_21
-execute unless score 猎人冻结倒计时 mh.temp matches 1.. as @a[team=hunters,gamemode=!spectator] run function mh:player/__unfreeze_me_1_21
-execute as @a[team=!hunters] run function mh:player/__unfreeze_me_1_21
+execute if score 猎人冻结倒计时 mh.temp matches 1.. as @a[team=hunters] run function mh:player/__freeze_me_old
+execute unless score 猎人冻结倒计时 mh.temp matches 1.. as @a[team=hunters] run function mh:player/__unfreeze_me_old
+execute as @a[team=!hunters] run function mh:player/__unfreeze_me_old
 # 1.21.3+
-execute if score 猎人冻结倒计时 mh.temp matches 1.. as @a[team=hunters,gamemode=!spectator] run function mh:player/__freeze_me
-execute unless score 猎人冻结倒计时 mh.temp matches 1.. as @a[team=hunters,gamemode=!spectator] run function mh:player/__unfreeze_me
+execute if score 猎人冻结倒计时 mh.temp matches 1.. as @a[team=hunters] run function mh:player/__freeze_me
+execute unless score 猎人冻结倒计时 mh.temp matches 1.. as @a[team=hunters] run function mh:player/__unfreeze_me
 execute as @a[team=!hunters] run function mh:player/__unfreeze_me
 
 ## BOSSBAR同步

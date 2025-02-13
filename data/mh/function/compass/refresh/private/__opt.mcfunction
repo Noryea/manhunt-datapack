@@ -27,7 +27,7 @@ execute if score #result mh.temp matches 0 unless entity @s[type=item] run funct
 execute if score #result mh.temp matches 0 run data modify storage mh:temp in.guuid set from storage gu:main out
 # 如果目标不是玩家可追踪, 尝试以新的in.guuid从头运行(如果in.guuid存在), 
 execute if score #result mh.temp matches 0 if data storage mh:temp in.guuid run \
-    return run function mh:compass/refresh/private/opt with storage mh:temp in
+    return run function mh:compass/refresh/private/__opt with storage mh:temp in
 # 不存在新的in.guuid, 则设置正在追踪为未知并early return
 execute if score #result mh.temp matches 0 run data modify storage mh:temp trackerData set value {}
 execute if score #result mh.temp matches 0 run data modify storage mh:temp itemInfoText[1].extra set value [{text:"未知",color:"gray"}]
