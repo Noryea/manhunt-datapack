@@ -1,9 +1,9 @@
-## 0:右键更新 1:快捷栏更新 2:手持更新 3:定期更新
-
+# 读取当前gametime储存在计分板
+execute store result score 当前gametime mh.temp run time query gametime
 # 防止在别的更新模式显示boss条
 execute unless score 追踪器:更新模式 mh.settings matches 3 run bossbar set mh:compass_timer visible false
 
-## 根据设置更新lore
+## 根据设置更新物品描述文本
 # 0:右键更新 1:快捷栏更新 2:手持更新 3:定期更新
 execute if score 追踪器:更新模式 mh.settings matches 0 run data modify storage mh:temp itemInfoText[0].extra set value [{text: " (右键更新)", color: "gray"}]
 execute if score 追踪器:更新模式 mh.settings matches 1 run data modify storage mh:temp itemInfoText[0].extra set value [{text: " (快捷栏更新)", color: "gray"}]
@@ -16,7 +16,7 @@ execute if score 追踪器:丢弃时触发 mh.settings matches 2 run data modify
 execute if score 追踪器:丢弃时触发 mh.settings matches 3 run data modify storage mh:temp itemInfoText[3] set value {text:"  自定义命令",color:"gray"}
 
 ## 计算多少秒后重新运行一次
-# 更新模式为右键更新：1秒后运行并early return
+# 更新模式为右键更新：1秒后运行并Early return
 execute if score 追踪器:更新模式 mh.settings matches 0 run \
     return run schedule function mh:schedule_task/keep_update 1s replace
 # 更新模式为定期更新：1秒后运行
@@ -38,6 +38,7 @@ execute unless score 追踪器:更新模式 mh.settings matches 0 unless score �
 ## 快捷栏更新
 execute if score 追踪器:更新模式 mh.settings matches 1 \
     as @a[gamemode=!spectator] at @s run function mh:compass/refresh/hotbar
+
 ## 手持更新
 execute if score 追踪器:更新模式 mh.settings matches 2 \
     as @a[gamemode=!spectator] at @s run function mh:compass/refresh/weapon_mainhand
