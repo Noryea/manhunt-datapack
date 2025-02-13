@@ -24,5 +24,5 @@ bossbar add mh:freeze ""
 
 
 # 计划任务
-schedule function mh:schedule_task/keep_every_sec 1s replace
+schedule function mh:schedule_task/keep_freeze 1s replace
 schedule function mh:schedule_task/keep_update 1t replace
