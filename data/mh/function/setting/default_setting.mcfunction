@@ -50,11 +50,11 @@ scoreboard players set 追踪器:更新模式 mh.settings 1
 ##
 scoreboard players set 追踪器:右键更新周期游戏刻 mh.settings 30
 ##
-scoreboard players set 追踪器:快捷栏更新周期游戏刻 mh.settings 12
+scoreboard players set 追踪器:快捷栏更新周期游戏刻 mh.settings 10
 ##
-scoreboard players set 追踪器:手持更新周期游戏刻 mh.settings 12
+scoreboard players set 追踪器:手持更新周期游戏刻 mh.settings 10
 ##
-scoreboard players set 追踪器:定期更新周期秒数 mh.settings 10
+scoreboard players set 追踪器:定期更新周期秒数 mh.settings 15
 ##
 scoreboard players set 追踪器:右键更新音效 mh.settings 1
 ##
