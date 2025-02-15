@@ -31,6 +31,10 @@ scoreboard players set 逃者可追踪:敌人 mh.settings 0
 scoreboard players set 逃者可追踪:队友 mh.settings 0
 
 
+##  0:无动作 1:切换目标 2:转换为编辑模式
+scoreboard players set 追踪器:丢弃时触发 mh.settings 1
+
+
 ##
 scoreboard players set 敌人追踪器:显示距离 mh.settings 0
 ##
@@ -64,11 +68,9 @@ scoreboard players set 追踪器:手持更新周期游戏刻 mh.settings 10
 ##
 scoreboard players set 追踪器:定期更新周期秒数 mh.settings 15
 ##
-scoreboard players set 追踪器:右键更新音效 mh.settings 1
+scoreboard players set 追踪器:手持激活模式 mh.settings 0
 ##
 scoreboard players set 追踪器:定期更新计时器bossBar mh.settings 0
-##  0:无动作 1:切换目标 2:转换为编辑模式
-scoreboard players set 追踪器:丢弃时触发 mh.settings 1
 
 
 scoreboard players set 已应用默认设置 mh.settings 1

@@ -15,7 +15,8 @@ execute unless data storage mh:temp in.guuid run data modify storage mh:temp ite
 # # 0:右键更新 1:快捷栏更新 2:手持更新 3:定期更新
 # execute if score 追踪器:更新模式 mh.settings matches 0 run data modify storage mh:temp itemInfoText[0].extra set value [{text: " (右键更新)", color: "gray"}]
 # execute if score 追踪器:更新模式 mh.settings matches 1 run data modify storage mh:temp itemInfoText[0].extra set value [{text: " (快捷栏更新)", color: "gray"}]
-# execute if score 追踪器:更新模式 mh.settings matches 2 run data modify storage mh:temp itemInfoText[0].extra set value [{text: " (手持更新)", color: "gray"}]
+# execute if score 追踪器:更新模式 mh.settings matches 2 unless score 追踪器:手持激活模式 mh.settings matches 1 run data modify storage mh:temp itemInfoText[0].extra set value [{text: " (手持更新)", color: "gray"}]
+# execute if score 追踪器:更新模式 mh.settings matches 2 if score 追踪器:手持激活模式 mh.settings matches 1 run data modify storage mh:temp itemInfoText[0].extra set value [{text: " (手持激活)", color: "gray"}]
 # execute if score 追踪器:更新模式 mh.settings matches 3 run data modify storage mh:temp itemInfoText[0].extra set value [{text: " (", color: "gray"},{score: {name: "定期更新倒计时",objective: "mh.temp"},color: "yellow"}, {text: "秒后更新)",color:"gray"}]
 # # 0:无动作 1:切换目标 2:转换为编辑模式 3:执行命令
 # execute if score 追踪器:丢弃时触发 mh.settings matches 0 run data modify storage mh:temp itemInfoText[3] set value {text:"  无动作",color:"gray"}
