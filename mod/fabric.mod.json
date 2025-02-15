@@ -3,7 +3,7 @@
     "id": "manhunt_datapack",
     "version": "1.0-alpha",
     "name": "追杀指南针数据包 Manhunt Compass Datapack",
-    "description": "一个还原猎人游戏玩法的数据包，兼容 1.21~1.21.4",
+    "description": "一个还原猎人游戏玩法的数据包，兼容 1.21~1.21.4\n\n使用命令 /trigger mh.join.<队伍> 选择队伍\n使用命令 /function #mh:menu 查看设置界面",
     "authors": [
         "Noryea"
     ],
@@ -12,6 +12,7 @@
         "issues": "https://github.com/Noryea/manhunt-datapack/issues"
     },
     "license": "MIT",
+    "icon": "mh_icon.png",
     "environment": "*",
     "depends": {
         "fabric-resource-loader-v0": "*"
