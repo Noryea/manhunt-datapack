@@ -5,10 +5,10 @@
       "id": "minecraft:command_block"
     },
     "title": {
-      "text": "管理命令"
+      "text": "管理命令(需管理员权限)"
     },
     "description": {
-      "text": "\u00a7f\u00a7n打开设置界面:\n\u00a7e/function #mh:menu\n\u00a7f\u00a7n重置玩家状态(慎重!):\n\u00a7e/function #mh:recover_all"
+      "text": "\u00a7f打开设置界面:\n\u00a7e/function #mh:menu\n\u00a7f冻结猎人(以秒为计):\n\u00a7e/function #mh:set_freeze {Value:<秒>}\n\u00a7f重置玩家状态(慎重!):\n\u00a7e/function mh:setting/menu/recover_all"
     },
     "frame": "task",
     "show_toast": false,
