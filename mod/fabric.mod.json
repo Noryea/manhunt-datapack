@@ -1,0 +1,19 @@
+{
+    "schemaVersion": 1,
+    "id": "manhunt_datapack",
+    "version": "1.0-alpha",
+    "name": "追杀指南针数据包 Manhunt Compass Datapack",
+    "description": "一个还原猎人游戏玩法的数据包，兼容 1.21~1.21.4",
+    "authors": [
+        "Noryea"
+    ],
+    "contact": {
+        "sources": "https://github.com/Noryea/manhunt-datapack",
+        "issues": "https://github.com/Noryea/manhunt-datapack/issues"
+    },
+    "license": "MIT",
+    "environment": "*",
+    "depends": {
+        "fabric-resource-loader-v0": "*"
+    }
+}
