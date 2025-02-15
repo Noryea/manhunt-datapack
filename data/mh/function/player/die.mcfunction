@@ -18,4 +18,5 @@ function mh:gu/generate
 function mh:player/pos/remove_all_dimensions with storage gu:main
 
 # 让进度可以重新触发
+scoreboard players set @s mh.died.listener 0
 advancement revoke @s only mh:detect/die

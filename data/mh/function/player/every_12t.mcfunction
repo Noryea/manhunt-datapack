@@ -19,9 +19,6 @@ execute if entity @s[team=hunters] run advancement revoke @s only mh:gui/runner
 execute if entity @s[team=runners] run advancement grant @s only mh:gui/runner
 execute if entity @s[team=runners] run advancement revoke @s only mh:gui/hunter
 
-# 死亡记分项重置
-execute if score @s[nbt=!{Health:0.0f}] mh.died.listener matches 1.. run scoreboard players set @s mh.died.listener 0
-
 # 杀死ui物品
 kill @e[type=item,distance=..5,nbt={Item:{components:{"minecraft:custom_data":{"mhUI":true}}}}]
 
