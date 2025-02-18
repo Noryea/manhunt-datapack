@@ -38,13 +38,13 @@ execute as @e[type=item,distance=..6,tag=!mh.item.pick] if items entity @s conte
 ## 标记玩家指针槽位指南针和副手槽位指南针标签
 # (优先度应低于背包事件,否则无效)
 execute if items entity @s weapon.offhand *[minecraft:custom_data~{"mh:tracker":{}}] \
-    run tag @s add mh.offhand.compass
+    run tag @s add mh.offhand.tracker
 execute unless items entity @s weapon.offhand *[minecraft:custom_data~{"mh:tracker":{}}] \
-    run tag @s remove mh.offhand.compass
+    run tag @s remove mh.offhand.tracker
 execute if items entity @s player.cursor *[minecraft:custom_data~{"mh:tracker":{}}] \
-    run tag @s add mh.cursor.compass
+    run tag @s add mh.cursor.tracker
 execute unless items entity @s player.cursor *[minecraft:custom_data~{"mh:tracker":{}}] \
-    run tag @s remove mh.cursor.compass
+    run tag @s remove mh.cursor.tracker
 
 
 ## 让进度可以重新触发

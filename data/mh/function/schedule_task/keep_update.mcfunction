@@ -3,17 +3,6 @@ execute store result score 当前gametime mh.temp run time query gametime
 # 防止在别的更新模式显示boss条
 execute unless score 追踪器:更新模式 mh.settings matches 3 run bossbar set mh:compass_timer visible false
 
-## 根据设置更新物品描述文本
-# 0:右键更新 1:快捷栏更新 2:手持更新 3:定期更新
-execute if score 追踪器:更新模式 mh.settings matches 0 run data modify storage mh:temp itemInfoText[0].extra set value [{text: " (右键更新)", color: "gray"}]
-execute if score 追踪器:更新模式 mh.settings matches 1 run data modify storage mh:temp itemInfoText[0].extra set value [{text: " (快捷栏更新)", color: "gray"}]
-execute if score 追踪器:更新模式 mh.settings matches 2 unless score 追踪器:手持激活模式 mh.settings matches 1 run data modify storage mh:temp itemInfoText[0].extra set value [{text: " (手持更新)", color: "gray"}]
-execute if score 追踪器:更新模式 mh.settings matches 2 if score 追踪器:手持激活模式 mh.settings matches 1 run data modify storage mh:temp itemInfoText[0].extra set value [{text: " (手持激活)", color: "gray"}]
-execute if score 追踪器:更新模式 mh.settings matches 3 run data modify storage mh:temp itemInfoText[0].extra set value [{text: " (", color: "gray"},{score: {name: "定期更新倒计时",objective: "mh.temp"},color: "yellow"}, {text: "秒后更新)",color:"gray"}]
-# 0:无动作 1:切换目标 2:转换为编辑模式 3:执行命令
-execute if score 追踪器:丢弃时触发 mh.settings matches 0 run data modify storage mh:temp itemInfoText[3] set value {text:"  无动作",color:"gray"}
-execute if score 追踪器:丢弃时触发 mh.settings matches 1 run data modify storage mh:temp itemInfoText[3] set value {text:"  选择下一个目标",color:"gray"}
-execute if score 追踪器:丢弃时触发 mh.settings matches 2 run data modify storage mh:temp itemInfoText[3] set value {text:"  手动输入追踪目标",color:"gray"}
 
 ## 计算多少秒后重新运行一次
 # 更新模式为右键更新：1秒后运行并Early return
@@ -61,7 +50,7 @@ execute if score 定期更新倒计时 mh.temp = 追踪器:定期更新周期秒
 bossbar set mh:compass_timer players @a
 execute if score 追踪器:定期更新计时器bossBar mh.settings matches 1 run bossbar set mh:compass_timer visible true
 execute unless score 追踪器:定期更新计时器bossBar mh.settings matches 1 run bossbar set mh:compass_timer visible false
-bossbar set mh:compass_timer name [{"text":"距离指南针更新还有: ","color":"white"},{"score":{"name": "定期更新倒计时","objective": "mh.temp"},"color":"yellow"},{"text":"s","color":"white"}]
+bossbar set mh:compass_timer name [{"text":"距追踪器更新还剩：","color":"white"},{"score":{"name": "定期更新倒计时","objective": "mh.temp"},"color":"red"},{"text":"秒","color":"white"}]
 execute store result bossbar mh:compass_timer max run scoreboard players get 追踪器:定期更新周期秒数 mh.settings
 execute store result bossbar mh:compass_timer value run scoreboard players get 定期更新倒计时 mh.temp
 # 更新追踪者的指南针

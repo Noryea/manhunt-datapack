@@ -10,3 +10,6 @@ data modify storage mh:temp in.dimension set from entity @s Dimension
 
 # foreach
 function mh:compass/refresh/private/inv_foreach
+
+# dirty fix: 修复追踪器信息不更新
+execute unless data storage mh:temp in.guuid run function mh:compass/refresh/inventory_iteminfo_only

@@ -1,0 +1,39 @@
+{
+  "function": "sequence",
+  "functions": [
+    {
+      "function": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "italic": false,
+          "storage": "mh:temp",
+          "nbt": "trackingText",
+          "type": "nbt",
+          "interpret": true
+        }
+      ],
+      "mode": "replace_section",
+      "offset": 0,
+      "size": 1
+    },
+    {
+      "function": "minecraft:reference",
+      "name": "mh:update_info"
+    },
+    {
+      "function": "minecraft:copy_custom_data",
+      "source": {
+        "type": "minecraft:storage",
+        "source": "mh:temp"
+      },
+      "ops": [
+        {
+          "source": "trackerData",
+          "target": "mh:tracker",
+          "op": "replace"
+        }
+      ]
+    }
+  ]
+}

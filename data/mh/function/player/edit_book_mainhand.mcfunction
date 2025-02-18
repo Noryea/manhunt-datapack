@@ -24,7 +24,7 @@ execute unless data storage gu:main out run \
     return run advancement revoke @s only mh:detect/edit_book
 
 # lore
-function mh:compass/util/construct_lore
+function mh:compass/util/construct_tracking_text
 # trackerData
 data modify storage mh:temp trackerData set value {}
 data modify storage mh:temp trackerData.selector set from storage gu:main out
@@ -32,7 +32,7 @@ data modify storage mh:temp trackerData.selector set from storage gu:main out
 item modify entity @s weapon.mainhand [\
     {function: "set_item", item: "compass"},\
     {function: "set_components", components: {"!minecraft:writable_book_content":{},"!minecraft:lore":{},"minecraft:max_stack_size": 1,"minecraft:lodestone_tracker":{}}},\
-    {function: "reference",name:"mh:copy_lore_and_data"}]
+    {function: "reference",name:"mh:copy_info_and_data"}]
 function mh:compass/refresh/weapon_mainhand
 
 # 让进度可以重新触发

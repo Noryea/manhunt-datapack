@@ -7,13 +7,13 @@
 # 如果目标不在线 移除in.guuid
 $execute unless entity $(guuid) run data remove storage mh:temp in.guuid
 # 构造lore、创建空的trackerData
-execute if entity @s[type=item] on origin run function mh:compass/util/construct_lore
-execute unless entity @s[type=item] run function mh:compass/util/construct_lore
+execute if entity @s[type=item] on origin run function mh:compass/util/construct_tracking_text
+execute unless entity @s[type=item] run function mh:compass/util/construct_tracking_text
 data modify storage mh:temp trackerData set value {}
 
 # 如果in.guuid不存在, early return
 $execute unless data storage mh:temp in.guuid run \
-    return run item modify entity @s $(slot) mh:copy_lore_and_data
+    return run item modify entity @s $(slot) mh:copy_info_and_data
 
 
 # 判断目标是否为指南针持有者的可追踪玩家之一 不是则获取初始
@@ -30,8 +30,8 @@ execute if score #result mh.temp matches 0 if data storage mh:temp in.guuid run 
     return run function mh:compass/refresh/private/__opt with storage mh:temp in
 # 不存在新的in.guuid, 则设置正在追踪为未知并early return
 execute if score #result mh.temp matches 0 run data modify storage mh:temp trackerData set value {}
-execute if score #result mh.temp matches 0 run data modify storage mh:temp itemInfoText[1].extra set value [{text:"未知",color:"gray"}]
-$execute if score #result mh.temp matches 0 run return run item modify entity @s $(slot) mh:copy_lore_and_data
+execute if score #result mh.temp matches 0 run data modify storage mh:temp trackingText.extra set value [{text:"未知",color:"gray"}]
+$execute if score #result mh.temp matches 0 run return run item modify entity @s $(slot) mh:copy_info_and_data
 
 
 ## 更新lodestone_tracker
@@ -56,8 +56,8 @@ $data modify storage mh:temp trackerData.selector set value $(guuid)
 # 确保物品每秒至少动一下
 # execute if score 追踪器:更新模式 mh.settings matches 3 store result storage mh:temp trackerData.info.gameTime long 1 run time query gametime
 # execute unless score 追踪器:更新模式 mh.settings matches 3 run data remove storage mh:temp trackerData.info.gameTime
-execute store result storage mh:temp trackerData.info.scaledGametime long 0.05 run scoreboard players get 当前gametime mh.temp
+execute store result storage mh:temp trackerData.info.scaledGametime long 1 run scoreboard players get 当前gametime mh.temp
 # 实际维度
 $execute as $(guuid) run data modify storage mh:temp trackerData.info.exactDimension set from entity @s Dimension
 # 物品修饰器
-$item modify entity @s $(slot) mh:copy_lore_and_data
+$item modify entity @s $(slot) mh:copy_info_and_data
