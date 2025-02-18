@@ -3,7 +3,6 @@
 
 ## 如果玩家不是从指针丢出、也不是从手上丢出, 则认为玩家尝试从背包丢掉多余的指南针, 杀死本物品
 scoreboard players set #flag mh.temp 0
-# 玩家身上别的指南针的数量
 execute on origin store result score #result mh.temp run function mh:compass/util/if_have_item
 # (玩家指针为空,且没有mh.cursor.compass标签,且主手不空,则物品有可能是从背包按q丢出来的)
 execute on origin if score #result mh.temp matches 1.. unless items entity @s player.cursor * unless entity @s[tag=mh.cursor.compass] if items entity @s weapon.mainhand * run \
@@ -11,7 +10,7 @@ execute on origin if score #result mh.temp matches 1.. unless items entity @s pl
 # (进一步判断:物品不是从副手丢出来的)
 execute on origin if entity @s[tag=mh.offhand.compass] unless items entity @s weapon.offhand * run \
     scoreboard players set #flag mh.temp 0
-# 杀死并返回
+# 杀死并early return
 execute if score #flag mh.temp matches 1 run \
     return run kill @s
 
@@ -27,6 +26,7 @@ execute if score 追踪器:丢弃时触发 mh.settings matches 1 run \
 execute if score 追踪器:丢弃时触发 mh.settings matches 1 store result score #result mh.temp run data modify storage mh:temp in.guuid set from entity @s Item.components."minecraft:custom_data"."mh:tracker".selector
 execute if score #result mh.temp matches 1 run data modify storage mh:temp in.slot set value "contents"
 execute if score #result mh.temp matches 1 run execute on origin run data modify storage mh:temp in.dimension set from entity @s Dimension
+execute if score #result mh.temp matches 1 run item modify entity @s contents {function:"set_components", components:{"lodestone_tracker":{}}}
 execute if score #result mh.temp matches 1 run function mh:compass/refresh/private/__opt with storage mh:temp in
 # # 显示聊天栏信息
 # execute if score #result mh.temp matches 1 run data modify storage mh:temp in.selectorText.selector set from storage mh:temp in.guuid
@@ -42,6 +42,7 @@ execute if score 追踪器:丢弃时触发 mh.settings matches 2 if items entity
     ]
     
 ## 玩家可以通过丢弃退出编辑模式
+# 变回指南针
 execute if score #result mh.temp matches 0 if items entity @s contents writable_book run \
     item modify entity @s contents [{function:"set_components",components:{"!minecraft:writable_book_content":{}}},\
     {function:"set_item", item: "compass"},\
