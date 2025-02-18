@@ -23,4 +23,4 @@ execute if entity @s[team=runners] run advancement revoke @s only mh:gui/hunter
 kill @e[type=item,distance=..5,nbt={Item:{components:{"minecraft:custom_data":{"mhUI":true}}}}]
 
 # 让进度可以重新触发
-advancement revoke @s only mh:detect/tick_12t
+advancement revoke @s only mh:detect/every_sec

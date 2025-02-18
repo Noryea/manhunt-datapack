@@ -26,7 +26,8 @@ execute unless data storage mh:temp in.guuid \
 execute if data storage mh:temp {in:{num:-106b}} run \
     return fail
 function mh:compass/refresh/private/num_to_slot with storage mh:temp in
-function mh:compass/refresh/private/__opt with storage mh:temp in
+execute if data storage mh:temp in.guuid run \
+    function mh:compass/refresh/private/__opt with storage mh:temp in
 
 # 递归调用
 function mh:compass/refresh/private/inv_foreach_hotbar

@@ -1,20 +1,20 @@
 {
   "criteria": {
-    "pt12": {
+    "pt20": {
       "trigger": "minecraft:tick",
       "conditions": {
         "player": {
-          "periodic_tick": 12
+          "periodic_tick": 20
         }
       }
     }
   },
   "requirements": [
     [
-      "pt12"
+      "pt20"
     ]
   ],
   "rewards": {
-    "function": "mh:player/every_12t"
+    "function": "mh:player/every_sec"
   }
 }

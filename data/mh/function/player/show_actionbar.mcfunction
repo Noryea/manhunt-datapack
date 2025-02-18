@@ -4,12 +4,13 @@ advancement revoke @s only mh:detect/show_actionbar
 # early return
 execute unless entity @s[team=hunters] unless entity @s[team=runners] run return fail
 execute if entity @s[gamemode=spectator] run return fail
-
 # 如果切换后发现玩家手上没有指南针, 立即清空动作栏并终止
+execute unless items entity @s weapon.* compass[minecraft:custom_data~{"mh:tracker":{}}] if entity @s[tag=mh.anyhand.tracker] run title @s actionbar ""
 execute unless items entity @s weapon.* compass[minecraft:custom_data~{"mh:tracker":{}}] run \
-    return run title @s actionbar ""
+    return run tag @s remove mh.anyhand.tracker
 
-# 读取手上(主手优先于副手)物品的数据
+tag @s add mh.anyhand.tracker
+# 解析手上物品的数据(主手优先于副手)
 function mh:player/actionbar/parse_hand_item
 # 没有selector, 直接终止
 execute unless data storage mh:temp trackerData.selector run return fail
