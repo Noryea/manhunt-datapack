@@ -15,6 +15,7 @@ execute if score #flag mh.temp matches 1 run \
     return run kill @s
 
 ## 设置guuid为旧selector的备份
+execute unless data entity @s Item.components."minecraft:custom_data"."mh:tracker".selector run data remove storage mh:temp in.guuid
 data modify storage mh:temp in.guuid set from entity @s Item.components."minecraft:custom_data"."mh:tracker".selector
 
 ## 触发丢弃事件
