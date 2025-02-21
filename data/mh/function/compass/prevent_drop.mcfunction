@@ -28,7 +28,7 @@ execute if score 追踪器:丢弃时触发 mh.settings matches 1 store result sc
 execute if score #result mh.temp matches 1 run data modify storage mh:temp in.slot set value "contents"
 execute if score #result mh.temp matches 1 run execute on origin run data modify storage mh:temp in.dimension set from entity @s Dimension
 execute if score #result mh.temp matches 1 run item modify entity @s contents {function:"set_components", components:{"lodestone_tracker":{}}}
-execute if score #result mh.temp matches 1 run function mh:compass/refresh/private/__opt with storage mh:temp in
+execute if score #result mh.temp matches 1 run function mh:compass/refresh/private/opt
 # # 显示聊天栏信息
 # execute if score #result mh.temp matches 1 run data modify storage mh:temp in.selectorText.selector set from storage mh:temp in.guuid
 # execute if score #result mh.temp matches 1 on origin run tellraw @s ["切换追踪目标至: ", {"nbt": "in.selectorText", "storage": "mh:temp", "interpret": true}]
@@ -47,7 +47,8 @@ execute if score 追踪器:丢弃时触发 mh.settings matches 2 if items entity
 execute if score #result mh.temp matches 0 if items entity @s contents writable_book run \
     item modify entity @s contents [{function:"set_components",components:{"!minecraft:writable_book_content":{}}},\
     {function:"set_item", item: "compass"},\
-    {function:"set_components", components: {"!minecraft:lore":{},"minecraft:max_stack_size": 1}}]
+    {function:"set_components", components: {"!minecraft:lore":{},"minecraft:max_stack_size": 1}}, \
+    {function:"reference",name:"mh:make_usable",conditions:[{condition:"value_check",value:{type:"score",score:"mh.settings",target:{type:"fixed",name:"追踪器:更新模式"}},range:0}]}]
 # 更新lore
 execute if score #result mh.temp matches 0 run execute on origin run function mh:compass/util/construct_tracking_text
 execute if score #result mh.temp matches 0 run data modify storage mh:temp trackerData set from entity @s Item.components."minecraft:custom_data"."mh:tracker"
