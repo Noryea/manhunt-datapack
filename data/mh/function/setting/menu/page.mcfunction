@@ -63,7 +63,7 @@ tellraw @s [ "\u00a7a逃者\u00a7r可追踪: ", \
 
 
 execute unless score 追踪器:丢弃时触发 mh.settings matches 1..2 run \
-    tellraw @s ["指南针丢弃事件: ",{"text":"[无动作]","color":"red","hoverEvent":{"action": "show_text","value":"点击切换"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"function mh:setting/menu/set_value/switch_drop_event\"}"}}]
+    tellraw @s ["指南针丢弃事件: ",{"text":"[无动作]","color":"gray","hoverEvent":{"action": "show_text","value":"点击切换"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"function mh:setting/menu/set_value/switch_drop_event\"}"}}]
 execute if score 追踪器:丢弃时触发 mh.settings matches 1 run \
     tellraw @s ["指南针丢弃事件: ",{"text":"[切换目标]","color":"green","hoverEvent":{"action": "show_text","value":"点击切换"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"function mh:setting/menu/set_value/switch_drop_event\"}"}}]
 execute if score 追踪器:丢弃时触发 mh.settings matches 2 run \
