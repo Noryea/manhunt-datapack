@@ -18,16 +18,12 @@ execute unless data storage mh:temp invItem.components."minecraft:custom_data"."
 # 设置guuid参数
 data remove storage mh:temp in.guuid
 data modify storage mh:temp in.guuid set from storage mh:temp invItem.components."minecraft:custom_data"."mh:tracker".selector
-# 如果物品没有selector，用初始guuid
-execute unless data storage mh:temp in.guuid \
-    unless function mh:compass/select/initial run data modify storage mh:temp in.guuid set from storage gu:main out
 
 # 执行更新
 execute if data storage mh:temp {in:{num:-106b}} run \
     return fail
 function mh:compass/refresh/private/num_to_slot with storage mh:temp in
-execute if data storage mh:temp in.guuid run \
-    function mh:compass/refresh/private/__opt with storage mh:temp in
+function mh:compass/refresh/private/opt
 
 # 递归调用
 function mh:compass/refresh/private/inv_foreach_hotbar

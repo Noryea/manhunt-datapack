@@ -1,1 +1,13 @@
-{"function":"set_components", "components": {"!consumable":{},"!use_cooldown":{}}}
+[
+  {
+    "function": "set_components",
+    "components": {
+      "!consumable": {},
+      "!use_cooldown": {}
+    }
+  },
+  {
+    "function": "reference",
+    "name": "use_remain_helper:disable_flag"
+  }
+]
