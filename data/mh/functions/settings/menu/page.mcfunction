@@ -44,6 +44,6 @@ data remove storage mh:temp TextCompound
 
 
 tellraw @s {"text":"[冻结猎人..]","color":"aqua","hoverEvent": {"action": "show_text","value":"请输入一个1-100的整数(单位:秒)后回车"},"clickEvent": {"action": "suggest_command","value": "/scoreboard players set @s mh.setting.frz "}}
-tellraw @s {"text":"[清空玩家状态]","color":"yellow","hoverEvent": {"action": "show_text","value":"重置所有玩家的血量、背包、重生点、进度和配方"},"clickEvent": {"action": "suggest_command","value": "/function #mh:recover_all"}}
+tellraw @s {"text":"[清空玩家状态]","color":"yellow","hoverEvent": {"action": "show_text","value":"重置所有玩家的血量、背包、重生点、进度和配方"},"clickEvent": {"action": "suggest_command","value": "/function mh:settings/menu/click_events/recover_players"}}
 
 tellraw @s ""

@@ -1,6 +1,4 @@
 # 冻结猎人
-execute as @p[scores={mh.setting.frz=-2147483648..2147483647}] at @s run function mh:players/events/freeze_hunters
-
 execute if score hunters.freeze mh.temp matches 1.. as @a[team=hunters] at @s run function mh:players/hunters/freeze
 execute if score hunters.freeze mh.temp matches 0.. run scoreboard players remove hunters.freeze mh.temp 1
 
