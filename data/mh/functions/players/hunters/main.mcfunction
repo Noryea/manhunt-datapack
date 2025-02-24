@@ -1,11 +1,13 @@
 tag @s add self
 
 # 给予指南针
-execute store result score #拥有指南针数量 mh.temp run clear @s compass{Tags:["tracker"]} 0
+scoreboard players set #拥有指南针数量 mh.temp 0
 execute if score @s mh.health matches 0 run scoreboard players set #拥有指南针数量 mh.temp 1
+execute if data entity @s Inventory[{tag:{Tags:["tracker"]}}] run scoreboard players set #拥有指南针数量 mh.temp 1
+execute if score #拥有指南针数量 mh.temp matches 0 store result score #拥有指南针数量 mh.temp run clear @s compass{Tags:["tracker"]} 0
+
 execute if score #拥有指南针数量 mh.temp matches 0 unless data entity @s SelectedItem run loot replace entity @s weapon.mainhand loot mh:gameplay/compass
 execute if score #拥有指南针数量 mh.temp matches 0 unless data entity @s Inventory[{tag:{Tags:["tracker"]}}] run loot give @s loot mh:gameplay/compass
-scoreboard players set #拥有指南针数量 mh.temp 0
 
 # 标记可追踪玩家
 tag @a[team=runners,gamemode=!spectator] add trackable
