@@ -35,6 +35,8 @@ scoreboard objectives add mh.uid dummy
 scoreboard objectives add mh.health health {"text":"❤","color":"red"}
 scoreboard objectives add mh.died minecraft.custom:deaths
 scoreboard objectives add mh.tracking.old dummy
+# 网易的屏蔽词导致含".com"的指令执行不了,改成".cmpass"就好了
+scoreboard objectives add mh.drop.cmpass minecraft.dropped:compass
 
 execute unless score 已应用默认设置 mh.settings matches 1 run function mh:settings/default
 
