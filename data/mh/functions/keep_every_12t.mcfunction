@@ -20,7 +20,9 @@ advancement revoke @s[team=!runners] only mh:gui/runner
 advancement grant @s[team=runners] only mh:gui/runner
 
 # 猎人函数
-execute as @a[team=hunters] at @s run function mh:players/hunters/main
+scoreboard players set #schedule_h_times mh.temp 0
+tag @a[team=hunters] add mh.hunter
+function mh:scheduled_hunters_func
 # 逃者函数
 execute as @a[team=runners] at @s run function mh:players/runners/main
 # 消除1.16的更新声音
