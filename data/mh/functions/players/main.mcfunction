@@ -5,7 +5,8 @@ execute if score @s mh.died matches 1.. run function mh:players/events/die
 execute if score @s mh.join matches 1.. run function mh:players/events/join
 execute if score @s mh.join.hunters matches 1.. run function mh:players/events/join_hunters
 execute if score @s mh.join.runners matches 1.. run function mh:players/events/join_runners
+execute if score @s mh.setting.frz matches -2147483648..2147483647 run function mh:players/events/freeze_hunters
 
 ## 检测丢弃指南针
-execute if score @s mh.drop.cmpass matches 1.. run function mh:players/events/drop_compass
+execute if score @s[team=!] mh.drop.cmpass matches 1.. run function mh:players/events/drop_compass
 kill @e[type=item,distance=..6,nbt={Item:{tag:{Tags:["tracker"]}}}]

@@ -1,4 +1,4 @@
-execute align xyz run summon armor_stand ~ ~ ~ {Marker:1b,UUID:[I;0,0,0,12873326]}
+execute align xyz run summon armor_stand ~ ~ ~ {Invisible:1b,NoGravity:1b,Marker:1b,UUID:[I;0,0,0,12873326]}
 
 execute store result score target_x mh.temp run data get storage mh:temp Pos.X 1
 execute store result score target_y mh.temp run data get storage mh:temp Pos.Y 1
