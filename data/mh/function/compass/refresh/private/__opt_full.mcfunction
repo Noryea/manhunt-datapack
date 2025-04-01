@@ -1,7 +1,6 @@
 # @args: {slot, guuid, dimension}
 #> 完整更新一次指南针
 
-
 ## 更新右键使用组件
 execute store result storage mh:temp in.cooldownSec float 0.05 run scoreboard players get 追踪器:右键更新周期游戏刻 mh.settings
 execute if score 追踪器:右键更新周期游戏刻 mh.settings matches 0 run data modify storage mh:temp in.cooldownSec set value 0.001
@@ -20,8 +19,8 @@ function mh:compass/util/itemmodify_coord with storage mh:temp in
 ## 更新info和trackerData
 function mh:compass/util/construct_tracking_text
 data modify storage mh:temp trackerData.selector set from storage mh:temp in.guuid
-# 确保物品每秒至少动一下
-execute store result storage mh:temp trackerData.info.scaledGametime long 0.05 run scoreboard players get 当前gametime mh.temp
+# 确保物品每0.5秒至少动一下
+execute store result storage mh:temp trackerData.info.scaledGametime long 0.1 run scoreboard players get 当前gametime mh.temp
 # 实际维度
 $data modify storage mh:temp trackerData.info.exactDimension set from entity $(guuid) Dimension
 # 物品修饰器

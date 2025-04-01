@@ -20,8 +20,6 @@ data remove storage mh:temp in.guuid
 data modify storage mh:temp in.guuid set from storage mh:temp invItem.components."minecraft:custom_data"."mh:tracker".selector
 
 # 执行更新
-execute if data storage mh:temp {in:{num:-106b}} run \
-    return fail
 function mh:compass/refresh/private/num_to_slot with storage mh:temp in
 function mh:compass/refresh/private/opt
 

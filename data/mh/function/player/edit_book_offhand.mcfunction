@@ -4,7 +4,7 @@ execute if items entity @s weapon.offhand writable_book[minecraft:writable_book_
 
 # 验证非法字符
 scoreboard players set #flag mh.temp 1
-data modify storage mh:temp TextBuffer set from entity @s Inventory[{Slot:-106b}].components."minecraft:writable_book_content".pages[0]
+data modify storage mh:temp TextBuffer set from entity @s equipment.offhand.components."minecraft:writable_book_content".pages[0]
 execute store result score #len mh.temp run data get storage mh:temp TextBuffer
 scoreboard players set #iter mh.temp 0
 scoreboard players set #result mh.temp 1
@@ -15,7 +15,7 @@ execute if score #flag mh.temp matches 0 run tellraw @s "\u00a7c名称含有非�
 ## 调用从书的内容读取id尝试选择的函数
 data remove storage gu:main out
 execute unless score #flag mh.temp matches 0 run \
-    function mh:compass/select/writedown with entity @s Inventory[{Slot:-106b}].components."minecraft:writable_book_content".pages[0]
+    function mh:compass/select/writedown with entity @s equipment.offhand.components."minecraft:writable_book_content".pages[0]
 
 # early return 
 execute unless data storage gu:main out run \

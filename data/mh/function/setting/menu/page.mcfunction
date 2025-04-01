@@ -38,8 +38,8 @@ execute if score 猎人可追踪:队友 mh.settings matches 1 run \
     data modify storage mh:temp TextList[1] set value {text: "[队友]", color:"green", click_event:{action:"run_command", \ 
     command: "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 猎人可追踪:队友 mh.settings 0\"}" }}
 tellraw @s [ "\u00a7c猎人\u00a7r可追踪: ", \
-    {"nbt":"TextList[0]","storage":"mh:temp","interpret":true,hover_event:{action:"show_text",value:"点击切换"}}, \
-    {"nbt":"TextList[1]","storage":"mh:temp","interpret":true,hover_event:{action:"show_text",value:"点击切换"}}\ 
+    {nbt: "TextList[0]",storage: "mh:temp",interpret:true,hover_event:{action:"show_text",value:"点击切换"}}, \
+    {nbt: "TextList[1]",storage: "mh:temp",interpret:true,hover_event:{action:"show_text",value:"点击切换"}}\ 
 ]
 
 
@@ -57,8 +57,8 @@ execute if score 逃者可追踪:队友 mh.settings matches 1 run \
     data modify storage mh:temp TextList[1] set value {text: "[队友]", color:"green", click_event:{action:"run_command", \ 
     command: "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 逃者可追踪:队友 mh.settings 0\"}" }}
 tellraw @s [ "\u00a7a逃者\u00a7r可追踪: ", \
-    {"nbt":"TextList[0]","storage":"mh:temp","interpret":true,hover_event:{action:"show_text",value:"点击切换"}}, \
-    {"nbt":"TextList[1]","storage":"mh:temp","interpret":true,hover_event:{action:"show_text",value:"点击切换"}}\ 
+    {nbt: "TextList[0]",storage: "mh:temp",interpret:true,hover_event:{action:"show_text",value:"点击切换"}}, \
+    {nbt: "TextList[1]",storage: "mh:temp",interpret:true,hover_event:{action:"show_text",value:"点击切换"}}\ 
 ]
 
 
@@ -96,10 +96,10 @@ execute if score 敌人追踪器:显示维度 mh.settings matches 1 run \
     data modify storage mh:temp TextList[3] set value {text: "[维度]", color:"green", click_event:{action:"run_command", \ 
     command: "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 敌人追踪器:显示维度 mh.settings 0\"}" }}
 tellraw @s [ "显示敌人信息: ", \
-    {"nbt":"TextList[0]","storage":"mh:temp","interpret":true,hover_event:{action:"show_text",value:"点击切换"}}, \
-    {"nbt":"TextList[1]","storage":"mh:temp","interpret":true,hover_event:{action:"show_text",value:"点击切换"}}, \
-    {"nbt":"TextList[2]","storage":"mh:temp","interpret":true,hover_event:{action:"show_text",value:"点击切换"}}, \
-    {"nbt":"TextList[3]","storage":"mh:temp","interpret":true,hover_event:{action:"show_text",value:"点击切换"}}\ 
+    {nbt: "TextList[0]",storage: "mh:temp",interpret:true,hover_event:{action:"show_text",value:"点击切换"}}, \
+    {nbt: "TextList[1]",storage: "mh:temp",interpret:true,hover_event:{action:"show_text",value:"点击切换"}}, \
+    {nbt: "TextList[2]",storage: "mh:temp",interpret:true,hover_event:{action:"show_text",value:"点击切换"}}, \
+    {nbt: "TextList[3]",storage: "mh:temp",interpret:true,hover_event:{action:"show_text",value:"点击切换"}}\ 
 ]
 
 
@@ -129,24 +129,24 @@ execute if score 队友追踪器:显示维度 mh.settings matches 1 run \
     data modify storage mh:temp TextList[3] set value {text: "[维度]", color:"green", click_event:{action:"run_command", \ 
     command: "/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 队友追踪器:显示维度 mh.settings 0\"}" }}
 tellraw @s [ "显示队友信息: ", \
-    {"nbt":"TextList[0]","storage":"mh:temp","interpret":true,hover_event:{action:"show_text",value:"点击切换"}}, \
-    {"nbt":"TextList[1]","storage":"mh:temp","interpret":true,hover_event:{action:"show_text",value:"点击切换"}}, \
-    {"nbt":"TextList[2]","storage":"mh:temp","interpret":true,hover_event:{action:"show_text",value:"点击切换"}}, \
-    {"nbt":"TextList[3]","storage":"mh:temp","interpret":true,hover_event:{action:"show_text",value:"点击切换"}}\ 
+    {nbt: "TextList[0]", storage:"mh:temp", interpret:true, hover_event:{action:"show_text",value:"点击切换"}}, \
+    {nbt: "TextList[1]", storage:"mh:temp", interpret:true, hover_event:{action:"show_text",value:"点击切换"}}, \
+    {nbt: "TextList[2]", storage:"mh:temp", interpret:true, hover_event:{action:"show_text",value:"点击切换"}}, \
+    {nbt: "TextList[3]", storage:"mh:temp", interpret:true, hover_event:{action:"show_text",value:"点击切换"}}\ 
 ]
 
 
 execute unless score 追踪器:更新模式 mh.settings matches 1..3 run \
-    tellraw @s ["指南针更新模式: ",{text: "[右键更新(需1.21.2+)]",color:"aqua",hover_event:{action: "show_text",value:"让指南针变成可使用物品，需要玩家手动更新"},click_event:{action:"run_command",command: "/function mh:setting/menu/set_value/switch_refresh_mode"}}, \
+    tellraw @s ["指南针更新模式: ",{text: "[右键更新]",color:"aqua",hover_event:{action: "show_text",value:["让指南针变成可使用物品，需要玩家手动更新","\n\n性能开销: ",{text:"小",color:"green"}]},click_event:{action:"run_command",command: "/function mh:setting/menu/set_value/switch_refresh_mode"}}, \
   "  使用冷却=", {"score": { "objective": "mh.settings", "name": "追踪器:右键更新周期游戏刻" }, color: "aqua", "underlined": true, hover_event:{action: "show_text",value:"可修改成0~200(默认30, 0表示无冷却)"},click_event:{action:"suggest_command",command: "/function mh:setting/menu/set_value/use_delay {Value: \"请输入\"}"}},{text: "刻", color: "aqua"}]
 execute if score 追踪器:更新模式 mh.settings matches 1 run \
-    tellraw @s ["指南针更新模式: ",{text: "[快捷栏更新]",color:"green",hover_event:{action: "show_text",value:"自动更新玩家快捷栏中所有指南针"},click_event:{action:"run_command",command: "/function mh:setting/menu/set_value/switch_refresh_mode"}}, \
+    tellraw @s ["指南针更新模式: ",{text: "[快捷栏更新]",color:"green",hover_event:{action: "show_text",value:["自动更新玩家快捷栏中所有指南针","\n\n性能开销: ",{text:"严重",color:"red"}]},click_event:{action:"run_command",command: "/function mh:setting/menu/set_value/switch_refresh_mode"}}, \
   "  更新周期=", {"score": { "objective": "mh.settings", "name": "追踪器:快捷栏更新周期游戏刻" }, color: "green", "underlined": true, hover_event:{action: "show_text",value:"可修改成1~60(默认10)"},click_event:{action:"suggest_command",command: "/function mh:setting/menu/set_value/hotbar_update_delay {Value: \"请输入\"}"}},{text: "刻", color: "green"}]
 execute if score 追踪器:更新模式 mh.settings matches 2 run \
-    tellraw @s ["指南针更新模式: ",{text: "[手持更新]",color:"green",hover_event:{action: "show_text",value:"只有玩家手持指南针时才更新"},click_event:{action:"run_command",command: "/function mh:setting/menu/set_value/switch_refresh_mode"}}, \
+    tellraw @s ["指南针更新模式: ",{text: "[手持更新]",color:"green",hover_event:{action: "show_text",value:["只有玩家手持指南针时才更新","\n\n性能开销: ",{text:"中",color:"yellow"}]},click_event:{action:"run_command",command: "/function mh:setting/menu/set_value/switch_refresh_mode"}}, \
   "  更新周期=", {"score": { "objective": "mh.settings", "name": "追踪器:手持更新周期游戏刻" }, color: "green", "underlined": true, hover_event:{action: "show_text",value:"可修改成1~60(默认10)"},click_event:{action:"suggest_command",command: "/function mh:setting/menu/set_value/hand_update_delay {Value: \"请输入\"}"}},{text: "刻", color: "green"}]
 execute if score 追踪器:更新模式 mh.settings matches 3 run \
-    tellraw @s ["指南针更新模式: ",{text: "[定期更新]",color:"yellow",hover_event:{action: "show_text",value:"定期更新玩家背包中所有指南针"},click_event:{action:"run_command",command: "/function mh:setting/menu/set_value/switch_refresh_mode"}}, \
+    tellraw @s ["指南针更新模式: ",{text: "[定期更新]",color:"yellow",hover_event:{action: "show_text",value:["定期更新玩家背包中所有指南针","\n\n性能开销: ",{text:"大",color:"yellow"}]},click_event:{action:"run_command",command: "/function mh:setting/menu/set_value/switch_refresh_mode"}}, \
   "  更新周期=", {"score": { "objective": "mh.settings", "name": "追踪器:定期更新周期秒数" }, color: "yellow", "underlined": true, hover_event:{action: "show_text",value:"可修改为任意正整数"},click_event:{action:"suggest_command",command: "/function mh:setting/menu/set_value/timely_update_sec {Value: \"请输入\"}"}},{text: "秒", color: "yellow"}]
 
 

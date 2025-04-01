@@ -24,9 +24,11 @@ execute unless score 追踪器:更新模式 mh.settings matches 0 unless score �
 execute unless score 追踪器:更新模式 mh.settings matches 0 unless score 追踪器:更新模式 mh.settings matches 3 run \
     function mh:schedule_task/schedule_for with storage mh:temp schedule
 
-## 快捷栏更新
+## 快捷栏更新(包括副手)
 execute if score 追踪器:更新模式 mh.settings matches 1 \
     as @a[gamemode=!spectator] at @s run function mh:compass/refresh/hotbar
+execute if score 追踪器:更新模式 mh.settings matches 1 \
+    as @a[gamemode=!spectator] at @s run function mh:compass/refresh/weapon_offhand
 
 ## 手持更新
 execute if score 追踪器:更新模式 mh.settings matches 2 if score 追踪器:手持激活模式 mh.settings matches 1 \
