@@ -11,7 +11,7 @@ execute if score 追踪器:快捷栏更新周期游戏刻 mh.settings matches 1.
 
 # 不合法则打印错误信息，并恢复更改
 execute unless score 追踪器:快捷栏更新周期游戏刻 mh.settings matches 1..60 run \
-    tellraw @s {"text":"命令发生错误：不合法的数据范围，\"追踪器:快捷栏更新周期游戏刻\"选项的数值必须在1~60以内", "color": "red"}
+    tellraw @s {text: "命令发生错误：不合法的数据范围，\"追踪器:快捷栏更新周期游戏刻\"选项的数值必须在1~60以内", color: "red"}
 execute unless score 追踪器:快捷栏更新周期游戏刻 mh.settings matches 1..60 run \
     scoreboard players operation 追踪器:快捷栏更新周期游戏刻 mh.settings = #old_value mh.temp
 

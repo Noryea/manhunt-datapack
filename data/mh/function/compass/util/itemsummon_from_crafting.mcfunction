@@ -27,7 +27,7 @@ execute if items entity @p[tag=this] player.crafting.3 compass run item replace 
 # 如果是追踪器 变成书与笔
 execute if items entity @s contents *[minecraft:custom_data~{"mh:tracker":{}}] run \
     item modify entity @s contents [ \
-        {function:"set_name", name: [{"text":"追踪器","color":"white","italic": false},{"text":" (编辑模式)","color":"gray","italic": false}]}, \
+        {function:"set_name", name: [{text: "追踪器",color:"white",italic: false},{text: " (编辑模式)",color: "gray",italic: false}]}, \
         {function:"set_lore", lore: [{text: "在书中输入你想追踪的玩家id",color:"gray",italic:false},{text:""},{text:"丢弃变回指南针",color:"gray",italic:false}], mode: "replace_all"}, \
         {function:"set_item", item: "writable_book"}, \
         {function:"reference", name: "mh:make_unusable"} \

@@ -39,13 +39,13 @@ execute if score #flag mh.temp matches 1 if entity @s[team=runners] if score 逃
 
 # 执行title指令
 execute if data storage mh:temp actionBarExtra[] run title @s actionbar [ \
-    {"text":"目标:"},\
-    {"nbt": "in.selectorText", "storage": "mh:temp", "interpret": true, "extra": [\
-            {"text":" (","color":"white"}, \
-            {"nbt":"actionBarExtra[]","storage":"mh:temp","interpret":true,"separator":" "}, \
-            {"text":")","color":"white"} \
+    {text:"目标:"},\
+    {nbt: "in.selectorText", storage: "mh:temp", interpret: true, extra: [\
+            {text:" (",color:"white"}, \
+            {nbt:"actionBarExtra[]",storage:"mh:temp",interpret:true,separator:" "}, \
+            {text:")",color:"white"} \
         ] \
     } \
 ]
-execute unless data storage mh:temp actionBarExtra[] run title @s actionbar [{"text":"目标: "},{"nbt": "in.selectorText", "storage": "mh:temp", "interpret": true}]
+execute unless data storage mh:temp actionBarExtra[] run title @s actionbar [{text:"目标: "},{nbt: "in.selectorText", storage: "mh:temp", interpret: true}]
 

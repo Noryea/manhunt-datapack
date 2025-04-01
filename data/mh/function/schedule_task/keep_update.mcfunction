@@ -50,7 +50,7 @@ execute if score 定期更新倒计时 mh.temp = 追踪器:定期更新周期秒
 bossbar set mh:compass_timer players @a
 execute if score 追踪器:定期更新计时器bossBar mh.settings matches 1 run bossbar set mh:compass_timer visible true
 execute unless score 追踪器:定期更新计时器bossBar mh.settings matches 1 run bossbar set mh:compass_timer visible false
-bossbar set mh:compass_timer name [{"text":"距追踪器更新还剩：","color":"white"},{"score":{"name": "定期更新倒计时","objective": "mh.temp"},"color":"red"},{"text":"秒","color":"white"}]
+bossbar set mh:compass_timer name [{text:"距追踪器更新还剩：",color:"white"},{score:{name: "定期更新倒计时",objective: "mh.temp"},color:"red"},{text:"秒",color:"white"}]
 execute store result bossbar mh:compass_timer max run scoreboard players get 追踪器:定期更新周期秒数 mh.settings
 execute store result bossbar mh:compass_timer value run scoreboard players get 定期更新倒计时 mh.temp
 # 更新追踪者的指南针

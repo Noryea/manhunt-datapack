@@ -1,9 +1,3 @@
-# ===为了兼容1.21(.1)的临时块===
-# 获取#DataVersion变量的值
-scoreboard players reset #DataVersion mh.settings
-function mh:setting/check_dataversion/below_1_21_2
-function mh:setting/check_dataversion/above_1_21_2
-
 # =========默认设置=========
 team modify hunters friendlyFire true
 team modify hunters collisionRule always
@@ -56,9 +50,8 @@ scoreboard players set 队友追踪器:显示维度 mh.settings 1
 
 
 ##  0:右键更新 1:快捷栏更新 2:手持更新 3:定期更新
-# 1.21.2或更高: 默认右键更新  1.21.1以下: 默认手持更新
-execute if score #DataVersion mh.settings matches 4000.. run scoreboard players set 追踪器:更新模式 mh.settings 0
-execute if score #DataVersion mh.settings matches ..3955 run scoreboard players set 追踪器:更新模式 mh.settings 2
+# 默认右键更新
+scoreboard players set 追踪器:更新模式 mh.settings 0
 ##
 scoreboard players set 追踪器:右键更新周期游戏刻 mh.settings 30
 ##

@@ -1,4 +1,4 @@
-tellraw @a ["\u00a77[",{"selector":"@s"},"\u00a77] ",{"text":"已清空所有玩家的状态","color":"white","hoverEvent": {"action": "show_text","value":"重置所有玩家的血量、背包、重生点、进度和配方"},"clickEvent": {"action": "suggest_command","value": "/function #mh:recover_all"}}]
+tellraw @a ["\u00a77[",{selector:"@s"},"\u00a77] ",{text:"已清空所有玩家的状态",color:"white",hover_event: {action: "show_text",value:"重置所有玩家的血量、背包、重生点、进度和配方"},click_event: {action: "suggest_command", command: "/function mh:setting/menu/recover_all"}}]
 
 advancement revoke @a everything
 recipe take @a *
