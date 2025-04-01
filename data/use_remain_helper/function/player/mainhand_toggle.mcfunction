@@ -1,2 +1,0 @@
-function #use_remain_helper:set_mainhand
-advancement revoke @s only use_remain_helper:detect/mainhand_flag_changed

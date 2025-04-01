@@ -1,0 +1,25 @@
+{
+  "criteria": {
+    "inventory": {
+      "trigger": "minecraft:inventory_changed"
+    },
+    "pt5": {
+      "trigger": "minecraft:impossible"
+    },
+    "pt20": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "pt5"
+    ],
+    [
+      "pt20",
+      "inventory"
+    ]
+  ],
+  "rewards": {
+    "function": "mh:player/inventory_changed"
+  }
+}

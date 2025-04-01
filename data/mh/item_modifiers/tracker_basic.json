@@ -1,0 +1,176 @@
+[
+  {
+    "function": "sequence",
+    "functions": [
+      {
+        "function": "minecraft:set_name",
+        "name": {
+          "italic": false,
+          "text": "追踪器",
+          "color": "white",
+          "extra": [
+            {
+              "text": " (右键更新)",
+              "color": "gray"
+            }
+          ]
+        },
+        "conditions": [
+          {
+            "condition": "value_check",
+            "value": {
+              "type": "score",
+              "score": "mh.settings",
+              "target": {
+                "type": "fixed",
+                "name": "追踪器:更新模式"
+              }
+            },
+            "range": 0
+          }
+        ],
+        "entity": "this"
+      },
+      {
+        "function": "minecraft:set_name",
+        "name": {
+          "italic": false,
+          "text": "追踪器",
+          "color": "white",
+          "extra": [
+            {
+              "text": " (快捷栏更新)",
+              "color": "gray"
+            }
+          ]
+        },
+        "conditions": [
+          {
+            "condition": "value_check",
+            "value": {
+              "type": "score",
+              "score": "mh.settings",
+              "target": {
+                "type": "fixed",
+                "name": "追踪器:更新模式"
+              }
+            },
+            "range": 1
+          }
+        ],
+        "entity": "this"
+      },
+      {
+        "function": "minecraft:set_name",
+        "name": {
+          "italic": false,
+          "text": "追踪器",
+          "color": "white",
+          "extra": [
+            {
+              "text": " (手持更新)",
+              "color": "gray"
+            }
+          ]
+        },
+        "conditions": [
+          {
+            "condition": "value_check",
+            "value": {
+              "type": "score",
+              "score": "mh.settings",
+              "target": {
+                "type": "fixed",
+                "name": "追踪器:更新模式"
+              }
+            },
+            "range": 2
+          }
+        ],
+        "entity": "this"
+      },
+      {
+        "function": "minecraft:set_name",
+        "name": {
+          "italic": false,
+          "text": "追踪器",
+          "color": "white",
+          "extra": [
+            {
+              "text": " (手持激活)",
+              "color": "gray"
+            }
+          ]
+        },
+        "conditions": [
+          {
+            "condition": "value_check",
+            "value": {
+              "type": "score",
+              "score": "mh.settings",
+              "target": {
+                "type": "fixed",
+                "name": "追踪器:更新模式"
+              }
+            },
+            "range": 2
+          },
+          {
+            "condition": "value_check",
+            "value": {
+              "type": "score",
+              "score": "mh.settings",
+              "target": {
+                "type": "fixed",
+                "name": "追踪器:手持激活模式"
+              }
+            },
+            "range": 1
+          }
+        ],
+        "entity": "this"
+      },
+      {
+        "function": "minecraft:set_name",
+        "name": {
+          "italic": false,
+          "text": "追踪器",
+          "color": "white",
+          "extra": [
+            {"text": " (", "color": "gray"},
+            {"score": {"name": "定期更新倒计时","objective":"mh.temp"}, "color": "yellow"},
+            {"text": "秒后更新)", "color": "gray"}
+          ]
+        },
+        "conditions": [
+          {
+            "condition": "value_check",
+            "value": {
+              "type": "score",
+              "score": "mh.settings",
+              "target": {
+                "type": "fixed",
+                "name": "追踪器:更新模式"
+              }
+            },
+            "range": 3
+          }
+        ],
+        "entity": "this"
+      }
+    ]
+  },
+  {
+    "function": "set_components",
+    "components": {
+      "minecraft:max_stack_size": 1,
+
+      "minecraft:enchantments": {
+        "levels": {"minecraft:vanishing_curse": 1},
+        "show_in_tooltip": false
+      },
+
+      "minecraft:enchantment_glint_override": true
+    }
+  }
+]
