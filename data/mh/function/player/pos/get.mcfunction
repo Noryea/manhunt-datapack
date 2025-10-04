@@ -9,7 +9,7 @@ execute store result score 当前dimension mh.pdb.querydimension run data get st
 execute unless data storage mh:temp {in:{dimension:"minecraft:overworld"}} unless data storage mh:temp {in:{dimension:"minecraft:the_nether"}} unless data storage mh:temp {in:{dimension:"minecraft:the_end"}} run \
     scoreboard players reset @s mh.pdb.querydimension
 execute if score @s mh.pdb.querytime = 当前gametime mh.temp if score @s mh.pdb.querydimension = 当前dimension mh.pdb.querydimension run \
-    return run function mh:player/pos/private/get_cachedOutput with storage mh:temp in
+    return run function mh:player/pos/private/get_cache with storage mh:temp in
 
 # 先设置输出成空标签
 data modify storage mh:temp out.lodestoneTarget set value {}
@@ -24,7 +24,7 @@ execute if score #result mh.temp matches 1 at @s summon marker run function mh:p
 data modify storage mh:temp out.lodestoneTarget.dimension set from storage mh:temp in.dimension
 
 # 保存输出到cachedOutput
-function mh:player/pos/private/save_cachedOutput with storage mh:temp in
+function mh:player/pos/private/save_cache with storage mh:temp in
 scoreboard players operation @s mh.pdb.querytime = 当前gametime mh.temp
 scoreboard players operation @s mh.pdb.querydimension = 当前dimension mh.pdb.querydimension
 # data remove storage mh:temp TextBuffer

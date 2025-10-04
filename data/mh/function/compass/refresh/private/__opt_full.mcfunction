@@ -1,7 +1,6 @@
 # @args: {slot, guuid, dimension}
 #> 完整更新一次指南针
 
-
 ## 更新右键使用组件
 function mh:compass/refresh/private/right_click_relative
 

@@ -13,4 +13,4 @@ function mh:player/pos/private/update_pdb_foreach
 data modify storage mh:temp in.dimension set from entity @s Dimension
 data modify storage mh:temp out.lodestoneTarget.dimension set from storage mh:temp in.dimension
 execute at @s summon marker run function mh:player/pos/__marker_block_pos
-function mh:player/pos/private/save_cachedOutput with storage mh:temp in
+function mh:player/pos/private/save_cache with storage mh:temp in
