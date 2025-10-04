@@ -1,4 +1,4 @@
-# @args: trackerData和targetCopy 在 mh:temp
+# @args: trackerData和LodestoneTargetCopy 在 mh:temp
 # @output: actionBarExtra 在 mh:temp
 
 data modify storage mh:temp actionBarExtra set value []
@@ -7,28 +7,24 @@ execute if score 敌人追踪器:显示维度 mh.settings matches 1 run data mod
 execute if score 敌人追踪器:显示维度 mh.settings matches 1 if data storage mh:temp {trackerData:{info:{exactDimension:"minecraft:overworld"}}} run data modify storage mh:temp actionBarExtra[0].extra[1] set value {translate: "flat_world_preset.minecraft.overworld"}
 execute if score 敌人追踪器:显示维度 mh.settings matches 1 if data storage mh:temp {trackerData:{info:{exactDimension:"minecraft:the_nether"}}} run data modify storage mh:temp actionBarExtra[0].extra[1] set value {translate: "advancements.nether.root.title"}
 execute if score 敌人追踪器:显示维度 mh.settings matches 1 if data storage mh:temp {trackerData:{info:{exactDimension:"minecraft:the_end"}}} run data modify storage mh:temp actionBarExtra[0].extra[1] set value {translate: "advancements.end.root.title"}
-execute if score 敌人追踪器:显示维度 mh.settings matches 1 unless data storage mh:temp actionBarExtra[0].extra[1].translate run \
-    data modify storage mh:temp actionBarExtra[0].extra[1].text set from storage mh:temp trackerData.info.exactDimension
+execute if score 敌人追踪器:显示维度 mh.settings matches 1 unless data storage mh:temp actionBarExtra[0].extra[1].translate run data modify storage mh:temp actionBarExtra[0].extra[1].text set from storage mh:temp trackerData.info.exactDimension
 
 # 如果跨维度,直接终止
 scoreboard players set #result mh.temp 1
-execute at @s store result score #result mh.temp run function mh:player/pos/private/check_dimension with storage mh:temp targetCopy
+execute at @s store result score #result mh.temp run function mh:player/pos/private/check_dimension with storage mh:temp LodestoneTargetCopy
 execute unless score #result mh.temp matches 1 run \
     return fail
 
-execute if score 敌人追踪器:显示XZ坐标 mh.settings matches 1 if score 敌人追踪器:显示Y坐标 mh.settings matches 1 run \
-    data modify storage mh:temp actionBarExtra prepend value {text:"",extra:[{text:"XYZ=",color:"white"},{nbt:"targetCopy.pos[0]",storage:"mh:temp"},{text:",",color:"gray"},{nbt:"targetCopy.pos[1]",storage:"mh:temp"},{text:",",color:"gray"},{nbt:"targetCopy.pos[2]",storage:"mh:temp"}]}
-execute unless score 敌人追踪器:显示XZ坐标 mh.settings matches 1 if score 敌人追踪器:显示Y坐标 mh.settings matches 1 run \
-    data modify storage mh:temp actionBarExtra prepend value {text:"",extra:[{text:"Y=",color:"white"},{nbt:"targetCopy.pos[1]",storage:"mh:temp"}]}
-execute if score 敌人追踪器:显示XZ坐标 mh.settings matches 1 unless score 敌人追踪器:显示Y坐标 mh.settings matches 1 run \
-    data modify storage mh:temp actionBarExtra prepend value {text:"",extra:[{text:"XZ=",color:"white"},{nbt:"targetCopy.pos[0]",storage:"mh:temp"},{text:",",color:"gray"},{nbt:"targetCopy.pos[2]",storage:"mh:temp"}]}
+execute if score 敌人追踪器:显示XZ坐标 mh.settings matches 1 if score 敌人追踪器:显示Y坐标 mh.settings matches 1 run data modify storage mh:temp actionBarExtra prepend value {text:"",extra:[{text:"XYZ=",color:"white"},{nbt:"LodestoneTargetCopy.pos[0]",storage:"mh:temp"},{text:",",color:"gray"},{nbt:"LodestoneTargetCopy.pos[1]",storage:"mh:temp"},{text:",",color:"gray"},{nbt:"LodestoneTargetCopy.pos[2]",storage:"mh:temp"}]}
+execute unless score 敌人追踪器:显示XZ坐标 mh.settings matches 1 if score 敌人追踪器:显示Y坐标 mh.settings matches 1 run data modify storage mh:temp actionBarExtra prepend value {text:"",extra:[{text:"Y=",color:"white"},{nbt:"LodestoneTargetCopy.pos[1]",storage:"mh:temp"}]}
+execute if score 敌人追踪器:显示XZ坐标 mh.settings matches 1 unless score 敌人追踪器:显示Y坐标 mh.settings matches 1 run data modify storage mh:temp actionBarExtra prepend value {text:"",extra:[{text:"XZ=",color:"white"},{nbt:"LodestoneTargetCopy.pos[0]",storage:"mh:temp"},{text:",",color:"gray"},{nbt:"LodestoneTargetCopy.pos[2]",storage:"mh:temp"}]}
 
 
 execute unless score 敌人追踪器:显示距离 mh.settings matches 1 run \
     return fail
-execute store result score deltaX mh.temp run data get storage mh:temp targetCopy.pos[0] 10
-execute store result score deltaY mh.temp run data get storage mh:temp targetCopy.pos[1] 10
-execute store result score deltaZ mh.temp run data get storage mh:temp targetCopy.pos[2] 10
+execute store result score deltaX mh.temp run data get storage mh:temp LodestoneTargetCopy.pos[0] 10
+execute store result score deltaY mh.temp run data get storage mh:temp LodestoneTargetCopy.pos[1] 10
+execute store result score deltaZ mh.temp run data get storage mh:temp LodestoneTargetCopy.pos[2] 10
 execute store result score X mh.temp run data get entity @s Pos[0] 10
 execute store result score Y mh.temp run data get entity @s Pos[1] 10
 execute store result score Z mh.temp run data get entity @s Pos[2] 10

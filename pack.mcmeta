@@ -1,34 +1,18 @@
 {
   "pack": {
-    "description": "",
+    "description": "Made by Noryea",
     "pack_format": 57,
-    "supported_formats": {
-      "min_inclusive": 46,
-      "max_inclusive": 2147483647
-    }
+    "supported_formats": [46, 81]
   },
   "overlays": {
     "entries": [
       {
         "directory": "1_21",
-        "formats": {
-          "min_inclusive": 46,
-          "max_inclusive": 48
-        }
-      },
-      {
-        "directory": "above_24w34a",
-        "formats": {
-          "min_inclusive": 50,
-          "max_inclusive": 2147483647
-        }
+        "formats": [46, 48]
       },
       {
         "directory": "1_21_5",
-        "formats": {
-          "min_inclusive": 70,
-          "max_inclusive": 2147483647
-        }
+        "formats": [70, 2147483647]
       }
     ]
   }

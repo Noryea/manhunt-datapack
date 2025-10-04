@@ -1,6 +1,5 @@
 # 缓存一次最新坐标（用于跨维度追踪）
-execute unless entity @s[advancements={mh:detect/changed_dimension=true}] \
-    unless function mh:gu/generate run function mh:player/pos/sync_current with storage gu:main
+execute unless entity @s[advancements={mh:detect/changed_dimension=true}] unless function mh:gu/generate run function mh:player/pos/sync_current with storage gu:main
 
 # 选队触发器
 scoreboard players enable @s mh.join.hunters

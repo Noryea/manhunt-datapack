@@ -4,5 +4,5 @@
 #  这很烦，1.20.4之前的磁石指针标签还是可以存浮点值的，现在1.21只能存整数
 
 execute align xyz run tp @s ~ ~ ~
-data modify storage mh:temp in.target.pos set from entity @s Pos
+data modify storage mh:temp out.lodestoneTarget.pos set from entity @s Pos
 kill @s[type=marker]

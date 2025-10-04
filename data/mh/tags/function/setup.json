@@ -1,4 +1,5 @@
 {
+  "replace": true,
   "values": [
     "use_remain_helper:load",
     "mh:gu/zzz/load",

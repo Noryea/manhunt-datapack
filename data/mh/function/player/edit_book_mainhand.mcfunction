@@ -14,12 +14,10 @@ execute if score #flag mh.temp matches 0 run tellraw @s "\u00a7c名称含有非�
 
 ## 调用从书的内容读取id尝试选择的函数
 data remove storage gu:main out
-execute unless score #flag mh.temp matches 0 run \
-    function mh:compass/select/writedown with entity @s SelectedItem.components."minecraft:writable_book_content".pages[0]
+execute unless score #flag mh.temp matches 0 run function mh:compass/select/writedown with entity @s SelectedItem.components."minecraft:writable_book_content".pages[0]
 
 # early return 
-execute unless data storage gu:main out run \
-    item modify entity @s weapon.mainhand {function:"set_components",components:{"minecraft:writable_book_content":{pages:[]}}}
+execute unless data storage gu:main out run item modify entity @s weapon.mainhand {function:"set_components",components:{"minecraft:writable_book_content":{pages:[]}}}
 execute unless data storage gu:main out run \
     return run advancement revoke @s only mh:detect/edit_book
 

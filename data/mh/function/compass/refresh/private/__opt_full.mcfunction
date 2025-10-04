@@ -3,19 +3,21 @@
 
 
 ## 更新右键使用组件
-execute store result storage mh:temp in.cooldownSec float 0.05 run scoreboard players get 追踪器:右键更新周期游戏刻 mh.settings
-execute if score 追踪器:右键更新周期游戏刻 mh.settings matches 0 run data modify storage mh:temp in.cooldownSec set value 0.001
-function mh:compass/util/itemmodify_rightclick with storage mh:temp in
+function mh:compass/refresh/private/right_click_relative
 
 ## 更新lodestone_tracker
-# 如果更新模式是定期更新, 则直接返回lastOutput
-$execute if score 追踪器:更新模式 mh.settings matches 3 run \
-    data modify storage mh:temp in.target set from storage mh:pdb "$(guuid)".lastOutput."$(dimension)"
+# 如果更新模式是定期更新, 则直接返回cachedOutput
+$execute if score 追踪器:更新模式 mh.settings matches 3 run data modify storage mh:temp out.lodestoneTarget set from storage mh:pdb "$(guuid)".cachedOutput."$(dimension)"
 # 不是定期更新，那么调用pos/get函数
-$execute unless score 追踪器:更新模式 mh.settings matches 3 \
-    as $(guuid) run function mh:player/pos/get
-# 带参的物品修饰器
-function mh:compass/util/itemmodify_coord with storage mh:temp in
+$execute unless score 追踪器:更新模式 mh.settings matches 3 as $(guuid) run function mh:player/pos/get
+
+# out.lodestoneTarget
+data modify storage mh:temp in.modifier set value {\
+    function: "set_components",\
+    components: {"lodestone_tracker": {target: {}, tracked:false} } \
+}
+data modify storage mh:temp in.modifier.components.lodestone_tracker.target set from storage mh:temp out.lodestoneTarget
+function mh:compass/refresh/private/__itemmodify with storage mh:temp in
 
 ## 更新info和trackerData
 function mh:compass/util/construct_tracking_text

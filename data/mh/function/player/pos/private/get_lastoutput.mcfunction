@@ -1,2 +1,2 @@
 # @args: {guuid, dimension}
-$data modify storage mh:temp in.target set from storage mh:pdb "$(guuid)".lastOutput."$(dimension)"
+$data modify storage mh:temp out.lodestoneTarget set from storage mh:pdb "$(guuid)".cachedOutput."$(dimension)"

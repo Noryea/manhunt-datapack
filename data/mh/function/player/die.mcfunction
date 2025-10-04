@@ -1,5 +1,4 @@
-execute if entity @s[team=runners] run \
-    tag @s add was_runner
+execute if entity @s[team=runners] run tag @s add was_runner
 
 # 判断逃者死亡    
 execute if entity @s[team=runners] if score 逃者死亡后 mh.settings matches 1 run team join hunters

@@ -1,4 +1,4 @@
-# @output: trackerData, targetCopy在mh:temp; 
+# @output: trackerData, LodestoneTargetCopy在mh:temp; 
 #   不进行x,y,z的读取和运算
 
 # early return
@@ -6,11 +6,11 @@
 #     return fail
 
 data remove storage mh:temp trackerData
-data remove storage mh:temp targetCopy
+data remove storage mh:temp LodestoneTargetCopy
 
 execute if items entity @s weapon.mainhand compass[minecraft:custom_data~{"mh:tracker":{}}] run data modify storage mh:temp trackerData set from entity @s SelectedItem.components."minecraft:custom_data"."mh:tracker"
 execute if data storage mh:temp trackerData run \
-    return run data modify storage mh:temp targetCopy set from entity @s SelectedItem.components."minecraft:lodestone_tracker".target
+    return run data modify storage mh:temp LodestoneTargetCopy set from entity @s SelectedItem.components."minecraft:lodestone_tracker".target
 
 data modify storage mh:temp trackerData set from entity @s equipment.offhand.components."minecraft:custom_data"."mh:tracker"
-data modify storage mh:temp targetCopy set from entity @s equipment.offhand.components."minecraft:lodestone_tracker".target
+data modify storage mh:temp LodestoneTargetCopy set from entity @s equipment.offhand.components."minecraft:lodestone_tracker".target

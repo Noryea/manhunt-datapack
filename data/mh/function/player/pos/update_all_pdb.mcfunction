@@ -1,5 +1,5 @@
-# @executor: 要更新所有合法维度的lastOutput坐标的玩家
-# @output: 更新对应玩家的所有lastOutput坐标
+# @executor: 要更新所有合法维度的cachedOutput坐标的玩家
+# @output: 更新对应玩家的所有cachedOutput坐标
 #> 用于定期更新模式下更新目标：目标所在维度和mh:pdb的Trail中的其他维度都来一遍
 function mh:gu/generate
 data remove storage mh:temp in
@@ -11,6 +11,6 @@ function mh:player/pos/private/update_pdb_foreach
 
 # 还有玩家自己的维度
 data modify storage mh:temp in.dimension set from entity @s Dimension
-data modify storage mh:temp in.target.dimension set from storage mh:temp in.dimension
+data modify storage mh:temp out.lodestoneTarget.dimension set from storage mh:temp in.dimension
 execute at @s summon marker run function mh:player/pos/__marker_block_pos
-function mh:player/pos/private/save_lastoutput with storage mh:temp in
+function mh:player/pos/private/save_cachedOutput with storage mh:temp in

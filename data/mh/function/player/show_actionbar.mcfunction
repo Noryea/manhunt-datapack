@@ -20,14 +20,10 @@ scoreboard players set #flag mh.temp -1
 execute store result score #flag mh.temp run function mh:player/actionbar/if_teammate with storage mh:temp trackerData
 # 复制guuid作为实体选择器文本组件
 data modify storage mh:temp in.selectorText set value {}
-execute if score #flag mh.temp matches 0 if entity @s[team=hunters] if score 猎人可追踪:敌人 mh.settings matches 1 run \
-    data modify storage mh:temp in.selectorText.selector set from storage mh:temp trackerData.selector
-execute if score #flag mh.temp matches 0 if entity @s[team=runners] if score 逃者可追踪:敌人 mh.settings matches 1 run \
-    data modify storage mh:temp in.selectorText.selector set from storage mh:temp trackerData.selector
-execute if score #flag mh.temp matches 1 if entity @s[team=hunters] if score 猎人可追踪:队友 mh.settings matches 1 run \
-    data modify storage mh:temp in.selectorText.selector set from storage mh:temp trackerData.selector
-execute if score #flag mh.temp matches 1 if entity @s[team=runners] if score 逃者可追踪:队友 mh.settings matches 1 run \
-    data modify storage mh:temp in.selectorText.selector set from storage mh:temp trackerData.selector
+execute if score #flag mh.temp matches 0 if entity @s[team=hunters] if score 猎人可追踪:敌人 mh.settings matches 1 run data modify storage mh:temp in.selectorText.selector set from storage mh:temp trackerData.selector
+execute if score #flag mh.temp matches 0 if entity @s[team=runners] if score 逃者可追踪:敌人 mh.settings matches 1 run data modify storage mh:temp in.selectorText.selector set from storage mh:temp trackerData.selector
+execute if score #flag mh.temp matches 1 if entity @s[team=hunters] if score 猎人可追踪:队友 mh.settings matches 1 run data modify storage mh:temp in.selectorText.selector set from storage mh:temp trackerData.selector
+execute if score #flag mh.temp matches 1 if entity @s[team=runners] if score 逃者可追踪:队友 mh.settings matches 1 run data modify storage mh:temp in.selectorText.selector set from storage mh:temp trackerData.selector
 execute unless data storage mh:temp in.selectorText.selector run data modify storage mh:temp in.selectorText set value {text:"未知",color:"gray"}
 
 # 构造actionBarExtra
@@ -39,7 +35,8 @@ execute if score #flag mh.temp matches 1 if entity @s[team=runners] if score 逃
 
 # 执行title指令
 execute if data storage mh:temp actionBarExtra[] run title @s actionbar [ \
-    {"text":"目标:"},\
+    {"text":"", "color": "gray"},\
+    {"text":"目标:", "color": "white"},\
     {"nbt": "in.selectorText", "storage": "mh:temp", "interpret": true, "extra": [\
             {"text":" (","color":"white"}, \
             {"nbt":"actionBarExtra[]","storage":"mh:temp","interpret":true,"separator":" "}, \

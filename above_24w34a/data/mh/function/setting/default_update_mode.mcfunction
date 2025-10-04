@@ -1,1 +1,0 @@
-scoreboard players set 追踪器:更新模式 mh.settings 0
