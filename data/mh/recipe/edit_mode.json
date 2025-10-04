@@ -6,9 +6,17 @@
   "result": {
     "id": "minecraft:writable_book",
     "components": {
-      "minecraft:custom_name": "{\"text\":\"  『点击切换至编辑模式』\",\"color\":\"white\",\"italic\":false}",
+      "minecraft:custom_name": {
+        "text": "  『点击切换至编辑模式』",
+        "color": "white",
+        "italic": false
+      },
       "minecraft:lore": [
-        "\"\u00a77在书中输入你想追踪的玩家id\""
+        {
+          "text": "在书中输入你想追踪的玩家id",
+          "color": "gray",
+          "italic": false
+        }
       ],
       "minecraft:enchantment_glint_override": true,
       "minecraft:custom_data": {

@@ -6,7 +6,7 @@ execute unless items entity @s weapon.offhand compass[minecraft:custom_data~{"mh
 # 设置slot参数和guuid参数
 data modify storage mh:temp in.slot set value "weapon.offhand"
 data remove storage mh:temp in.guuid
-data modify storage mh:temp in.guuid set from entity @s Inventory[{Slot:-106b}].components."minecraft:custom_data"."mh:tracker".selector
+data modify storage mh:temp in.guuid set from entity @s equipment.offhand.components."minecraft:custom_data"."mh:tracker".selector
 
 # 设置dimension参数
 data modify storage mh:temp in.dimension set from entity @s Dimension

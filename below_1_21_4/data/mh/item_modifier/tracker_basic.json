@@ -164,15 +164,13 @@
     "function": "set_components",
     "components": {
       "minecraft:max_stack_size": 1,
+
       "minecraft:enchantments": {
-        "minecraft:vanishing_curse": 1
+        "levels": {"minecraft:vanishing_curse": 1},
+        "show_in_tooltip": false
       },
-      "minecraft:enchantment_glint_override": true,
-      "minecraft:tooltip_display": {
-        "hidden_components": [
-          "enchantments"
-        ]
-      }
+
+      "minecraft:enchantment_glint_override": true
     }
   },
   {

@@ -19,7 +19,7 @@ data modify storage mh:temp in.modifier.components.lodestone_tracker.target set 
 function mh:compass/refresh/private/__itemmodify with storage mh:temp in
 
 ## 更新info和trackerData
-function mh:compass/util/construct_tracking_text
+function mh:compass/util/construct_tracking_tooltip
 data modify storage mh:temp trackerData.selector set from storage mh:temp in.guuid
 # 确保物品0.5秒至少动一下
 execute store result storage mh:temp trackerData.info.scaledGametime long 0.1 run scoreboard players get 当前gametime mh.temp

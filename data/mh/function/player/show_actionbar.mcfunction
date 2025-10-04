@@ -15,23 +15,23 @@ function mh:player/actionbar/parse_hand_item
 # 没有selector, 直接终止
 execute unless data storage mh:temp trackerData.selector run return fail
 
-# 判断是否为队友
-scoreboard players set #flag mh.temp -1
-execute store result score #flag mh.temp run function mh:player/actionbar/if_teammate with storage mh:temp trackerData
-# 复制guuid作为实体选择器文本组件
+
+## 复制guuid作为实体选择器文本组件
 data modify storage mh:temp in.selectorText set value {}
-execute if score #flag mh.temp matches 0 if entity @s[team=hunters] if score 猎人可追踪:敌人 mh.settings matches 1 run data modify storage mh:temp in.selectorText.selector set from storage mh:temp trackerData.selector
-execute if score #flag mh.temp matches 0 if entity @s[team=runners] if score 逃者可追踪:敌人 mh.settings matches 1 run data modify storage mh:temp in.selectorText.selector set from storage mh:temp trackerData.selector
-execute if score #flag mh.temp matches 1 if entity @s[team=hunters] if score 猎人可追踪:队友 mh.settings matches 1 run data modify storage mh:temp in.selectorText.selector set from storage mh:temp trackerData.selector
-execute if score #flag mh.temp matches 1 if entity @s[team=runners] if score 逃者可追踪:队友 mh.settings matches 1 run data modify storage mh:temp in.selectorText.selector set from storage mh:temp trackerData.selector
+scoreboard players set #ret mh.temp -1
+execute store result score #ret mh.temp run function mh:player/actionbar/if_trackable with storage mh:temp trackerData
+execute if score #ret mh.temp matches 1 run data modify storage mh:temp in.selectorText.selector set from storage mh:temp trackerData.selector
 execute unless data storage mh:temp in.selectorText.selector run data modify storage mh:temp in.selectorText set value {text:"未知",color:"gray"}
 
-# 构造actionBarExtra
+## 构造actionBarExtra
 data modify storage mh:temp actionBarExtra set value []
-execute if score #flag mh.temp matches 0 if entity @s[team=hunters] if score 猎人可追踪:敌人 mh.settings matches 1 run function mh:player/actionbar/construct_enemy_info
-execute if score #flag mh.temp matches 0 if entity @s[team=runners] if score 逃者可追踪:敌人 mh.settings matches 1 run function mh:player/actionbar/construct_enemy_info
-execute if score #flag mh.temp matches 1 if entity @s[team=hunters] if score 猎人可追踪:队友 mh.settings matches 1 run function mh:player/actionbar/construct_teammate_info
-execute if score #flag mh.temp matches 1 if entity @s[team=runners] if score 逃者可追踪:队友 mh.settings matches 1 run function mh:player/actionbar/construct_teammate_info
+# 判断是否为队友
+scoreboard players set #ret2 mh.temp -1
+execute if score #ret mh.temp matches 1 store result score #ret2 mh.temp run function mh:player/actionbar/if_teammate with storage mh:temp trackerData
+execute if score #ret2 mh.temp matches 0 if entity @s[team=hunters] if score 猎人可追踪:敌人 mh.settings matches 1 run function mh:player/actionbar/construct_enemy_info
+execute if score #ret2 mh.temp matches 0 if entity @s[team=runners] if score 逃者可追踪:敌人 mh.settings matches 1 run function mh:player/actionbar/construct_enemy_info
+execute if score #ret2 mh.temp matches 1 if entity @s[team=hunters] if score 猎人可追踪:队友 mh.settings matches 1 run function mh:player/actionbar/construct_teammate_info
+execute if score #ret2 mh.temp matches 1 if entity @s[team=runners] if score 逃者可追踪:队友 mh.settings matches 1 run function mh:player/actionbar/construct_teammate_info
 
 # 执行title指令
 execute if data storage mh:temp actionBarExtra[] run title @s actionbar [ \

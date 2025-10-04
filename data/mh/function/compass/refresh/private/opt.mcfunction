@@ -12,6 +12,7 @@ function mh:compass/refresh/private/__opt_filtering with storage mh:temp in
 data remove storage gu:main out
 # 必要时生成初始guuid
 execute unless data storage mh:temp in.guuid as @a[limit=1,sort=arbitrary,tag=mh.trackable] run function mh:gu/generate
+execute unless data storage mh:temp in.guuid run data modify storage mh:temp in.guuid set from storage gu:main out
 # 移除可追踪标签
 tag @a remove mh.trackable
 
@@ -21,12 +22,5 @@ execute if data storage mh:temp in.guuid run \
     return run function mh:compass/refresh/private/__opt_full with storage mh:temp in
 
 ## 二、in.guuid不存在: 
-# 1.如果甚至连初始guuid都没有, 则调用opt_fallback
-execute unless data storage gu:main out run \
-    return run function mh:compass/refresh/private/__opt_fallback with storage mh:temp in
-
-# 2.有初始guuid, 用它作为guuid调用完整更新函数
-data modify storage mh:temp in.guuid set from storage gu:main out
-function mh:compass/refresh/private/__opt_full with storage mh:temp in
-
-
+# 调用opt_fallback
+return run function mh:compass/refresh/private/__opt_fallback with storage mh:temp in

@@ -2,14 +2,14 @@
 #> 阻止物品丢弃
 
 ### 如果玩家不是从指针丢出、也不是从手上丢出, 则认为玩家尝试从背包丢掉多余的指南针, 杀死本物品
-scoreboard players set #flag mh.temp 0
-execute on origin store result score #result mh.temp run function mh:compass/util/if_have_compass_item
+scoreboard players set #ret mh.temp 0
+execute on origin store result score #result mh.temp run function mh:compass/util/if_have_tracker_item
 # (玩家指针为空,且没有mh.cursor.tracker标签,且主手不空,则物品有可能是从背包按q丢出来的)
-execute on origin if score #result mh.temp matches 1.. unless items entity @s player.cursor * unless entity @s[tag=mh.cursor.tracker] if items entity @s weapon.mainhand * run scoreboard players set #flag mh.temp 1
+execute on origin if score #result mh.temp matches 1.. unless items entity @s player.cursor * unless entity @s[tag=mh.cursor.tracker] if items entity @s weapon.mainhand * run scoreboard players set #ret mh.temp 1
 # (进一步判断:物品不是从副手丢出来的)
-execute on origin if entity @s[tag=mh.offhand.tracker] unless items entity @s weapon.offhand * run scoreboard players set #flag mh.temp 0
+execute on origin if entity @s[tag=mh.offhand.tracker] unless items entity @s weapon.offhand * run scoreboard players set #ret mh.temp 0
 # 杀死并early return
-execute if score #flag mh.temp matches 1 run \
+execute if score #ret mh.temp matches 1 run \
     return run kill @s
 
 ## 设置guuid为旧selector的备份
@@ -47,7 +47,7 @@ execute if score #result mh.temp matches 0 if items entity @s contents writable_
     {function:"set_components", components: {"!minecraft:lore":{},"minecraft:max_stack_size": 1}}, \
     {function:"reference",name:"mh:make_usable",conditions:[{condition:"value_check",value:{type:"score",score:"mh.settings",target:{type:"fixed",name:"追踪器:更新模式"}},range:0}]}]
 # 更新lore
-execute if score #result mh.temp matches 0 run execute on origin run function mh:compass/util/construct_tracking_text
+execute if score #result mh.temp matches 0 run execute on origin run function mh:compass/util/construct_tracking_tooltip
 execute if score #result mh.temp matches 0 run data modify storage mh:temp trackerData set from entity @s Item.components."minecraft:custom_data"."mh:tracker"
 execute if score #result mh.temp matches 0 run item modify entity @s contents mh:copy_info_and_data
 

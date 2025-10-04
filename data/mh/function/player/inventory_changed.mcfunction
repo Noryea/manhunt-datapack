@@ -22,7 +22,7 @@ execute if score #can_have_compass mh.temp matches 0 run \
 execute if score #can_have_compass mh.temp matches 1 anchored eyes positioned ^ ^ ^ as @n[type=item,distance=..6,tag=!mh.item.pick] if items entity @s contents *[minecraft:custom_data~{"mh:tracker":{}}] run function mh:compass/prevent_drop
 
 # 判断玩家没有丢指南针，防止重复给予
-execute if entity @s[gamemode=!spectator] if score #can_have_compass mh.temp matches 1 unless entity @e[type=item,distance=..6,tag=mh.item.pick] unless function mh:compass/util/if_have_compass_item run function mh:compass/give
+execute if entity @s[gamemode=!spectator] if score #can_have_compass mh.temp matches 1 unless entity @e[type=item,distance=..6,tag=mh.item.pick] unless function mh:compass/util/if_have_tracker_item run function mh:compass/give
    
 ## 杀掉未捡起的指南针实体
 execute as @e[type=item,distance=..6,tag=!mh.item.pick] if items entity @s contents *[minecraft:custom_data~{"mh:tracker":{}}] run kill @s
