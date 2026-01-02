@@ -1,4 +1,3 @@
-# @args: {selector: uuid}
-function mh:compass/util/filter_my_trackable
-$execute as $(selector) run return run execute if entity @s[tag=mh.trackable]
-tag @a remove mh.trackable
+#> 如果selector对应的玩家在线, 并且有可追踪标签
+$execute as $(selector) if entity @s[tag=mh.trackable] run return 1
+return fail

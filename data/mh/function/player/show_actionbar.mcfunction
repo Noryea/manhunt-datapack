@@ -16,11 +16,14 @@ function mh:player/actionbar/parse_hand_item
 execute unless data storage mh:temp trackerData.selector run return fail
 
 
-## 复制guuid作为实体选择器文本组件
+## 构造实体选择器文本组件
 data modify storage mh:temp in.selectorText set value {}
 scoreboard players set #ret mh.temp -1
+function mh:compass/util/filter_my_trackable
 execute store result score #ret mh.temp run function mh:player/actionbar/if_trackable with storage mh:temp trackerData
+tag @a remove mh.trackable
 execute if score #ret mh.temp matches 1 run data modify storage mh:temp in.selectorText.selector set from storage mh:temp trackerData.selector
+# (fallback)
 execute unless data storage mh:temp in.selectorText.selector run data modify storage mh:temp in.selectorText set value {text:"未知",color:"gray"}
 
 ## 构造actionBarExtra
