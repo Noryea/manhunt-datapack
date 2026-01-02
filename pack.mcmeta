@@ -2,17 +2,23 @@
   "pack": {
     "description": "Made by Noryea",
     "pack_format": 81,
-    "supported_formats": [46, 81]
+    "supported_formats": [46, 81],
+    "min_format": [46, 0],
+    "max_format": [95, 0]
   },
   "overlays": {
     "entries": [
       {
         "directory": "below_1_21_4",
-        "formats": [46, 61]
+        "formats": [46, 61],
+        "min_format": [46, 0],
+        "max_format": [61, 0]
       },
       {
         "directory": "1_21",
-        "formats": [46, 48]
+        "formats": [46, 48],
+        "min_format": [46, 0],
+        "max_format": [48, 0]
       }
     ]
   }
