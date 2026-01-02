@@ -12,7 +12,7 @@ execute unless score 追踪器:更新模式 mh.settings matches 0 run \
 # 否则启用指南针右键并设置使用冷却
 data modify storage mh:temp in.modifier append value {\
     function: "set_components",\
-    components: {"minecraft:use_cooldown": {seconds: 0.01}}\
+    components: {"minecraft:use_cooldown": {seconds: 0.01, group: "mh:tracker"}}\
 }
 execute if score 追踪器:右键更新周期游戏刻 mh.settings matches 1.. store result storage mh:temp in.modifier[1].components."minecraft:use_cooldown".seconds float 0.05 run scoreboard players get 追踪器:右键更新周期游戏刻 mh.settings
 function mh:compass/refresh/private/__itemmodify with storage mh:temp in

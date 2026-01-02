@@ -21,6 +21,8 @@ execute unless data storage ur:temp ItemStack run data modify storage ur:temp It
 
 # COPY: set count to 1
 #data modify storage ur:temp ItemStack.count set value 1
+# COPY: remove consumable component
+data remove storage ur:temp ItemStack.components."minecraft:consumable"
 # COPY: delete use_remainder
 data remove storage ur:temp ItemStack.components."minecraft:use_remainder"
 # COPY: delete custom offhand_marker

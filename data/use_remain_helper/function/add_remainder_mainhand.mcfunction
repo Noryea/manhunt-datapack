@@ -18,6 +18,8 @@ data modify storage ur:temp Slot set value "weapon.mainhand"
 data modify storage ur:temp ItemStack set from entity @s SelectedItem
 # COPY: set count to 1
 #data modify storage ur:temp ItemStack.count set value 1
+# COPY: remove consumable component
+data remove storage ur:temp ItemStack.components."minecraft:consumable"
 # COPY: delete use_remainder
 data remove storage ur:temp ItemStack.components."minecraft:use_remainder"
 # COPY: delete custom offhand_marker
