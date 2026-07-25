@@ -15,9 +15,9 @@ execute at @s store result score #result mh.temp run function mh:player/pos/priv
 execute unless score #result mh.temp matches 1 run \
     return fail
 
-execute if score 队友追踪器:显示XZ坐标 mh.settings matches 1 if score 队友追踪器:显示Y坐标 mh.settings matches 1 run data modify storage mh:temp actionBarExtra prepend value {text:"",extra:[{text:"XYZ=",color:"white"},{nbt:"LodestoneTargetCopy.pos[0]",storage:"mh:temp"},{text:",",color:"gray"},{nbt:"LodestoneTargetCopy.pos[1]",storage:"mh:temp"},{text:",",color:"gray"},{nbt:"LodestoneTargetCopy.pos[2]",storage:"mh:temp"}]}
-execute unless score 队友追踪器:显示XZ坐标 mh.settings matches 1 if score 队友追踪器:显示Y坐标 mh.settings matches 1 run data modify storage mh:temp actionBarExtra prepend value {text:"",extra:[{text:"Y=",color:"white"},{nbt:"LodestoneTargetCopy.pos[1]",storage:"mh:temp"}]}
-execute if score 队友追踪器:显示XZ坐标 mh.settings matches 1 unless score 队友追踪器:显示Y坐标 mh.settings matches 1 run data modify storage mh:temp actionBarExtra prepend value {text:"",extra:[{text:"XZ=",color:"white"},{nbt:"LodestoneTargetCopy.pos[0]",storage:"mh:temp"},{text:",",color:"gray"},{nbt:"LodestoneTargetCopy.pos[2]",storage:"mh:temp"}]}
+execute if score 队友追踪器:显示XZ坐标 mh.settings matches 1 if score 队友追踪器:显示Y坐标 mh.settings matches 1 run data modify storage mh:temp actionBarExtra prepend value {text:"",extra:[{text:"XYZ=",color:"white"},{nbt:"LodestoneTargetCopy.pos[0]",storage:"mh:temp",color:"gold"},{text:",",color:"gray"},{nbt:"LodestoneTargetCopy.pos[1]",storage:"mh:temp",color:"gold"},{text:",",color:"gray"},{nbt:"LodestoneTargetCopy.pos[2]",storage:"mh:temp",color:"gold"}]}
+execute unless score 队友追踪器:显示XZ坐标 mh.settings matches 1 if score 队友追踪器:显示Y坐标 mh.settings matches 1 run data modify storage mh:temp actionBarExtra prepend value {text:"",extra:[{text:"Y=",color:"white"},{nbt:"LodestoneTargetCopy.pos[1]",storage:"mh:temp",color:"gold"}]}
+execute if score 队友追踪器:显示XZ坐标 mh.settings matches 1 unless score 队友追踪器:显示Y坐标 mh.settings matches 1 run data modify storage mh:temp actionBarExtra prepend value {text:"",extra:[{text:"XZ=",color:"white"},{nbt:"LodestoneTargetCopy.pos[0]",storage:"mh:temp",color:"gold"},{text:",",color:"gray"},{nbt:"LodestoneTargetCopy.pos[2]",storage:"mh:temp",color:"gold"}]}
 
 
 execute unless score 队友追踪器:显示距离 mh.settings matches 1 run \

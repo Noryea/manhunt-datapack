@@ -13,7 +13,8 @@ team modify runners color green
 scoreboard players set 允许自由选队 mh.settings 1
 ##  0:复活 1:加入猎人 2:旁观
 scoreboard players set 逃者死亡后 mh.settings 2
-
+##
+scoreboard players set 检测末影龙死亡 mh.settings 1
 
 ##
 scoreboard players set 猎人可追踪:敌人 mh.settings 1

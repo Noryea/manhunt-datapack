@@ -23,6 +23,10 @@ execute if score 逃者死亡后 mh.settings matches 1 run \
 execute if score 逃者死亡后 mh.settings matches 2 run \
     tellraw @s ["逃者死亡后: ",{"text":"[旁观]","color":"white","hoverEvent":{"action": "show_text","value":"逃者死亡时变成旁观者"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 逃者死亡后 mh.settings 0\"}"}}]
 
+execute unless score 检测末影龙死亡 mh.settings matches 1 run \
+    tellraw @s ["检测末影龙死亡: ",{"text":"[禁用检测(适合其他类型猎人游戏)]","color":"yellow","hoverEvent":{"action": "show_text","value":"点击切换"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 检测末影龙死亡 mh.settings 1\"}"}}]
+execute if score 检测末影龙死亡 mh.settings matches 1 run \
+    tellraw @s ["检测末影龙死亡: ",{"text":"[启用(当龙死亡后,不触发逃者死亡处理)]","color":"aqua","hoverEvent":{"action": "show_text","value":"点击切换"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 检测末影龙死亡 mh.settings 0\"}"}}]
 
 data modify storage mh:temp TextList set value [{},{}]
 execute unless score 猎人可追踪:敌人 mh.settings matches 1 run \ 
