@@ -4,7 +4,7 @@
     "pack_format": 81,
     "supported_formats": [46, 81],
     "min_format": [46, 0],
-    "max_format": [95, 0]
+    "max_format": [110, 0]
   },
   "overlays": {
     "entries": [
